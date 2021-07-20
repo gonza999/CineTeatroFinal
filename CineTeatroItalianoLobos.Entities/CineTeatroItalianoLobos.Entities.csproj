@@ -42,23 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clasificacion.cs" />
-    <Compile Include="Distribucion.cs" />
-    <Compile Include="DistribucionLocalidad.cs" />
-    <Compile Include="Empleado.cs" />
-    <Compile Include="Evento.cs" />
-    <Compile Include="FormaPago.cs" />
-    <Compile Include="FormaVenta.cs" />
-    <Compile Include="Horario.cs" />
-    <Compile Include="Localidad.cs" />
-    <Compile Include="Planta.cs" />
+    <Compile Include="Entities\Clasificacion.cs" />
+    <Compile Include="Entities\Distribucion.cs" />
+    <Compile Include="Entities\DistribucionLocalidad.cs" />
+    <Compile Include="Entities\Empleado.cs" />
+    <Compile Include="Entities\Evento.cs" />
+    <Compile Include="Entities\FormaPago.cs" />
+    <Compile Include="Entities\FormaVenta.cs" />
+    <Compile Include="Entities\Horario.cs" />
+    <Compile Include="Entities\Localidad.cs" />
+    <Compile Include="Entities\Planta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ticket.cs" />
-    <Compile Include="TipoDocumento.cs" />
-    <Compile Include="TipoEvento.cs" />
-    <Compile Include="Ubicacion.cs" />
-    <Compile Include="Venta.cs" />
-    <Compile Include="VentaTicket.cs" />
+    <Compile Include="Entities\Ticket.cs" />
+    <Compile Include="Entities\TipoDocumento.cs" />
+    <Compile Include="Entities\TipoEvento.cs" />
+    <Compile Include="Entities\Ubicacion.cs" />
+    <Compile Include="Entities\Venta.cs" />
+    <Compile Include="Entities\VentaTicket.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
