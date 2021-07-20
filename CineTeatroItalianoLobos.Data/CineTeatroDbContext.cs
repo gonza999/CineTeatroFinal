@@ -30,6 +30,7 @@ namespace CineTeatroItalianoLobos.Data
         public virtual DbSet<TipoEvento> TiposEventos { get; set; }
         public virtual DbSet<Ubicacion> Ubicaciones { get; set; }
         public virtual DbSet<Venta> Ventas { get; set; }
+        public virtual DbSet<VentaTicket> VentasTickets { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

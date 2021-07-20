@@ -58,6 +58,7 @@
     <Compile Include="TipoEvento.cs" />
     <Compile Include="Ubicacion.cs" />
     <Compile Include="Venta.cs" />
+    <Compile Include="VentaTicket.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

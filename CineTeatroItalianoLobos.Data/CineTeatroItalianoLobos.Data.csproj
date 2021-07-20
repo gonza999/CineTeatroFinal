@@ -69,6 +69,7 @@
     <Compile Include="EntityTypeConfigurations\TipoEventoEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\UbicacionEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VentaEntityTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\VentaTicketEntityTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

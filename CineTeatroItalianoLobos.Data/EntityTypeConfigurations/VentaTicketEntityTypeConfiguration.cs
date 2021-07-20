@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Data.EntityTypeConfigurations
 {
-    public class DistribucionLocalidadEntityTypeConfiguration:EntityTypeConfiguration<DistribucionLocalidad>
+    public class VentaTicketEntityTypeConfiguration:EntityTypeConfiguration<VentaTicket>
     {
-        public DistribucionLocalidadEntityTypeConfiguration()
+        public VentaTicketEntityTypeConfiguration()
         {
-            ToTable("DistribucionesLocalidades");
-            HasKey(dl => new { dl.DistribucionId, dl.LocalidadId });
-            Property(dl => dl.DistribucionId).HasColumnOrder(0)
+            ToTable("VentasTicket");
+            HasKey(vt => new { vt.VentaId, vt.TicketId });
+            Property(vt=>vt.TicketId).HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(dl => dl.LocalidadId).HasColumnOrder(1)
+            Property(vt => vt.VentaId).HasColumnOrder(1)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
         }
     }
 }
