@@ -65,10 +65,26 @@
     <Compile Include="Forms\MainMenuFrm.Designer.cs">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TiposDeEventosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TiposDeEventosFrm.Designer.cs">
+      <DependentUpon>TiposDeEventosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HelperCalculos.cs" />
+    <Compile Include="Helpers\HelperCombos.cs" />
+    <Compile Include="Helpers\HelperForm.cs" />
+    <Compile Include="Helpers\HelperGrid.cs" />
     <Compile Include="Ninject\Bindings.cs" />
     <Compile Include="Ninject\DI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\MainMenuFrm.resx">
+      <DependentUpon>MainMenuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TiposDeEventosFrm.resx">
+      <DependentUpon>TiposDeEventosFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -113,6 +130,9 @@
       <Project>{4b0fa9f3-d79c-4a29-9f2a-33aa8e29438d}</Project>
       <Name>CineTeatroItalianoLobos.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,6 +2,9 @@
 using CineTeatroItalianoLobos.Data;
 using CineTeatroItalianoLobos.DataComun;
 using CineTeatroItalianoLobos.DataComun.Facades;
+using CineTeatroItalianoLobos.Services.Facades;
+using CineTeatroItalianoLobos.Services;
+using CineTeatroItalianoLobos.Data.Repositories;
 
 namespace CineTeatroItalianoLobos.UI.Ninject
 {
@@ -12,53 +15,54 @@ namespace CineTeatroItalianoLobos.UI.Ninject
             Bind<CineTeatroDbContext>().ToSelf().InSingletonScope();
             Bind<IUnitOfWork>().To<UnitOfWork>();
 
-            Bind<IRepositorioClasificaciones>().To<PaisesRepositorio>();
-            Bind<IPaisesServicios>().To<PaisesServicios>();
+            Bind<IRepositorioTipoEventos>().To<TiposDeEventosRepositorio>();
+            Bind<ITiposDeEventosServicios>().To<TiposDeEventosServicios>();
 
-            Bind<IRepositorioDistribuciones>().To<CategoriasRepositorio>();
-            Bind<ICategoriasServicios>().To<CategoriasServicios>();
+            //Bind<IRepositorioClasificaciones>().To<PaisesRepositorio>();
+            //Bind<IPaisesServicios>().To<PaisesServicios>();
 
-            Bind<IRepositorioDistribucionesLocalidades>().To<CiudadesRepositorio>();
-            Bind<ICiudadesServicios>().To<CiudadesServicios>();
+            //Bind<IRepositorioDistribuciones>().To<CategoriasRepositorio>();
+            //Bind<ICategoriasServicios>().To<CategoriasServicios>();
 
-            Bind<IRepositorioEmpleados>().To<ClientesRepositorio>();
-            Bind<IClientesServicios>().To<ClientesServicios>();
+            //Bind<IRepositorioDistribucionesLocalidades>().To<CiudadesRepositorio>();
+            //Bind<ICiudadesServicios>().To<CiudadesServicios>();
 
-            Bind<IRepositorioEventos>().To<ProveedoresRepositorio>();
-            Bind<IProveedoresServicios>().To<ProveedoresServicios>();
+            //Bind<IRepositorioEmpleados>().To<ClientesRepositorio>();
+            //Bind<IClientesServicios>().To<ClientesServicios>();
 
-            Bind<IRepositorioFormasPagos>().To<ProductosRepositorio>();
-            Bind<IProductosServicios>().To<ProductosServicios>();
+            //Bind<IRepositorioEventos>().To<ProveedoresRepositorio>();
+            //Bind<IProveedoresServicios>().To<ProveedoresServicios>();
 
-            Bind<IRepositorioFormasVentas>().To<OrdenesRepositorio>();
-            Bind<IOrdenesServicios>().To<OrdenesServicios>();
+            //Bind<IRepositorioFormasPagos>().To<ProductosRepositorio>();
+            //Bind<IProductosServicios>().To<ProductosServicios>();
 
-            Bind<IRepositorioHorarios>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
+            //Bind<IRepositorioFormasVentas>().To<OrdenesRepositorio>();
+            //Bind<IOrdenesServicios>().To<OrdenesServicios>();
 
-            Bind<IRepositorioLocalidades>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
+            //Bind<IRepositorioHorarios>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
 
-            Bind<IRepositorioPlantas>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
+            //Bind<IRepositorioLocalidades>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
 
-            Bind<IRepositorioTickets>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
-            
-            Bind<IRepositorioTipoEventos>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
+            //Bind<IRepositorioPlantas>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
 
-            Bind<IRepositorioTiposDocumentos>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
+            //Bind<IRepositorioTickets>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
 
-            Bind<IRepositorioUbicaciones>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
-           
-            Bind<IRepositorioVentas>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
 
-            Bind<IRepositorioVentasTickets>().To<PaisesReportes>();
-            Bind<ICategoriasReportes>().To<CategoriasReportes>();
+            //Bind<IRepositorioTiposDocumentos>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
+
+            //Bind<IRepositorioUbicaciones>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
+
+            //Bind<IRepositorioVentas>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
+
+            //Bind<IRepositorioVentasTickets>().To<PaisesReportes>();
+            //Bind<ICategoriasReportes>().To<CategoriasReportes>();
 
             //Bind<IManejadorDeReportes>().To<ManejadorDeReportes>();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CineTeatroItalianoLobos.UI.Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace CineTeatroItalianoLobos.UI
         [STAThread]
         static void Main()
         {
+            DI.Inicialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainMenuFrm());

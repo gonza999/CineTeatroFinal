@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CineTeatroItalianoLobos.Services.Facades;
+using CineTeatroItalianoLobos.UI.Forms;
+using CineTeatroItalianoLobos.UI.Ninject;
+using System;
 using System.Windows.Forms;
 
 namespace CineTeatroItalianoLobos.UI
@@ -15,6 +11,17 @@ namespace CineTeatroItalianoLobos.UI
         public MainMenuFrm()
         {
             InitializeComponent();
+        }
+
+        private void tiposDeEventosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TiposDeEventosFrm frm = new TiposDeEventosFrm(DI.Create<ITiposDeEventosServicios>());
+            frm.ShowDialog(this);
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -71,15 +71,14 @@
     <Compile Include="EntityTypeConfigurations\VentaEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VentaTicketEntityTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\TiposDeEventosRepositorio.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CineTeatroItalianoLobos.DataComun\CineTeatroItalianoLobos.DataComun.csproj">
       <Project>{7E43A6A9-CF20-4530-B05F-DE2C092F9260}</Project>
