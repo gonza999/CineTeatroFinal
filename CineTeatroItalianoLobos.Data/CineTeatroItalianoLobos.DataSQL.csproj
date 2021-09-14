@@ -71,6 +71,7 @@
     <Compile Include="EntityTypeConfigurations\VentaEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VentaTicketEntityTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,6 +81,10 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CineTeatroItalianoLobos.DataComun\CineTeatroItalianoLobos.DataComun.csproj">
+      <Project>{7E43A6A9-CF20-4530-B05F-DE2C092F9260}</Project>
+      <Name>CineTeatroItalianoLobos.DataComun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CineTeatroItalianoLobos.Entities\CineTeatroItalianoLobos.Entities.csproj">
       <Project>{DA73D46C-C22E-4716-9AF0-2CB3A983ACB1}</Project>
       <Name>CineTeatroItalianoLobos.Entities</Name>
