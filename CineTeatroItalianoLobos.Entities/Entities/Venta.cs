@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineTeatroItalianoLobos.Entities
 {
-    public class Venta
+    public class Venta : ICloneable
     {
         public Venta()
         {
@@ -17,5 +17,10 @@ namespace CineTeatroItalianoLobos.Entities
         public int EmpleadoId { get; set; }
         public virtual Empleado Empleado { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

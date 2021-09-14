@@ -1,9 +1,10 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineTeatroItalianoLobos.Entities
 {
-    public class DistribucionLocalidad
+    public class DistribucionLocalidad:ICloneable
     {
         [Key]
         [Column(Order = 0)]
@@ -21,5 +22,10 @@ namespace CineTeatroItalianoLobos.Entities
         public virtual Distribucion Distribucion { get; set; }
 
         public virtual Localidad Localidad { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

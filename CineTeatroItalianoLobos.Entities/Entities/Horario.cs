@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CineTeatroItalianoLobos.Entities
 {
-    public class Horario
+    public class Horario: ICloneable
     {
         public Horario()
         {
@@ -15,5 +15,10 @@ namespace CineTeatroItalianoLobos.Entities
         public int EventoId { get; set; }
         public virtual Evento Evento { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

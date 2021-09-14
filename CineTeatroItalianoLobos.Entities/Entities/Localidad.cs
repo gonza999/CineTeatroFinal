@@ -1,10 +1,11 @@
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CineTeatroItalianoLobos.Entities
 {
-    public class Localidad
+    public class Localidad : ICloneable
     {
         public Localidad()
         {
@@ -20,5 +21,10 @@ namespace CineTeatroItalianoLobos.Entities
         public virtual Planta Planta { get; set; }
         public virtual Ubicacion Ubicacion { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

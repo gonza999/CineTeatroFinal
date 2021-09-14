@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CineTeatroItalianoLobos.Entities
 {
     [Table("Empleados")]
-    public class Empleado
+    public class Empleado:ICloneable
     {
         public Empleado()
         {
@@ -26,5 +27,10 @@ namespace CineTeatroItalianoLobos.Entities
         public virtual TipoDocumento TipoDocumento { get; set; }
 
         public virtual ICollection<Venta> Ventas { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

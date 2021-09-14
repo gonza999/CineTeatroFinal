@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Entities
 {
-    public class VentaTicket
+    public class VentaTicket : ICloneable
     {
         [Key]
         [Column(Order = 0)]
@@ -23,5 +23,10 @@ namespace CineTeatroItalianoLobos.Entities
         public virtual Ticket Ticket { get; set; }
 
         public virtual Venta Venta { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
