@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.UI", "CineTeatroItalianoLobos.UI\CineTeatroItalianoLobos.UI.csproj", "{C329352E-38F2-41A0-9502-BA405141A44E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.Data", "CineTeatroItalianoLobos.Data\CineTeatroItalianoLobos.Data.csproj", "{C95FCB76-B1FF-4490-A544-AE73F54144FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.DataSQL", "CineTeatroItalianoLobos.Data\CineTeatroItalianoLobos.DataSQL.csproj", "{C95FCB76-B1FF-4490-A544-AE73F54144FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.Entities", "CineTeatroItalianoLobos.Entities\CineTeatroItalianoLobos.Entities.csproj", "{DA73D46C-C22E-4716-9AF0-2CB3A983ACB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.Services", "CineTeatroItalianoLobos.Services\CineTeatroItalianoLobos.Services.csproj", "{4B0FA9F3-D79C-4A29-9F2A-33AA8E29438D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.Reports", "CineTeatroItalianoLobos.Reports\CineTeatroItalianoLobos.Reports.csproj", "{0231696D-3031-409F-8385-A79CCE9C5F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.DataComun", "CineTeatroItalianoLobos.DataComun\CineTeatroItalianoLobos.DataComun.csproj", "{7E43A6A9-CF20-4530-B05F-DE2C092F9260}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0231696D-3031-409F-8385-A79CCE9C5F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0231696D-3031-409F-8385-A79CCE9C5F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0231696D-3031-409F-8385-A79CCE9C5F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
