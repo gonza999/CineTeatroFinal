@@ -59,11 +59,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Operacion.cs" />
     <Compile Include="Forms\MainMenuFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainMenuFrm.Designer.cs">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TipoDeEventosAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TipoDeEventosAEFrm.Designer.cs">
+      <DependentUpon>TipoDeEventosAEFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TiposDeEventosFrm.cs">
       <SubType>Form</SubType>
@@ -81,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainMenuFrm.resx">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TipoDeEventosAEFrm.resx">
+      <DependentUpon>TipoDeEventosAEFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TiposDeEventosFrm.resx">
       <DependentUpon>TiposDeEventosFrm.cs</DependentUpon>

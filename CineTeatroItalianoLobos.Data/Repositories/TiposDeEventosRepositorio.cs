@@ -17,7 +17,20 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         }
         public void Borrar(int id)
         {
-            throw new System.NotImplementedException();
+            TipoEvento tipoEventoInDb = null;
+            try
+            {
+                tipoEventoInDb = _context.TiposEventos
+                    .SingleOrDefault(p => p.TipoEventoId == id);
+                if (tipoEventoInDb == null) return;
+                _context.Entry(tipoEventoInDb).State = EntityState.Deleted;
+                //_context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                _context.Entry(tipoEventoInDb).State = EntityState.Unchanged;
+                throw new Exception(e.Message);
+            }
         }
 
         public List<TipoEvento> BuscarTipoEvento(string tipoevento)
@@ -25,14 +38,34 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             throw new System.NotImplementedException();
         }
 
-        public bool EstaRelacionado(TipoEvento TEntity)
+        public bool EstaRelacionado(TipoEvento tipoEvento)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _context.Eventos.Any(e => e.TipoEventoId == tipoEvento.TipoEventoId);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
-        public bool Existe(TipoEvento TEntity)
+        public bool Existe(TipoEvento tipoEvento)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                if (tipoEvento.TipoEventoId == 0)
+                {
+                    return _context.TiposEventos.Any(te => te.Descripcion == tipoEvento.Descripcion);
+                }
+
+                return _context.TiposEventos.Any(te => te.Descripcion == tipoEvento.Descripcion
+                                                         && te.TipoEventoId != tipoEvento.TipoEventoId);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public int GetCantidad()
@@ -69,7 +102,14 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public TipoEvento GetTEntityPorId(int id)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _context.TiposEventos.SingleOrDefault(p => p.TipoEventoId == id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al leer");
+            }
         }
 
         public TipoEvento GetTipoEvento(string nombreTipoEvento)
@@ -77,9 +117,33 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             throw new System.NotImplementedException();
         }
 
-        public void Guardar(TipoEvento TEntity)
+        public void Guardar(TipoEvento tipoEvento)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                if (tipoEvento.TipoEventoId == 0)
+                {
+                    _context.TiposEventos.Add(tipoEvento);
+                }
+                else
+                {
+                    var tipoEventoInDb =
+                        _context.TiposEventos.SingleOrDefault(p => p.TipoEventoId == tipoEvento.TipoEventoId);
+                    if (tipoEventoInDb == null)
+                    {
+                        throw new Exception("Tipo de evento inexistente");
+                    }
+
+                    tipoEventoInDb.Descripcion = tipoEvento.Descripcion;
+                    tipoEventoInDb.Eventos = tipoEvento.Eventos;
+                    _context.Entry(tipoEventoInDb).State = EntityState.Modified;
+
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar guardar un registro");
+            }
         }
     }
 }

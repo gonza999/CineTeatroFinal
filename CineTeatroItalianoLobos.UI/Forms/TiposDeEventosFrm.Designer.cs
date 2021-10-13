@@ -48,10 +48,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.BotonesPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.CantidadDePaginasLabel = new System.Windows.Forms.Label();
-            this.CantidadDeRegistrosLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.PaginaActualLabel = new System.Windows.Forms.Label();
+            this.CantidadDeRegistrosLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -132,6 +132,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbActualizar.Size = new System.Drawing.Size(63, 22);
             this.tsbActualizar.Text = "Actualizar";
             this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbActualizar.Click += new System.EventHandler(this.tsbActualizar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -242,6 +243,16 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CantidadDePaginasLabel.TabIndex = 21;
             this.CantidadDePaginasLabel.Text = "0";
             // 
+            // PaginaActualLabel
+            // 
+            this.PaginaActualLabel.AutoSize = true;
+            this.PaginaActualLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaginaActualLabel.Location = new System.Drawing.Point(216, 42);
+            this.PaginaActualLabel.Name = "PaginaActualLabel";
+            this.PaginaActualLabel.Size = new System.Drawing.Size(14, 13);
+            this.PaginaActualLabel.TabIndex = 22;
+            this.PaginaActualLabel.Text = "0";
+            // 
             // CantidadDeRegistrosLabel
             // 
             this.CantidadDeRegistrosLabel.AutoSize = true;
@@ -252,15 +263,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CantidadDeRegistrosLabel.TabIndex = 23;
             this.CantidadDeRegistrosLabel.Text = "0";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(242, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "de";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -270,15 +272,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.label2.TabIndex = 19;
             this.label2.Text = "Página:";
             // 
-            // PaginaActualLabel
+            // label4
             // 
-            this.PaginaActualLabel.AutoSize = true;
-            this.PaginaActualLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PaginaActualLabel.Location = new System.Drawing.Point(216, 42);
-            this.PaginaActualLabel.Name = "PaginaActualLabel";
-            this.PaginaActualLabel.Size = new System.Drawing.Size(14, 13);
-            this.PaginaActualLabel.TabIndex = 22;
-            this.PaginaActualLabel.Text = "0";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(242, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "de";
             // 
             // TiposDeEventosFrm
             // 

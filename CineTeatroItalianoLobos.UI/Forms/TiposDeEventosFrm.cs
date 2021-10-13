@@ -97,59 +97,60 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            //FrmPaisesEdit frm = new FrmPaisesEdit(_servicio) { Text = "Nuevo País" };
-            //DialogResult dr = frm.ShowDialog(this);
-            //RecargarGrilla();
+            TipoDeEventosAEFrm frm = new TipoDeEventosAEFrm(_servicio) { Text = "Nuevo Tipo de Evento" };
+            DialogResult dr = frm.ShowDialog(this);
+            RecargarGrilla();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            //if (DatosDataGridView.SelectedRows.Count == 0)
-            //{
-            //    return;
-            //}
+            if (DatosDataGridView.SelectedRows.Count == 0)
+            {
+                return;
+            }
 
-            //DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            //Pais pais = (Pais)r.Tag;
-            //FrmPaisesEdit frm = new FrmPaisesEdit(_servicio) { Text = "Editar País" };
-            //frm.SetTipo(pais);
-            //DialogResult dr = frm.ShowDialog(this);
+            DataGridViewRow r = DatosDataGridView.SelectedRows[0];
+            TipoEvento tipoEvento = (TipoEvento)r.Tag;
+            TipoDeEventosAEFrm frm = new TipoDeEventosAEFrm(_servicio) { Text = "Editar Tipo de Evento" };
+            frm.SetTipo(tipoEvento);
+            DialogResult dr = frm.ShowDialog(this);
+            RecargarGrilla();
             //MostrarPaginado(cantidadPaginas, paginaActual);
         }
 
         private void tsbBorrar_Click(object sender, EventArgs e)
         {
-            //if (DatosDataGridView.SelectedRows.Count == 0)
-            //{
-            //    return;
-            //}
+            if (DatosDataGridView.SelectedRows.Count == 0)
+            {
+                return;
+            }
 
-            //DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            //Pais pais = (Pais)r.Tag;
-            //DialogResult dr = MessageBox.Show($"¿Desea dar de baja el registro de {pais.NombrePais}?",
-            //    "Confirmar Baja",
-            //    MessageBoxButtons.YesNo,
-            //    MessageBoxIcon.Question,
-            //    MessageBoxDefaultButton.Button2);
-            //if (dr == DialogResult.No)
-            //{
-            //    return;
-            //}
+            DataGridViewRow r = DatosDataGridView.SelectedRows[0];
+            TipoEvento tipoEvento = (TipoEvento)r.Tag;
+            DialogResult dr = MessageBox.Show($"¿Desea dar de baja el registro de {tipoEvento.Descripcion}?",
+                "Confirmar Baja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (dr == DialogResult.No)
+            {
+                return;
+            }
 
-            //try
-            //{
-            //    _servicio.Borrar(pais.PaisId);
-            //    HelperGrid.BorrarFila(DatosDataGridView, r);
+            try
+            {
+                _servicio.Borrar(tipoEvento.TipoEventoId);
+                HelperGrid.BorrarFila(DatosDataGridView, r);
 
-            //    cantidadRegistros = _servicio.GetCantidad();
-            //    CantidadDeRegistrosLabel.Text = cantidadRegistros.ToString();
+                cantidadRegistros = _servicio.GetCantidad();
+                CantidadDeRegistrosLabel.Text = cantidadRegistros.ToString();
 
-            //    MessageBox.Show("Registro borrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //catch (Exception exception)
-            //{
-            //    MessageBox.Show(@"Registro relacionado... Baja denegada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                MessageBox.Show("Registro borrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Registro relacionado... Baja denegada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tsbBuscar_Click(object sender, EventArgs e)
@@ -169,15 +170,19 @@ namespace CineTeatroItalianoLobos.UI.Forms
             //}
         }
 
+        private void tsbActualizar_Click(object sender, EventArgs e)
+        {
+            RecargarGrilla();
+        }
+
         //private void tsbImprimir_Click(object sender, EventArgs e)
         //{
         //    ReportePaises rpt = DI.Create<IManejadorDeReportes>().GetReportePaises(lista);
         //    FrmVisorReportes frm = new FrmVisorReportes();
         //    frm.SetReporte(rpt);
         //    frm.ShowDialog(this);
-
         //}
 
-   
+
     }
 }

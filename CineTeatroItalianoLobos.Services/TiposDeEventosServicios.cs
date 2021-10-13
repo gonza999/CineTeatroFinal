@@ -22,7 +22,15 @@ namespace CineTeatroItalianoLobos.Services
         }
         public void Borrar(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repositorio.Borrar(id);
+                _unitOfWork.Save();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public List<TipoEvento> BuscarTipoEvento(string tipoevento)
@@ -30,14 +38,28 @@ namespace CineTeatroItalianoLobos.Services
             throw new NotImplementedException();
         }
 
-        public bool EstaRelacionado(TipoEvento TEntity)
+        public bool EstaRelacionado(TipoEvento tipoEvento)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.EstaRelacionado(tipoEvento);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
-        public bool Existe(TipoEvento TEntity)
+        public bool Existe(TipoEvento tipoEvento)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.Existe(tipoEvento);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public int GetCantidad()
@@ -67,17 +89,42 @@ namespace CineTeatroItalianoLobos.Services
 
         public TipoEvento GetTEntityPorId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.GetTEntityPorId(id);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public TipoEvento GetTipoEvento(string nombreTipoEvento)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.GetTipoEvento(nombreTipoEvento);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
-        public void Guardar(TipoEvento TEntity)
+        public void Guardar(TipoEvento tipoEvento)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repositorio.Guardar(tipoEvento);
+                _unitOfWork.Save();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
     }
 }
