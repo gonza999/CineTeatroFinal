@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Services
 {
-    public class TiposDeEventosServicios : ITiposDeEventosServicios
+    public class ClasificacionesServicio:IClasificacionesServicio
     {
-        private readonly IRepositorioTipoEventos _repositorio;
+        private readonly IRepositorioClasificaciones _repositorio;
         private readonly IUnitOfWork _unitOfWork;
 
-        public TiposDeEventosServicios(IRepositorioTipoEventos repositorio, IUnitOfWork unitOfWork)
+        public ClasificacionesServicio(IRepositorioClasificaciones repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
@@ -34,16 +34,16 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<TipoEvento> BuscarTipoEvento(string tipoevento)
+        public List<Clasificacion> BuscarClasificacion(string clasificacion)
         {
             throw new NotImplementedException();
         }
 
-        public bool EstaRelacionado(TipoEvento tipoEvento)
+        public bool EstaRelacionado(Clasificacion clasificacion)
         {
             try
             {
-                return _repositorio.EstaRelacionado(tipoEvento);
+                return _repositorio.EstaRelacionado(clasificacion);
             }
             catch (Exception e)
             {
@@ -51,11 +51,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool Existe(TipoEvento tipoEvento)
+        public bool Existe(Clasificacion clasificacion)
         {
             try
             {
-                return _repositorio.Existe(tipoEvento);
+                return _repositorio.Existe(clasificacion);
             }
             catch (Exception e)
             {
@@ -75,7 +75,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<TipoEvento> GetLista(int registros, int pagina)
+        public List<Clasificacion> GetLista(int registros, int pagina)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public TipoEvento GetTEntityPorId(int id)
+        public Clasificacion GetTEntityPorId(int id)
         {
             try
             {
@@ -101,11 +101,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public TipoEvento GetTipoEvento(string nombreTipoEvento)
+        public Clasificacion GetClasificacion(string nombreClasificacion)
         {
             try
             {
-                return _repositorio.GetTipoEvento(nombreTipoEvento);
+                return _repositorio.GetClasificacion(nombreClasificacion);
             }
             catch (Exception e)
             {
@@ -114,11 +114,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public void Guardar(TipoEvento tipoEvento)
+        public void Guardar(Clasificacion clasificacion)
         {
             try
             {
-                _repositorio.Guardar(tipoEvento);
+                _repositorio.Guardar(clasificacion);
                 _unitOfWork.Save();
             }
             catch (Exception e)

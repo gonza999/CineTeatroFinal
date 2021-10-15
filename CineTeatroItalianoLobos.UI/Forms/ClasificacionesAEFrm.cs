@@ -13,20 +13,20 @@ using System.Windows.Forms;
 
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    public partial class TipoDeEventosAEFrm : Form
+    public partial class ClasificacionesAEFrm : Form
     {
-        public TipoDeEventosAEFrm(ITiposDeEventosServicios servicio)
+        public ClasificacionesAEFrm(IClasificacionesServicio servicio)
         {
             InitializeComponent();
             _servicio = servicio;
         }
 
         private Operacion operacion;
-        private ITiposDeEventosServicios _servicio;
-        private TipoEvento tipoEvento;
-        public TipoEvento GetTipo()
+        private IClasificacionesServicio _servicio;
+        private Clasificacion clasificacion;
+        public Clasificacion GetClasificacion()
         {
-            return tipoEvento;
+            return clasificacion;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -38,20 +38,20 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             if (ValidarDatos())
             {
-                if (tipoEvento == null)
+                if (clasificacion == null)
                 {
-                    tipoEvento = new TipoEvento();
+                    clasificacion = new Clasificacion();
                 }
 
-                tipoEvento.Descripcion = TipoDeEventoTxt.Text;
+                clasificacion.Descripcion = ClasificacionTxt.Text;
                 try
                 {
-                    if (_servicio.Existe(tipoEvento))
+                    if (_servicio.Existe(clasificacion))
                     {
-                        errorProvider1.SetError(TipoDeEventoTxt, "Tipo de evento existente");
+                        errorProvider1.SetError(ClasificacionTxt, "Clasificacion existente");
                         return;
                     }
-                    _servicio.Guardar(tipoEvento);
+                    _servicio.Guardar(clasificacion);
                     MessageBox.Show("Registro guardado", "Mensaje",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -68,7 +68,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                         DialogResult = DialogResult.Cancel;
                     }
 
-                    tipoEvento = null;
+                    clasificacion = null;
                     InicializarControles();
                 }
                 catch (Exception exception)
@@ -81,36 +81,36 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void InicializarControles()
         {
-            TipoDeEventoTxt.Clear();
-            TipoDeEventoTxt.Focus();
+            ClasificacionTxt.Clear();
+            ClasificacionTxt.Focus();
         }
 
         private bool ValidarDatos()
         {
             bool esValido = true;
-            if (string.IsNullOrEmpty(TipoDeEventoTxt.Text) ||
-                string.IsNullOrWhiteSpace(TipoDeEventoTxt.Text))
+            if (string.IsNullOrEmpty(ClasificacionTxt.Text) ||
+                string.IsNullOrWhiteSpace(ClasificacionTxt.Text))
             {
                 esValido = false;
-                errorProvider1.SetError(TipoDeEventoTxt, "Debe ingresar un tipo de evento");
+                errorProvider1.SetError(ClasificacionTxt, "Debe ingresar una Clasificacion");
 
             }
 
             return esValido;
         }
 
-        public void SetTipo(TipoEvento tipoEvento)
+        public void SetClasificacion(Clasificacion clasificacion)
         {
-            this.tipoEvento = tipoEvento;
+            this.clasificacion = clasificacion;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             operacion = Operacion.Nuevo;
-            if (tipoEvento != null)
+            if (clasificacion != null)
             {
-                TipoDeEventoTxt.Text = tipoEvento.Descripcion;
+                ClasificacionTxt.Text = clasificacion.Descripcion;
                 operacion = Operacion.Editar;
 
             }

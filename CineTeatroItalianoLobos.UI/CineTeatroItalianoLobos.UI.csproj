@@ -60,6 +60,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\Operacion.cs" />
+    <Compile Include="Forms\ClasificacionesAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClasificacionesAEFrm.Designer.cs">
+      <DependentUpon>ClasificacionesAEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClasificacionesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClasificacionesFrm.Designer.cs">
+      <DependentUpon>ClasificacionesFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenuFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,12 @@
     <Compile Include="Ninject\DI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ClasificacionesAEFrm.resx">
+      <DependentUpon>ClasificacionesAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClasificacionesFrm.resx">
+      <DependentUpon>ClasificacionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenuFrm.resx">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>
     </EmbeddedResource>

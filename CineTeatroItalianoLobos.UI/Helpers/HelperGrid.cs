@@ -34,10 +34,9 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                 case TipoEvento _:
                     r.Cells[0].Value = ((TipoEvento)obj).Descripcion;
                     break;
-                //case Categoria _:
-                //    r.Cells[0].Value = ((Categoria)obj).NombreCategoria;
-
-                //    break;
+                case Clasificacion _:
+                    r.Cells[0].Value = ((Clasificacion)obj).Descripcion;
+                    break;
                 //case Ciudad _:
                 //    r.Cells[0].Value = ((Ciudad)obj).NombreCiudad;
                 //    r.Cells[1].Value = ((Ciudad)obj).Pais.NombrePais;

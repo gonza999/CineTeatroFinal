@@ -71,6 +71,7 @@
     <Compile Include="EntityTypeConfigurations\VentaEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VentaTicketEntityTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClasificacionesRepositorio.cs" />
     <Compile Include="Repositories\TiposDeEventosRepositorio.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

@@ -98,6 +98,7 @@ namespace CineTeatroItalianoLobos.UI
             this.clasificacionesToolStripMenuItem.Name = "clasificacionesToolStripMenuItem";
             this.clasificacionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.clasificacionesToolStripMenuItem.Text = "Clasificaciones";
+            this.clasificacionesToolStripMenuItem.Click += new System.EventHandler(this.clasificacionesToolStripMenuItem_Click);
             // 
             // ubicacionesToolStripMenuItem
             // 
