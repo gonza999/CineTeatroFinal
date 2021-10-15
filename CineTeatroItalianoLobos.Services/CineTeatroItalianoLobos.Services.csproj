@@ -44,8 +44,10 @@
     <Compile Include="ClasificacionesServicio.cs" />
     <Compile Include="Facades\IClasificacionesServicio.cs" />
     <Compile Include="Facades\ITiposDeEventosServicios.cs" />
+    <Compile Include="Facades\IUbicacionesServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiposDeEventosServicios.cs" />
+    <Compile Include="UbicacionesServicio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CineTeatroItalianoLobos.DataComun\CineTeatroItalianoLobos.DataComun.csproj">

@@ -139,17 +139,25 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             try
             {
-                _servicio.Borrar(clasificacion.ClasificacionId);
-                HelperGrid.BorrarFila(DatosDataGridView, r);
+                if (!_servicio.EstaRelacionado(clasificacion))
+                {
+                    _servicio.Borrar(clasificacion.ClasificacionId);
+                    HelperGrid.BorrarFila(DatosDataGridView, r);
 
-                cantidadRegistros = _servicio.GetCantidad();
-                CantidadDeRegistrosLabel.Text = cantidadRegistros.ToString();
+                    cantidadRegistros = _servicio.GetCantidad();
+                    CantidadDeRegistrosLabel.Text = cantidadRegistros.ToString();
 
-                MessageBox.Show("Registro borrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro borrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show(@"Registro relacionado... Baja denegada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Registro relacionado... Baja denegada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

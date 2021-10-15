@@ -105,6 +105,7 @@ namespace CineTeatroItalianoLobos.UI
             this.ubicacionesToolStripMenuItem.Name = "ubicacionesToolStripMenuItem";
             this.ubicacionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.ubicacionesToolStripMenuItem.Text = "Ubicaciones";
+            this.ubicacionesToolStripMenuItem.Click += new System.EventHandler(this.ubicacionesToolStripMenuItem_Click);
             // 
             // formasDeVentasToolStripMenuItem
             // 

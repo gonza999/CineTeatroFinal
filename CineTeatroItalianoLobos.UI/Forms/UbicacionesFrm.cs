@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    public partial class TiposDeEventosFrm : Form
+    public partial class UbicacionesFrm : Form
     {
-        public TiposDeEventosFrm(ITiposDeEventosServicios servicio)
+        public UbicacionesFrm(IUbicacionesServicio servicio)
         {
             InitializeComponent();
             _servicio = servicio;
@@ -31,10 +31,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private int paginaActual;
 
 
-        private readonly ITiposDeEventosServicios _servicio;
-        private List<TipoEvento> lista;
+        private readonly IUbicacionesServicio _servicio;
+        private List<Ubicacion> lista;
         private int cantidadRegistros;
-        private void TiposDeEventosFrm_Load(object sender, EventArgs e)
+        private void UbicacionesFrm_Load(object sender, EventArgs e)
         {
             RecargarGrilla();
         }
@@ -82,11 +82,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void MostrarDatosEnGrilla()
         {
             HelperGrid.LimpiarGrilla(DatosDataGridView);
-            foreach (var tipoEvento in lista)
+            foreach (var ubicacion in lista)
             {
                 DataGridViewRow r = HelperGrid.CrearFila(DatosDataGridView);
 
-                HelperGrid.SetearFila(r, tipoEvento);
+                HelperGrid.SetearFila(r, ubicacion);
                 HelperGrid.AgregarFila(DatosDataGridView, r);
             }
             HelperForm.MostrarInfoPaginas(splitContainer1.Panel2, cantidadRegistros, cantidadPaginas, paginaActual);
@@ -97,7 +97,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            TipoDeEventosAEFrm frm = new TipoDeEventosAEFrm(_servicio) { Text = "Nuevo Tipo de Evento" };
+            UbicacionesAEFrm frm = new UbicacionesAEFrm(_servicio) { Text = "Nueva Ubicacion" };
             DialogResult dr = frm.ShowDialog(this);
             RecargarGrilla();
         }
@@ -110,9 +110,9 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            TipoEvento tipoEvento = (TipoEvento)r.Tag;
-            TipoDeEventosAEFrm frm = new TipoDeEventosAEFrm(_servicio) { Text = "Editar Tipo de Evento" };
-            frm.SetTipo(tipoEvento);
+            Ubicacion ubicacion = (Ubicacion)r.Tag;
+            UbicacionesAEFrm frm = new UbicacionesAEFrm(_servicio) { Text = "Editar Ubicacion" };
+            frm.SetUbicacion(ubicacion);
             DialogResult dr = frm.ShowDialog(this);
             RecargarGrilla();
             //MostrarPaginado(cantidadPaginas, paginaActual);
@@ -126,8 +126,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            TipoEvento tipoEvento = (TipoEvento)r.Tag;
-            DialogResult dr = MessageBox.Show($"¿Desea dar de baja el registro de {tipoEvento.Descripcion}?",
+            Ubicacion ubicacion = (Ubicacion)r.Tag;
+            DialogResult dr = MessageBox.Show($"¿Desea dar de baja el registro de {ubicacion.Descripcion}?",
                 "Confirmar Baja",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,
@@ -139,9 +139,9 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             try
             {
-                if (!_servicio.EstaRelacionado(tipoEvento))
+                if (!_servicio.EstaRelacionado(ubicacion))
                 {
-                    _servicio.Borrar(tipoEvento.TipoEventoId);
+                    _servicio.Borrar(ubicacion.UbicacionId);
                     HelperGrid.BorrarFila(DatosDataGridView, r);
 
                     cantidadRegistros = _servicio.GetCantidad();
@@ -181,6 +181,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             RecargarGrilla();
         }
+
 
         //private void tsbImprimir_Click(object sender, EventArgs e)
         //{

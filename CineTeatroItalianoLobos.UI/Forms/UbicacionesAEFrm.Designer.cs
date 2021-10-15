@@ -1,7 +1,7 @@
 ﻿
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    partial class ClasificacionesAEFrm
+    partial class UbicacionesAEFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.components = new System.ComponentModel.Container();
             this.CancelButton = new System.Windows.Forms.Button();
             this.OkButton = new System.Windows.Forms.Button();
-            this.ClasificacionTxt = new System.Windows.Forms.TextBox();
+            this.UbicacionTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -40,7 +40,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(233, 58);
+            this.CancelButton.Location = new System.Drawing.Point(241, 79);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
             this.CancelButton.TabIndex = 28;
@@ -51,7 +51,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(30, 58);
+            this.OkButton.Location = new System.Drawing.Point(38, 79);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
             this.OkButton.TabIndex = 29;
@@ -60,42 +60,42 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.UseVisualStyleBackColor = true;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
-            // ClasificacionTxt
+            // UbicacionTxt
             // 
-            this.ClasificacionTxt.Location = new System.Drawing.Point(125, 19);
-            this.ClasificacionTxt.MaxLength = 50;
-            this.ClasificacionTxt.Name = "ClasificacionTxt";
-            this.ClasificacionTxt.Size = new System.Drawing.Size(184, 20);
-            this.ClasificacionTxt.TabIndex = 27;
+            this.UbicacionTxt.Location = new System.Drawing.Point(133, 40);
+            this.UbicacionTxt.MaxLength = 50;
+            this.UbicacionTxt.Name = "UbicacionTxt";
+            this.UbicacionTxt.Size = new System.Drawing.Size(184, 20);
+            this.UbicacionTxt.TabIndex = 27;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 22);
+            this.label1.Location = new System.Drawing.Point(42, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Clasificacion :";
+            this.label1.Text = "Ubicacion :";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ClasificacionesAEFrm
+            // UbicacionesAEFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 130);
+            this.ClientSize = new System.Drawing.Size(372, 173);
             this.ControlBox = false;
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.ClasificacionTxt);
+            this.Controls.Add(this.UbicacionTxt);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(363, 169);
-            this.MinimumSize = new System.Drawing.Size(363, 169);
-            this.Name = "ClasificacionesAEFrm";
+            this.MaximumSize = new System.Drawing.Size(388, 212);
+            this.MinimumSize = new System.Drawing.Size(388, 212);
+            this.Name = "UbicacionesAEFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClasificacionesAEFrm";
+            this.Text = "UbicacionesAEFrm";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -106,7 +106,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OkButton;
-        private System.Windows.Forms.TextBox ClasificacionTxt;
+        private System.Windows.Forms.TextBox UbicacionTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }

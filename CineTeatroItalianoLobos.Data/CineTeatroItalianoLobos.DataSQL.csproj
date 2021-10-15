@@ -73,6 +73,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ClasificacionesRepositorio.cs" />
     <Compile Include="Repositories\TiposDeEventosRepositorio.cs" />
+    <Compile Include="Repositories\UbicacionesRepositorio.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

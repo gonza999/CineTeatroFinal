@@ -90,6 +90,18 @@
     <Compile Include="Forms\TiposDeEventosFrm.Designer.cs">
       <DependentUpon>TiposDeEventosFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UbicacionesAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UbicacionesAEFrm.Designer.cs">
+      <DependentUpon>UbicacionesAEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UbicacionesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UbicacionesFrm.Designer.cs">
+      <DependentUpon>UbicacionesFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\HelperCalculos.cs" />
     <Compile Include="Helpers\HelperCombos.cs" />
     <Compile Include="Helpers\HelperForm.cs" />
@@ -112,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TiposDeEventosFrm.resx">
       <DependentUpon>TiposDeEventosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UbicacionesAEFrm.resx">
+      <DependentUpon>UbicacionesAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UbicacionesFrm.resx">
+      <DependentUpon>UbicacionesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

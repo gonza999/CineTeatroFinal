@@ -63,7 +63,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // TipoDeEventoTxt
             // 
             this.TipoDeEventoTxt.Location = new System.Drawing.Point(107, 27);
-            this.TipoDeEventoTxt.MaxLength = 100;
+            this.TipoDeEventoTxt.MaxLength = 50;
             this.TipoDeEventoTxt.Name = "TipoDeEventoTxt";
             this.TipoDeEventoTxt.Size = new System.Drawing.Size(184, 20);
             this.TipoDeEventoTxt.TabIndex = 23;

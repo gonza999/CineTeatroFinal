@@ -29,5 +29,11 @@ namespace CineTeatroItalianoLobos.UI
             ClasificacionesFrm frm = new ClasificacionesFrm(DI.Create<IClasificacionesServicio>());
             frm.ShowDialog(this);
         }
+
+        private void ubicacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UbicacionesFrm frm = new UbicacionesFrm(DI.Create<IUbicacionesServicio>());
+            frm.ShowDialog(this);
+        }
     }
 }
