@@ -27,8 +27,8 @@ namespace CineTeatroItalianoLobos.UI.Ninject
             Bind<IRepositorioFormasVentas>().To<FormasVentasRepositorio>();
             Bind<IFormasVentasServicio>().To<FormasVentasServicio>();
 
-            //Bind<IRepositorioEmpleados>().To<ClientesRepositorio>();
-            //Bind<IClientesServicios>().To<ClientesServicios>();
+            Bind<IRepositorioFormasPagos>().To<FormasPagosRepositorio>();
+            Bind<IFormasPagosServicio>().To<FormasPagosServicio>();
 
             //Bind<IRepositorioEventos>().To<ProveedoresRepositorio>();
             //Bind<IProveedoresServicios>().To<ProveedoresServicios>();

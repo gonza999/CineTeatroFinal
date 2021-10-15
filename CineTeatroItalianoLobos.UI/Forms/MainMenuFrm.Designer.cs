@@ -119,6 +119,7 @@ namespace CineTeatroItalianoLobos.UI
             this.formasDePagosToolStripMenuItem.Name = "formasDePagosToolStripMenuItem";
             this.formasDePagosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.formasDePagosToolStripMenuItem.Text = "Formas de Pagos";
+            this.formasDePagosToolStripMenuItem.Click += new System.EventHandler(this.formasDePagosToolStripMenuItem_Click);
             // 
             // plantasToolStripMenuItem
             // 
