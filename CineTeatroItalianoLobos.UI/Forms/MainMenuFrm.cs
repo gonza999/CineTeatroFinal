@@ -35,5 +35,11 @@ namespace CineTeatroItalianoLobos.UI
             UbicacionesFrm frm = new UbicacionesFrm(DI.Create<IUbicacionesServicio>());
             frm.ShowDialog(this);
         }
+
+        private void formasDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormasVentasFrm frm = new FormasVentasFrm(DI.Create<IFormasVentasServicio>());
+            frm.ShowDialog(this);
+        }
     }
 }
