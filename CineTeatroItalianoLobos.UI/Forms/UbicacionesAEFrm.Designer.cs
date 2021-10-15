@@ -30,39 +30,17 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CancelButton = new System.Windows.Forms.Button();
-            this.OkButton = new System.Windows.Forms.Button();
             this.UbicacionTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.OkButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // CancelButton
-            // 
-            this.CancelButton.Location = new System.Drawing.Point(241, 79);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 28;
-            this.CancelButton.Text = "Cancelar";
-            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // OkButton
-            // 
-            this.OkButton.Location = new System.Drawing.Point(38, 79);
-            this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 29;
-            this.OkButton.Text = "OK";
-            this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.OkButton.UseVisualStyleBackColor = true;
-            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
-            // 
             // UbicacionTxt
             // 
-            this.UbicacionTxt.Location = new System.Drawing.Point(133, 40);
+            this.UbicacionTxt.Location = new System.Drawing.Point(157, 43);
             this.UbicacionTxt.MaxLength = 50;
             this.UbicacionTxt.Name = "UbicacionTxt";
             this.UbicacionTxt.Size = new System.Drawing.Size(184, 20);
@@ -71,9 +49,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 43);
+            this.label1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 26;
             this.label1.Text = "Ubicacion :";
             // 
@@ -81,18 +60,46 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // CancelButton
+            // 
+            this.CancelButton.BackColor = System.Drawing.Color.Transparent;
+            this.CancelButton.FlatAppearance.BorderSize = 0;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.cancel_50px;
+            this.CancelButton.Location = new System.Drawing.Point(214, 81);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(94, 53);
+            this.CancelButton.TabIndex = 36;
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // OkButton
+            // 
+            this.OkButton.BackColor = System.Drawing.Color.Transparent;
+            this.OkButton.FlatAppearance.BorderSize = 0;
+            this.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OkButton.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.ok_50px;
+            this.OkButton.Location = new System.Drawing.Point(11, 81);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(94, 53);
+            this.OkButton.TabIndex = 37;
+            this.OkButton.UseVisualStyleBackColor = false;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
             // UbicacionesAEFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 173);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(329, 122);
             this.ControlBox = false;
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.UbicacionTxt);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(388, 212);
-            this.MinimumSize = new System.Drawing.Size(388, 212);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(345, 161);
+            this.MinimumSize = new System.Drawing.Size(345, 161);
             this.Name = "UbicacionesAEFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UbicacionesAEFrm";
@@ -103,11 +110,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
         }
 
         #endregion
-
-        private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.TextBox UbicacionTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button OkButton;
     }
 }

@@ -184,6 +184,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
         }
 
 
+
         //private void tsbImprimir_Click(object sender, EventArgs e)
         //{
         //    ReportePaises rpt = DI.Create<IManejadorDeReportes>().GetReportePaises(lista);

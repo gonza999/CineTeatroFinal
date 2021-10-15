@@ -216,6 +216,96 @@
   <ItemGroup>
     <None Include="Resources\descarga.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_curtain_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_mask_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_seat_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\occupied_theatre_seat_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_curtain_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_mask_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_seat_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theatre_seats_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stairs_down_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stairs_up_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticket_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticket_booth_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticket_confirmed_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticket_purchase_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticket2_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_pane_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_and_pencil_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create_order_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_50px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
