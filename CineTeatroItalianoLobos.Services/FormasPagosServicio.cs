@@ -35,7 +35,14 @@ namespace CineTeatroItalianoLobos.Services
 
         public List<FormaPago> BuscarFormaPago(string formaPago)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.BuscarFormaPago(formaPago);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(FormaPago formaPago)

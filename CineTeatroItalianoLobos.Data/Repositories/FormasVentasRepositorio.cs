@@ -36,7 +36,18 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public List<FormaVenta> BuscarFormaVenta(string formaVenta)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _context.FormasVentas
+                  .OrderBy(te => te.Descripcion)
+                  .Where(te => te.Descripcion.Contains(formaVenta))
+                  .AsNoTracking()
+                  .ToList();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(FormaVenta formaVenta)

@@ -125,7 +125,14 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public TipoEvento GetTipoEvento(string nombreTipoEvento)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _context.TiposEventos.FirstOrDefault(p => p.Descripcion == nombreTipoEvento);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al leer");
+            }
         }
 
         public void Guardar(TipoEvento tipoEvento)

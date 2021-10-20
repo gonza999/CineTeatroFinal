@@ -183,6 +183,28 @@ namespace CineTeatroItalianoLobos.UI.Forms
             RecargarGrilla();
         }
 
+        private void FormasPagosFrm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (string.IsNullOrEmpty(BuscarTxt.Text)
+                    || string.IsNullOrWhiteSpace(BuscarTxt.Text))
+                {
+                    return;
+                }
+                lista = _servicio.BuscarFormaPago(BuscarTxt.Text);
+
+                cantidadRegistros = lista.Count();
+
+                HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
+                paginaActual = 1;
+
+                MostrarDatosEnGrilla();
+
+
+            }
+        }
+
 
 
         //private void tsbImprimir_Click(object sender, EventArgs e)

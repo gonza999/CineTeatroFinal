@@ -35,7 +35,14 @@ namespace CineTeatroItalianoLobos.Services
 
         public List<Ubicacion> BuscarUbicacion(string ubicacion)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.BuscarUbicacion(ubicacion);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(Ubicacion ubicacion)

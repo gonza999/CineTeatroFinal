@@ -53,6 +53,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
+            this.BuscarTxt = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -202,6 +203,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbEditar,
             this.toolStripSeparator1,
             this.tsbBuscar,
+            this.BuscarTxt,
             this.tsbActualizar,
             this.toolStripSeparator2,
             this.tsbImprimir,
@@ -311,6 +313,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
+            // BuscarTxt
+            // 
+            this.BuscarTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BuscarTxt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BuscarTxt.MaxLength = 50;
+            this.BuscarTxt.Name = "BuscarTxt";
+            this.BuscarTxt.Size = new System.Drawing.Size(80, 57);
+            // 
             // UbicacionesFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,11 +330,13 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "UbicacionesFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UbicacionesFrm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UbicacionesFrm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UbicacionesFrm_KeyPress);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -361,5 +373,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.ToolStripButton tsbImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbCerrar;
+        private System.Windows.Forms.ToolStripTextBox BuscarTxt;
     }
 }

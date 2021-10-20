@@ -36,7 +36,18 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public List<Ubicacion> BuscarUbicacion(string ubicacion)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _context.Ubicaciones
+                  .OrderBy(te => te.Descripcion)
+                  .Where(te => te.Descripcion.Contains(ubicacion))
+                  .AsNoTracking()
+                  .ToList();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(Ubicacion ubicacion)
