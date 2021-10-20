@@ -36,7 +36,14 @@ namespace CineTeatroItalianoLobos.Services
 
         public List<Clasificacion> BuscarClasificacion(string clasificacion)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.BuscarClasificacion(clasificacion);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(Clasificacion clasificacion)
