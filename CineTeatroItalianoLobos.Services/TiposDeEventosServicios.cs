@@ -36,7 +36,14 @@ namespace CineTeatroItalianoLobos.Services
 
         public List<TipoEvento> BuscarTipoEvento(string tipoevento)
         {
-            throw new NotImplementedException();
+            try
+            {
+               return _repositorio.BuscarTipoEvento(tipoevento);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(TipoEvento tipoEvento)

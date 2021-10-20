@@ -160,26 +160,31 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
         }
 
-        private void tsbBuscar_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    var listaGrupos = _servicio.GetGrupos();
-            //    FrmCiudadesPorPais frm = new FrmCiudadesPorPais(DI.Create<IPaisesServicios>()) { Text = "Cant. de Ciudades por Países" };
-            //    frm.SetGrupo(listaGrupos);
-            //    frm.ShowDialog(this);
-
-            //}
-            //catch (Exception exception)
-            //{
-            //    Console.WriteLine(exception);
-            //    throw;
-            //}
-        }
-
         private void tsbActualizar_Click(object sender, EventArgs e)
         {
             RecargarGrilla();
+        }
+
+        private void TiposDeEventosFrm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (string.IsNullOrEmpty(BuscarTxt.Text)
+                    || string.IsNullOrWhiteSpace(BuscarTxt.Text))
+                {
+                    return;
+                }
+                lista = _servicio.BuscarTipoEvento(BuscarTxt.Text);
+
+                cantidadRegistros = lista.Count();
+
+                HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
+                paginaActual = 1;
+
+                MostrarDatosEnGrilla();
+
+                
+            }
         }
 
         //private void tsbImprimir_Click(object sender, EventArgs e)
