@@ -138,6 +138,7 @@ namespace CineTeatroItalianoLobos.UI
             this.plantasToolStripMenuItem.Name = "plantasToolStripMenuItem";
             this.plantasToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.plantasToolStripMenuItem.Text = "Plantas";
+            this.plantasToolStripMenuItem.Click += new System.EventHandler(this.plantasToolStripMenuItem_Click);
             // 
             // tiposDeDocumentosToolStripMenuItem
             // 

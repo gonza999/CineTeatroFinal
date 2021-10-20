@@ -102,6 +102,18 @@
     <Compile Include="Forms\MainMenuFrm.Designer.cs">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PlantasAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantasAEFrm.Designer.cs">
+      <DependentUpon>PlantasAEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantasFrm.Designer.cs">
+      <DependentUpon>PlantasFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TipoDeEventosAEFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenuFrm.resx">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantasAEFrm.resx">
+      <DependentUpon>PlantasAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantasFrm.resx">
+      <DependentUpon>PlantasFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TipoDeEventosAEFrm.resx">
       <DependentUpon>TipoDeEventosAEFrm.cs</DependentUpon>

@@ -46,6 +46,9 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                 case FormaPago _:
                     r.Cells[0].Value = ((FormaPago)obj).Descripcion;
                     break;
+                case Planta _:
+                    r.Cells[0].Value = ((Planta)obj).Descripcion;
+                    break;
                 default:
                     break;
             }

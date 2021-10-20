@@ -45,10 +45,12 @@
     <Compile Include="Facades\IClasificacionesServicio.cs" />
     <Compile Include="Facades\IFormasPagosServicio.cs" />
     <Compile Include="Facades\IFormasVentasServicio.cs" />
+    <Compile Include="Facades\IPlantasServicio.cs" />
     <Compile Include="Facades\ITiposDeEventosServicios.cs" />
     <Compile Include="Facades\IUbicacionesServicio.cs" />
     <Compile Include="FormasPagosServicio.cs" />
     <Compile Include="FormasVentasServicio.cs" />
+    <Compile Include="PlantasServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiposDeEventosServicios.cs" />
     <Compile Include="UbicacionesServicio.cs" />
