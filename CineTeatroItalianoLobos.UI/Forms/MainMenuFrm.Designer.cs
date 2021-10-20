@@ -147,6 +147,7 @@ namespace CineTeatroItalianoLobos.UI
             this.tiposDeDocumentosToolStripMenuItem.Name = "tiposDeDocumentosToolStripMenuItem";
             this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.tiposDeDocumentosToolStripMenuItem.Text = "Tipos de Documentos";
+            this.tiposDeDocumentosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem
             // 

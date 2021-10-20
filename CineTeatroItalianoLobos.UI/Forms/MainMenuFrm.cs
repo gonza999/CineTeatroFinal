@@ -53,5 +53,11 @@ namespace CineTeatroItalianoLobos.UI
             PlantasFrm frm = new PlantasFrm(DI.Create<IPlantasServicio>());
             frm.ShowDialog(this);
         }
+
+        private void tiposDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TiposDocumentosFrm frm = new TiposDocumentosFrm(DI.Create<ITiposDocumentosServicio>());
+            frm.ShowDialog(this);
+        }
     }
 }

@@ -47,12 +47,14 @@
     <Compile Include="Facades\IFormasVentasServicio.cs" />
     <Compile Include="Facades\IPlantasServicio.cs" />
     <Compile Include="Facades\ITiposDeEventosServicios.cs" />
+    <Compile Include="Facades\ITiposDocumentosServicio.cs" />
     <Compile Include="Facades\IUbicacionesServicio.cs" />
     <Compile Include="FormasPagosServicio.cs" />
     <Compile Include="FormasVentasServicio.cs" />
     <Compile Include="PlantasServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiposDeEventosServicios.cs" />
+    <Compile Include="TiposDocumentosServicio.cs" />
     <Compile Include="UbicacionesServicio.cs" />
   </ItemGroup>
   <ItemGroup>

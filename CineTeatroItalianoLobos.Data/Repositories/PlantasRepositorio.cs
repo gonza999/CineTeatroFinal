@@ -23,7 +23,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 plantaInDb = _context.Plantas
-                    .SingleOrDefault(u => u.PlantaId == id);
+                    .SingleOrDefault(p => p.PlantaId == id);
                 if (plantaInDb == null) return;
                 _context.Entry(plantaInDb).State = EntityState.Deleted;
             }
@@ -39,8 +39,8 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 return _context.Plantas
-                  .OrderBy(te => te.Descripcion)
-                  .Where(te => te.Descripcion.Contains(planta))
+                  .OrderBy(p => p.Descripcion)
+                  .Where(p => p.Descripcion.Contains(planta))
                   .AsNoTracking()
                   .ToList();
             }
@@ -68,11 +68,11 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 if (planta.PlantaId == 0)
                 {
-                    return _context.Plantas.Any(u => u.Descripcion == planta.Descripcion);
+                    return _context.Plantas.Any(p => p.Descripcion == planta.Descripcion);
                 }
 
-                return _context.Plantas.Any(u => u.Descripcion == planta.Descripcion
-                                                         && u.PlantaId != planta.PlantaId);
+                return _context.Plantas.Any(p => p.Descripcion == planta.Descripcion
+                                                         && p.PlantaId != planta.PlantaId);
             }
             catch (Exception e)
             {
@@ -97,7 +97,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 return _context.Plantas
-                    .OrderBy(u => u.Descripcion)
+                    .OrderBy(p => p.Descripcion)
                     .Skip(registros * (pagina - 1))
                     .Take(registros)
                     .AsNoTracking()
@@ -116,7 +116,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         {
             try
             {
-                return _context.Plantas.SingleOrDefault(u => u.PlantaId == id);
+                return _context.Plantas.SingleOrDefault(p => p.PlantaId == id);
             }
             catch (Exception e)
             {
@@ -140,7 +140,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 else
                 {
                     var plantaInDb =
-                        _context.Plantas.SingleOrDefault(u => u.PlantaId == planta.PlantaId);
+                        _context.Plantas.SingleOrDefault(p => p.PlantaId == planta.PlantaId);
                     if (plantaInDb == null)
                     {
                         throw new Exception("Planta inexistente");
