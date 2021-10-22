@@ -14,6 +14,7 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Guardar(TipoDocumento TEntity);
         bool Existe(TipoDocumento TEntity);
         bool EstaRelacionado(TipoDocumento TEntity);
+        List<TipoDocumento> GetLista();
         int GetCantidad();
         void Borrar(int id);
         TipoDocumento GetTipoDocumento(string nombreTipoDocumento);

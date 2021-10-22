@@ -113,6 +113,24 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             }
         }
 
+        public List<TipoDocumento> GetLista()
+        {
+            try
+            {
+                return _context.TiposDocumentos
+                    .OrderBy(p => p.Descripcion)
+                    .AsNoTracking()
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
+
         public TipoDocumento GetTEntityPorId(int id)
         {
             try

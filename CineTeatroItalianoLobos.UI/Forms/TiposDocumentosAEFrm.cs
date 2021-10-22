@@ -87,6 +87,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private bool ValidarDatos()
         {
+            errorProvider1.Clear();
             bool esValido = true;
             if (string.IsNullOrEmpty(TipoDeDocumentoTxt.Text) ||
                 string.IsNullOrWhiteSpace(TipoDeDocumentoTxt.Text))

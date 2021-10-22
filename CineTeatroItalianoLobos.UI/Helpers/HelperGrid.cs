@@ -52,6 +52,15 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                 case TipoDocumento _:
                     r.Cells[0].Value = ((TipoDocumento)obj).Descripcion;
                     break;
+                case Empleado _:
+                    r.Cells[0].Value = ((Empleado)obj).Apellido;
+                    r.Cells[1].Value = ((Empleado)obj).Nombre;
+                    r.Cells[2].Value = ((Empleado)obj).Mail;
+                    r.Cells[3].Value = ((Empleado)obj).TipoDocumento.Descripcion;
+                    r.Cells[4].Value = ((Empleado)obj).NroDocumento;
+                    //r.Cells[5].Value = ((Empleado)obj).TelefonoFijo;
+                    //r.Cells[6].Value = ((Empleado)obj).TelefonoMovil;
+                    break;
                 default:
                     break;
             }

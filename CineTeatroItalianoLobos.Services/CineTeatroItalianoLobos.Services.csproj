@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClasificacionesServicio.cs" />
+    <Compile Include="EmpleadosServicio.cs" />
     <Compile Include="Facades\IClasificacionesServicio.cs" />
+    <Compile Include="Facades\IEmpleadosServicio.cs" />
     <Compile Include="Facades\IFormasPagosServicio.cs" />
     <Compile Include="Facades\IFormasVentasServicio.cs" />
     <Compile Include="Facades\IPlantasServicio.cs" />

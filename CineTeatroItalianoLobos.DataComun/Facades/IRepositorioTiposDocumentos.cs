@@ -7,5 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         TipoDocumento GetTipoDocumento(string nombreTipoDocumento);
         List<TipoDocumento> BuscarTipoDocumento(string tipoDocumento);
+        List<TipoDocumento> GetLista();
     }
 }

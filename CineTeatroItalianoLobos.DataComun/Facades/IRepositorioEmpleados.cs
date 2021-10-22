@@ -5,6 +5,8 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
 {
     public interface IRepositorioEmpleados:IRepositorio<Empleado>
     {
-        List<Empleado> BuscarEmpleado(string text);
+        List<Empleado> BuscarEmpleado(string text, int opcion);
+
+        Empleado GetEmpleado(string nombreEmpleado);
     }
 }

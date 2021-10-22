@@ -72,6 +72,24 @@
     <Compile Include="Forms\ClasificacionesFrm.Designer.cs">
       <DependentUpon>ClasificacionesFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EmpleadosAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpleadosAEFrm.Designer.cs">
+      <DependentUpon>EmpleadosAEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpleadosBuscarXTipoDocFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpleadosBuscarXTipoDocFrm.Designer.cs">
+      <DependentUpon>EmpleadosBuscarXTipoDocFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpleadosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpleadosFrm.Designer.cs">
+      <DependentUpon>EmpleadosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormasPagosAEFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +181,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClasificacionesFrm.resx">
       <DependentUpon>ClasificacionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpleadosAEFrm.resx">
+      <DependentUpon>EmpleadosAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpleadosBuscarXTipoDocFrm.resx">
+      <DependentUpon>EmpleadosBuscarXTipoDocFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpleadosFrm.resx">
+      <DependentUpon>EmpleadosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormasPagosAEFrm.resx">
       <DependentUpon>FormasPagosAEFrm.cs</DependentUpon>

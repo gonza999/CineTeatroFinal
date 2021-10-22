@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Services
 {
-    public class TiposDocumentosServicio:ITiposDocumentosServicio
+    public class EmpleadosServicio:IEmpleadosServicio
     {
-        private readonly IRepositorioTiposDocumentos _repositorio;
+        private readonly IRepositorioEmpleados _repositorio;
         private readonly IUnitOfWork _unitOfWork;
 
-        public TiposDocumentosServicio(IRepositorioTiposDocumentos repositorio, IUnitOfWork unitOfWork)
+        public EmpleadosServicio(IRepositorioEmpleados repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
@@ -33,11 +33,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<TipoDocumento> BuscarTipoDocumento(string tipodocumento)
+        public List<Empleado> BuscarEmpleado(string empleado,int opcion)
         {
             try
             {
-                return _repositorio.BuscarTipoDocumento(tipodocumento);
+                return _repositorio.BuscarEmpleado(empleado,opcion);
             }
             catch (Exception e)
             {
@@ -45,11 +45,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool EstaRelacionado(TipoDocumento tipoDocumento)
+        public bool EstaRelacionado(Empleado empleado)
         {
             try
             {
-                return _repositorio.EstaRelacionado(tipoDocumento);
+                return _repositorio.EstaRelacionado(empleado);
             }
             catch (Exception e)
             {
@@ -57,11 +57,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool Existe(TipoDocumento tipoDocumento)
+        public bool Existe(Empleado empleado)
         {
             try
             {
-                return _repositorio.Existe(tipoDocumento);
+                return _repositorio.Existe(empleado);
             }
             catch (Exception e)
             {
@@ -81,7 +81,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<TipoDocumento> GetLista(int registros, int pagina)
+        public List<Empleado> GetLista(int registros, int pagina)
         {
             try
             {
@@ -94,19 +94,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<TipoDocumento> GetLista()
-        {
-            try
-            {
-                return _repositorio.GetLista();
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error al leer");
-            }
-        }
-
-        public TipoDocumento GetTEntityPorId(int id)
+        public Empleado GetTEntityPorId(int id)
         {
             try
             {
@@ -119,11 +107,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public TipoDocumento GetTipoDocumento(string nombreTipoDocumento)
+        public Empleado GetEmpleado(string nombreEmpleado)
         {
             try
             {
-                return _repositorio.GetTipoDocumento(nombreTipoDocumento);
+                return _repositorio.GetEmpleado(nombreEmpleado);
             }
             catch (Exception e)
             {
@@ -132,11 +120,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public void Guardar(TipoDocumento tipoDocumento)
+        public void Guardar(Empleado empleado)
         {
             try
             {
-                _repositorio.Guardar(tipoDocumento);
+                _repositorio.Guardar(empleado);
                 _unitOfWork.Save();
             }
             catch (Exception e)
