@@ -65,5 +65,11 @@ namespace CineTeatroItalianoLobos.UI
             EmpleadosFrm frm = new EmpleadosFrm(DI.Create<IEmpleadosServicio>());
             frm.ShowDialog(this);
         }
+
+        private void localidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LocalidadesFrm frm = new LocalidadesFrm(DI.Create<ILocalidadesServicio>());
+            frm.ShowDialog(this);
+        }
     }
 }

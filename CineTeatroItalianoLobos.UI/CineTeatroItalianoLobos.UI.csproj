@@ -114,6 +114,18 @@
     <Compile Include="Forms\FormasVentasFrm.Designer.cs">
       <DependentUpon>FormasVentasFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LocalidadesAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LocalidadesAEFrm.Designer.cs">
+      <DependentUpon>LocalidadesAEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LocalidadesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LocalidadesFrm.Designer.cs">
+      <DependentUpon>LocalidadesFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenuFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +214,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormasVentasFrm.resx">
       <DependentUpon>FormasVentasFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LocalidadesAEFrm.resx">
+      <DependentUpon>LocalidadesAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LocalidadesFrm.resx">
+      <DependentUpon>LocalidadesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenuFrm.resx">
       <DependentUpon>MainMenuFrm.cs</DependentUpon>

@@ -21,9 +21,9 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                 Button b = new Button()
                 {
                     Text = (i + 1).ToString(),
-                    Location = new Point(16 + 35 * i, 16),
-                    Size = new Size(32, 32)
-
+                    Location = new Point(16 + 45 * i, 16),
+                    Size = new Size(43, 43),
+                    BackColor=Color.DarkGray
                 };
                 //b.Click += Miclick;//Le agrego un manejador al evento clic de los botones
                 panel.Controls.Add(b);//Agregro el botón a la colección de controles del panel

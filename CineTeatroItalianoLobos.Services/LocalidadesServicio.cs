@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Services
 {
-    public class PlantasServicio:IPlantasServicio
+    public class LocalidadesServicio:ILocalidadesServicio
     {
-        private readonly IRepositorioPlantas _repositorio;
+        private readonly IRepositorioLocalidades _repositorio;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PlantasServicio(IRepositorioPlantas repositorio, IUnitOfWork unitOfWork)
+        public LocalidadesServicio(IRepositorioLocalidades repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
@@ -33,11 +33,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Planta> BuscarPlanta(string planta)
+        public bool EstaRelacionado(Localidad localidad)
         {
             try
             {
-                return _repositorio.BuscarPlanta(planta);
+                return _repositorio.EstaRelacionado(localidad);
             }
             catch (Exception e)
             {
@@ -45,23 +45,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool EstaRelacionado(Planta planta)
+        public bool Existe(Localidad localidad)
         {
             try
             {
-                return _repositorio.EstaRelacionado(planta);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public bool Existe(Planta planta)
-        {
-            try
-            {
-                return _repositorio.Existe(planta);
+                return _repositorio.Existe(localidad);
             }
             catch (Exception e)
             {
@@ -81,7 +69,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Planta> GetLista(int registros, int pagina)
+        public List<Localidad> GetLista(int registros, int pagina)
         {
             try
             {
@@ -94,7 +82,33 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public Planta GetTEntityPorId(int id)
+        public List<Localidad> GetLista(Ubicacion ubicacion)
+        {
+            try
+            {
+                return _repositorio.GetLista(ubicacion);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Localidad> GetLista(int fila)
+        {
+            try
+            {
+                return _repositorio.GetLista(fila);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public Localidad GetLocalidadPorId(int id)
         {
             try
             {
@@ -106,39 +120,12 @@ namespace CineTeatroItalianoLobos.Services
                 throw new Exception(e.Message);
             }
         }
-
-        public Planta GetPlanta(string nombrePlanta)
+        public void Guardar(Localidad localidad)
         {
             try
             {
-                return _repositorio.GetPlanta(nombrePlanta);
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        public void Guardar(Planta planta)
-        {
-            try
-            {
-                _repositorio.Guardar(planta);
+                _repositorio.Guardar(localidad);
                 _unitOfWork.Save();
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        public List<Planta> GetLista()
-        {
-            try
-            {
-                return _repositorio.GetLista();
             }
             catch (Exception e)
             {

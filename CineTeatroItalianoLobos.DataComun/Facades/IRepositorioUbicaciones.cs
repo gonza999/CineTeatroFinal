@@ -7,5 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         Ubicacion GetUbicacion(string nombreUbicacion);
         List<Ubicacion> BuscarUbicacion(string ubicacion);
+        List<Ubicacion> GetLista();
     }
 }

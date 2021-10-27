@@ -39,12 +39,12 @@ namespace CineTeatroItalianoLobos.UI
             this.plantasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.distribucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeLocalidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.distribucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.localidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeLasVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,9 +78,9 @@ namespace CineTeatroItalianoLobos.UI
             this.plantasToolStripMenuItem,
             this.tiposDeDocumentosToolStripMenuItem,
             this.empleadosToolStripMenuItem,
-            this.eventosToolStripMenuItem,
-            this.distribucionesToolStripMenuItem,
             this.localidadesToolStripMenuItem,
+            this.distribucionesToolStripMenuItem,
+            this.eventosToolStripMenuItem,
             this.ventasToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(69, 21);
@@ -158,6 +158,23 @@ namespace CineTeatroItalianoLobos.UI
             this.empleadosToolStripMenuItem.Text = "Empleados";
             this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
+            // localidadesToolStripMenuItem
+            // 
+            this.localidadesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.localidadesToolStripMenuItem.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.theatre_seat_50px;
+            this.localidadesToolStripMenuItem.Name = "localidadesToolStripMenuItem";
+            this.localidadesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.localidadesToolStripMenuItem.Text = "Localidades";
+            this.localidadesToolStripMenuItem.Click += new System.EventHandler(this.localidadesToolStripMenuItem_Click);
+            // 
+            // distribucionesToolStripMenuItem
+            // 
+            this.distribucionesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.distribucionesToolStripMenuItem.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.theatre_seats_50px;
+            this.distribucionesToolStripMenuItem.Name = "distribucionesToolStripMenuItem";
+            this.distribucionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.distribucionesToolStripMenuItem.Text = "Distribuciones";
+            // 
             // eventosToolStripMenuItem
             // 
             this.eventosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -190,22 +207,6 @@ namespace CineTeatroItalianoLobos.UI
             this.listaDeLocalidadesToolStripMenuItem.Name = "listaDeLocalidadesToolStripMenuItem";
             this.listaDeLocalidadesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.listaDeLocalidadesToolStripMenuItem.Text = "Lista de Localidades";
-            // 
-            // distribucionesToolStripMenuItem
-            // 
-            this.distribucionesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.distribucionesToolStripMenuItem.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.theatre_seats_50px;
-            this.distribucionesToolStripMenuItem.Name = "distribucionesToolStripMenuItem";
-            this.distribucionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.distribucionesToolStripMenuItem.Text = "Distribuciones";
-            // 
-            // localidadesToolStripMenuItem
-            // 
-            this.localidadesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.localidadesToolStripMenuItem.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.theatre_seat_50px;
-            this.localidadesToolStripMenuItem.Name = "localidadesToolStripMenuItem";
-            this.localidadesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.localidadesToolStripMenuItem.Text = "Localidades";
             // 
             // ventasToolStripMenuItem
             // 

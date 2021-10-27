@@ -18,5 +18,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Borrar(int id);
         Planta GetPlanta(string nombrePlanta);
         List<Planta> BuscarPlanta(string planta);
+        List<Planta> GetLista();
     }
 }

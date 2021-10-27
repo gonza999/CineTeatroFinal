@@ -157,5 +157,23 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 throw new Exception("Error al intentar guardar un registro");
             }
         }
+
+        public List<Planta> GetLista()
+        {
+            try
+            {
+                return _context.Plantas
+                    .OrderBy(p => p.Descripcion)
+                    .AsNoTracking()
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
     }
 }

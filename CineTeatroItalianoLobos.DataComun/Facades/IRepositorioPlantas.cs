@@ -7,5 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         Planta GetPlanta(string nombrePlanta);
         List<Planta> BuscarPlanta(string planta);
+        List<Planta> GetLista();
     }
 }
