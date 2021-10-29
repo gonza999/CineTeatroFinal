@@ -72,6 +72,8 @@
     <Compile Include="EntityTypeConfigurations\VentaTicketEntityTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ClasificacionesRepositorio.cs" />
+    <Compile Include="Repositories\DistribucionesLocalidadesRepositorio.cs" />
+    <Compile Include="Repositories\DistribucionesRepositorio.cs" />
     <Compile Include="Repositories\EmpleadosRepositorio.cs" />
     <Compile Include="Repositories\FormasPagosRepositorio.cs" />
     <Compile Include="Repositories\FormasVentasRepositorio.cs" />

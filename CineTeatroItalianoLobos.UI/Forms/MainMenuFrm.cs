@@ -71,5 +71,11 @@ namespace CineTeatroItalianoLobos.UI
             LocalidadesFrm frm = new LocalidadesFrm(DI.Create<ILocalidadesServicio>());
             frm.ShowDialog(this);
         }
+
+        private void distribucionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DistribucionesFrm frm = new DistribucionesFrm(DI.Create<IDistribucionesServicio>(), DI.Create<ILocalidadesServicio>());
+            frm.ShowDialog(this);
+        }
     }
 }

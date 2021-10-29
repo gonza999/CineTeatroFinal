@@ -67,6 +67,14 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                     r.Cells[2].Value = ((Localidad)obj).Ubicacion.Descripcion;
                     r.Cells[3].Value = ((Localidad)obj).Fila;
                     break;
+                case Distribucion _:
+                    r.Cells[0].Value = ((Distribucion)obj).Descripcion;
+                    r.Cells[1].Value = new Button().Text = "Más detalle"; ;
+                    break;
+                case DistribucionLocalidad _:
+                    r.Cells[0].Value = ((DistribucionLocalidad)obj).Localidad.Fila;
+                    r.Cells[1].Value = ((DistribucionLocalidad)obj).Precio;
+                    break;
                 default:
                     break;
             }

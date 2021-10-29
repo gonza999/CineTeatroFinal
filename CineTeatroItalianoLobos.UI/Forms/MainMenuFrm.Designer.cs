@@ -174,6 +174,7 @@ namespace CineTeatroItalianoLobos.UI
             this.distribucionesToolStripMenuItem.Name = "distribucionesToolStripMenuItem";
             this.distribucionesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.distribucionesToolStripMenuItem.Text = "Distribuciones";
+            this.distribucionesToolStripMenuItem.Click += new System.EventHandler(this.distribucionesToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
             // 

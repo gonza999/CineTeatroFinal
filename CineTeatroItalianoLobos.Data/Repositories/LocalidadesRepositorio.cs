@@ -177,5 +177,27 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 throw new Exception(e.Message);
             }
         }
+
+        public List<string> GetFilas()
+        {
+            try
+            {
+                List<String> lista=new List<string>();
+                var grupo= _context.Localidades
+                  .OrderBy(l => l.Fila)
+                  .GroupBy(l=>l.Fila)
+                  .ToList();
+                foreach (var l in grupo)
+                {
+                    var fila = l.Key;
+                    lista.Add(fila.ToString());
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

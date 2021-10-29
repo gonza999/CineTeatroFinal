@@ -18,5 +18,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Borrar(int id);
         List<Localidad> GetLista(Ubicacion ubicacion);
         List<Localidad> GetLista(int fila);
+        List<string> GetFilas();
     }
 }

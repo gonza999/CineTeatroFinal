@@ -58,5 +58,15 @@ namespace CineTeatroItalianoLobos.UI.Helpers
             ubicacionCmb.ValueMember = "UbicacionId";
             ubicacionCmb.SelectedIndex = 0;
         }
+
+        internal static void CargarDatosComboFilas(ref ComboBox filaCmb)
+        {
+            ILocalidadesServicio servicio = DI.Create<ILocalidadesServicio>();
+            List<string> lista = servicio.GetFilas();
+            var defaultUFila = "<Seleccione Fila>";
+            lista.Insert(0, defaultUFila);
+            filaCmb.DataSource = lista;
+            filaCmb.SelectedIndex = 0;
+        }
     }
 }
