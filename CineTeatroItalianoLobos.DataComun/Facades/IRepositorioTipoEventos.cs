@@ -7,5 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         TipoEvento GetTipoEvento(string nombreTipoEvento);
         List<TipoEvento> BuscarTipoEvento(string tipoevento);
+        List<TipoEvento> GetLista();
     }
 }

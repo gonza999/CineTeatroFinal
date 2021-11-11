@@ -7,5 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         Clasificacion GetClasificacion(string nombreClasificacion);
         List<Clasificacion> BuscarClasificacion(string clasificacion);
+        List<Clasificacion> GetLista();
     }
 }

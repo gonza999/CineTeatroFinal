@@ -75,6 +75,7 @@
     <Compile Include="Repositories\DistribucionesLocalidadesRepositorio.cs" />
     <Compile Include="Repositories\DistribucionesRepositorio.cs" />
     <Compile Include="Repositories\EmpleadosRepositorio.cs" />
+    <Compile Include="Repositories\EventosRepositorio.cs" />
     <Compile Include="Repositories\FormasPagosRepositorio.cs" />
     <Compile Include="Repositories\FormasVentasRepositorio.cs" />
     <Compile Include="Repositories\LocalidadesRepositorio.cs" />

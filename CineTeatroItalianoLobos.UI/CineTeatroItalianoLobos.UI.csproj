@@ -108,6 +108,18 @@
     <Compile Include="Forms\EmpleadosFrm.Designer.cs">
       <DependentUpon>EmpleadosFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EventosAEFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EventosAEFrm.Designer.cs">
+      <DependentUpon>EventosAEFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EventosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EventosFrm.Designer.cs">
+      <DependentUpon>EventosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormasPagosAEFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +241,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmpleadosFrm.resx">
       <DependentUpon>EmpleadosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventosAEFrm.resx">
+      <DependentUpon>EventosAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventosFrm.resx">
+      <DependentUpon>EventosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormasPagosAEFrm.resx">
       <DependentUpon>FormasPagosAEFrm.cs</DependentUpon>

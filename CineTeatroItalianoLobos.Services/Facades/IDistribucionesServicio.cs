@@ -16,5 +16,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         bool EstaRelacionado(Distribucion distribucion);
         int GetCantidad();
         void Borrar(int id);
+        List<Distribucion> GetLista();
     }
 }

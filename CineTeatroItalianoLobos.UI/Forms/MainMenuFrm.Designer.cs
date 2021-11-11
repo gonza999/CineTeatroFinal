@@ -194,6 +194,7 @@ namespace CineTeatroItalianoLobos.UI
             this.eventosToolStripMenuItem1.Name = "eventosToolStripMenuItem1";
             this.eventosToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
             this.eventosToolStripMenuItem1.Text = "Eventos";
+            this.eventosToolStripMenuItem1.Click += new System.EventHandler(this.eventosToolStripMenuItem1_Click);
             // 
             // horariosToolStripMenuItem
             // 

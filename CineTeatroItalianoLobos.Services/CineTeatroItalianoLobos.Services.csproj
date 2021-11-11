@@ -45,9 +45,11 @@
     <Compile Include="ClasificacionesServicio.cs" />
     <Compile Include="DistribucionesServicio.cs" />
     <Compile Include="EmpleadosServicio.cs" />
+    <Compile Include="EventosServicio.cs" />
     <Compile Include="Facades\IClasificacionesServicio.cs" />
     <Compile Include="Facades\IDistribucionesServicio.cs" />
     <Compile Include="Facades\IEmpleadosServicio.cs" />
+    <Compile Include="Facades\IEventosServicios.cs" />
     <Compile Include="Facades\IFormasPagosServicio.cs" />
     <Compile Include="Facades\IFormasVentasServicio.cs" />
     <Compile Include="Facades\ILocalidadesServicio.cs" />

@@ -111,6 +111,24 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             }
         }
 
+        public List<TipoEvento> GetLista()
+        {
+            try
+            {
+                return _context.TiposEventos
+                    .OrderBy(u => u.Descripcion)
+                    .AsNoTracking()
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
+
         public TipoEvento GetTEntityPorId(int id)
         {
             try

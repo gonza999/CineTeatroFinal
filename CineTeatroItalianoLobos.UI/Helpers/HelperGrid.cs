@@ -75,6 +75,19 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                     r.Cells[0].Value = ((DistribucionLocalidad)obj).Localidad.Fila;
                     r.Cells[1].Value = ((DistribucionLocalidad)obj).Precio;
                     break;
+                case Evento _:
+                    r.Cells[0].Value = ((Evento)obj).NombreEvento;
+                    r.Cells[1].Value = ((Evento)obj).Distribucion.Descripcion;
+                    r.Cells[2].Value = ((Evento)obj).TipoEvento.Descripcion;
+                    r.Cells[3].Value = ((Evento)obj).Clasificacion.Descripcion;
+                    r.Cells[4].Value = new Button().Text = "Horarios";
+                    r.Cells[5].Value = ((Evento)obj).Suspendido;
+
+                    break;
+                case Horario _:
+                    r.Cells[0].Value = ((Horario)obj).Fecha.Date;
+                    r.Cells[1].Value = ((Horario)obj).Hora.TimeOfDay;
+                    break;
                 default:
                     break;
             }

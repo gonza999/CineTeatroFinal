@@ -1,5 +1,4 @@
-﻿using CineTeatroItalianoLobos.Data.Repositories;
-using CineTeatroItalianoLobos.DataComun;
+﻿using CineTeatroItalianoLobos.DataComun;
 using CineTeatroItalianoLobos.DataComun.Facades;
 using CineTeatroItalianoLobos.Entities;
 using CineTeatroItalianoLobos.Services.Facades;
@@ -11,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Services
 {
-    public class ClasificacionesServicio:IClasificacionesServicio
+    public class EventosServicio:IEventosServicios
     {
-        private readonly IRepositorioClasificaciones _repositorio;
+        private readonly IRepositorioEventos _repositorio;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ClasificacionesServicio(IRepositorioClasificaciones repositorio, IUnitOfWork unitOfWork)
+        public EventosServicio(IRepositorioEventos repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
@@ -34,11 +33,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Clasificacion> BuscarClasificacion(string clasificacion)
+        public List<Evento> BuscarEvento(string evento)
         {
             try
             {
-                return _repositorio.BuscarClasificacion(clasificacion);
+                return _repositorio.BuscarEvento(evento);
             }
             catch (Exception e)
             {
@@ -46,11 +45,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool EstaRelacionado(Clasificacion clasificacion)
+        public bool EstaRelacionado(Evento evento)
         {
             try
             {
-                return _repositorio.EstaRelacionado(clasificacion);
+                return _repositorio.EstaRelacionado(evento);
             }
             catch (Exception e)
             {
@@ -58,11 +57,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool Existe(Clasificacion clasificacion)
+        public bool Existe(Evento evento)
         {
             try
             {
-                return _repositorio.Existe(clasificacion);
+                return _repositorio.Existe(evento);
             }
             catch (Exception e)
             {
@@ -82,7 +81,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Clasificacion> GetLista(int registros, int pagina)
+        public List<Evento> GetLista(int registros, int pagina)
         {
             try
             {
@@ -95,7 +94,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public Clasificacion GetTEntityPorId(int id)
+        public Evento GetTEntityPorId(int id)
         {
             try
             {
@@ -108,38 +107,12 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public Clasificacion GetClasificacion(string nombreClasificacion)
+        public void Guardar(Evento evento)
         {
             try
             {
-                return _repositorio.GetClasificacion(nombreClasificacion);
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        public void Guardar(Clasificacion clasificacion)
-        {
-            try
-            {
-                _repositorio.Guardar(clasificacion);
+                _repositorio.Guardar(evento);
                 _unitOfWork.Save();
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        public List<Clasificacion> GetLista()
-        {
-            try
-            {
-                return _repositorio.GetLista();
             }
             catch (Exception e)
             {

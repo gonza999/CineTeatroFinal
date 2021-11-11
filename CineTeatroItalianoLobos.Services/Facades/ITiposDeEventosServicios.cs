@@ -14,5 +14,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Borrar(int id);
         TipoEvento GetTipoEvento(string nombreTipoEvento);
         List<TipoEvento> BuscarTipoEvento(string tipoevento);
+        List<TipoEvento> GetLista();
     }
 }
