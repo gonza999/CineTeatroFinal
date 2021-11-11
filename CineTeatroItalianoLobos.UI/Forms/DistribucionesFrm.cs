@@ -150,18 +150,18 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void DatosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == 1)
-            //{
-            //    DistribucionesDetallesFrm frm = new DistribucionesDetallesFrm();
-            //    frm.Text = "Detalles";
-            //    if (DatosDataGridView.SelectedRows.Count > 0)
-            //    {
-            //        DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            //        Distribucion distribucion = (Distribucion)r.Tag;
-            //        frm.SetDistribucion(distribucion);
-            //        frm.ShowDialog(this);
-            //    }
-            //}
+            if (e.ColumnIndex == 1)
+            {
+                DistribucionesDetallesFrm frm = new DistribucionesDetallesFrm();
+                frm.Text = "Detalles";
+                if (DatosDataGridView.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow r = DatosDataGridView.SelectedRows[0];
+                    Distribucion distribucion = (Distribucion)r.Tag;
+                    frm.SetDistribucion(distribucion);
+                    frm.ShowDialog(this);
+                }
+            }
         }
 
 

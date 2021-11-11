@@ -45,8 +45,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 }
 
                 localidad.Numero = Convert.ToInt32(NumeroNud.Value);
-                localidad.Planta = (Planta)PlantaCmb.SelectedItem;
-                localidad.Ubicacion = (Ubicacion)UbicacionCmb.SelectedItem;
+                //localidad.Planta = (Planta)PlantaCmb.SelectedItem;
+                localidad.PlantaId = ((Planta)PlantaCmb.SelectedItem).PlantaId;
+                //localidad.Ubicacion = (Ubicacion)UbicacionCmb.SelectedItem;
+                localidad.UbicacionId = ((Ubicacion)UbicacionCmb.SelectedItem).UbicacionId;
                 localidad.Fila = Convert.ToInt32(FilaNud.Value);
                 try
                 {

@@ -119,6 +119,14 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         {
             try
             {
+                if (localidad.Planta != null)
+                {
+                    _context.Plantas.Attach(localidad.Planta);
+                }
+                if (localidad.Ubicacion != null)
+                {
+                    _context.Ubicaciones.Attach(localidad.Ubicacion);
+                }
                 if (localidad.LocalidadId == 0)
                 {
                     _context.Localidades.Add(localidad);
@@ -137,7 +145,6 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                     localidadInDb.UbicacionId = localidad.UbicacionId;
                     localidadInDb.Fila = localidad.Fila;
                     _context.Entry(localidadInDb).State = EntityState.Modified;
-
                 }
             }
             catch (Exception e)
@@ -168,7 +175,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 return _context.Localidades
                   .OrderBy(l => l.Numero)
-                  .Where(l => l.Fila==fila)
+                  .Where(l => l.Fila==fila && l.UbicacionId==1)
                   .AsNoTracking()
                   .ToList();
             }

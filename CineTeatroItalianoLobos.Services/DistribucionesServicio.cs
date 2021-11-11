@@ -16,16 +16,13 @@ namespace CineTeatroItalianoLobos.Services
         private readonly IRepositorioDistribuciones _repositorio;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepositorioDistribucionesLocalidades _repositorioDistribucionesLocalidades;
-        private readonly IRepositorioUbicaciones _repositorioUbicaciones;
 
         public DistribucionesServicio(IRepositorioDistribuciones repositorio, IUnitOfWork unitOfWork,
-            IRepositorioDistribucionesLocalidades repositorioDistribucionesLocalidades,
-            IRepositorioUbicaciones repositorioUbicaciones)
+            IRepositorioDistribucionesLocalidades repositorioDistribucionesLocalidades)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
             _repositorioDistribucionesLocalidades = repositorioDistribucionesLocalidades;
-            _repositorioUbicaciones = repositorioUbicaciones;
         }
         public void Borrar(int id)
         {

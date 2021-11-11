@@ -79,8 +79,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine(exception);
-                    throw;
+                    MessageBox.Show(exception.Message,"Error");
                 }
             }
         }
@@ -130,11 +129,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 valido = false;
                 errorProvider1.SetError(btnAgregar, "Debe ingresar un precio a cada fila");
             }
-            if (distribucionLocalidades.Count != FilaCmb.Items.Count - 1)
-            {
-                valido = false;
-                errorProvider1.SetError(btnAgregar, "Debe ingresar un precio a cada fila");
-            }
             return valido;
         }
 
@@ -160,18 +154,19 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 {
                     if (FilaCmb.SelectedIndex!=0)
                     {
-                        distribucionLocalidad.Precio = decimal.Parse(ButacasTxt.Text);
                         int fila = int.Parse((string)FilaCmb.SelectedValue);
                         var listaLocalidades = _servicioLocalidades.GetLista(fila);
                         foreach (var l in listaLocalidades)
                         {
+                            distribucionLocalidad = new DistribucionLocalidad();
+                            distribucionLocalidad.Precio = decimal.Parse(ButacasTxt.Text);
                             distribucionLocalidad.LocalidadId = l.LocalidadId;
                             distribucionLocalidad.Localidad = l;
+                            distribucionLocalidades.Add(distribucionLocalidad); 
                         }
                         DataGridViewRow r = HelperGrid.CrearFila(DatosDataGridView);
                         HelperGrid.SetearFila(r, distribucionLocalidad);
                         HelperGrid.AgregarFila(DatosDataGridView, r);
-                        distribucionLocalidades.Add(distribucionLocalidad); 
                     }
                 }
 
@@ -219,7 +214,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
             {
                 DataGridViewRow r = DatosDataGridView.Rows[e.RowIndex];
                 DistribucionLocalidad distribucionLocalidad = (DistribucionLocalidad)r.Tag;
-                distribucionLocalidades.Remove(distribucionLocalidad);
+                distribucionLocalidades.RemoveAll(delegate (DistribucionLocalidad dl)
+                {
+                    return dl.Localidad.Fila == distribucionLocalidad.Localidad.Fila;
+                });
                 DatosDataGridView.Rows.RemoveAt(e.RowIndex);
             }
         }

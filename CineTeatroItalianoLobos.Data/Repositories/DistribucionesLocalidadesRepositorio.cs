@@ -27,7 +27,10 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                   .Where(dl => dl.DistribucionId==id)
                   .ToList();
                 if (listaDistribucionLocalidadInDb == null) return;
-                _context.Entry(listaDistribucionLocalidadInDb).State = EntityState.Deleted;
+                foreach (var dl in listaDistribucionLocalidadInDb)
+                {
+                    _context.Entry(dl).State = EntityState.Deleted;
+                }
             }
             catch (Exception e)
             {
@@ -112,11 +115,30 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         {
             try
             {
-                    _context.DistribucionesLocalidades.Add(distribucionLocalidad);
+                if (distribucionLocalidad.Localidad != null)
+                {
+                    _context.Localidades.Attach(distribucionLocalidad.Localidad);
+                }
+
+                //var localidadInDb =
+                //     _context.Localidades.SingleOrDefault(l => l.LocalidadId == distribucionLocalidad.LocalidadId);
+                //var distribucionInDb =
+                //    _context.Distribuciones.SingleOrDefault(d => d.DistribucionId == distribucionLocalidad.DistribucionId);
+                //distribucionLocalidad.DistribucionId = distribucionInDb.DistribucionId;
+                //distribucionLocalidad.Distribucion = distribucionInDb;
+                //distribucionLocalidad.Localidad = localidadInDb;
+                //distribucionLocalidad.LocalidadId = localidadInDb.LocalidadId;
+
+                _context.Entry(distribucionLocalidad.Localidad).State = EntityState.Modified;
+                _context.Entry(distribucionLocalidad.Distribucion).State = EntityState.Modified;
+                //distribucionLocalidad.Localidad.Ubicacion.UbicacionId =
+                //    distribucionLocalidad.Localidad.LocalidadId;
+                _context.Entry(distribucionLocalidad).State = EntityState.Added;
+                //_context.DistribucionesLocalidades.Add(distribucionLocalidad);
             }
             catch (Exception e)
             {
-                throw new Exception("Error al intentar guardar un registro");
+                throw new Exception(e.Message);
             }
         }
     }

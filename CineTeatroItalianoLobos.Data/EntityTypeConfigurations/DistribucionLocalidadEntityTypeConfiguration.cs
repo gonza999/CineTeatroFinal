@@ -15,10 +15,10 @@ namespace CineTeatroItalianoLobos.Data.EntityTypeConfigurations
         {
             ToTable("DistribucionesLocalidades");
             HasKey(dl => new { dl.DistribucionId, dl.LocalidadId });
-            Property(dl => dl.DistribucionId).HasColumnOrder(0)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(dl => dl.LocalidadId).HasColumnOrder(1)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            //Property(dl => dl.DistribucionId).HasColumnOrder(0)
+            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            //Property(dl => dl.LocalidadId).HasColumnOrder(1)
+            //    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
         }
     }
 }
