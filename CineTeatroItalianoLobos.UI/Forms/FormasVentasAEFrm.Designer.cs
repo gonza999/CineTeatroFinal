@@ -43,7 +43,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.FormaVentaTxt.Location = new System.Drawing.Point(149, 43);
             this.FormaVentaTxt.MaxLength = 50;
             this.FormaVentaTxt.Name = "FormaVentaTxt";
-            this.FormaVentaTxt.Size = new System.Drawing.Size(184, 20);
+            this.FormaVentaTxt.Size = new System.Drawing.Size(165, 20);
             this.FormaVentaTxt.TabIndex = 31;
             // 
             // label1

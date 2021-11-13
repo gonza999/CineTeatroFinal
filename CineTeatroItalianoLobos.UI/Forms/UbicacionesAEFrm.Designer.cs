@@ -40,7 +40,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // UbicacionTxt
             // 
-            this.UbicacionTxt.Location = new System.Drawing.Point(157, 43);
+            this.UbicacionTxt.Location = new System.Drawing.Point(124, 44);
             this.UbicacionTxt.MaxLength = 50;
             this.UbicacionTxt.Name = "UbicacionTxt";
             this.UbicacionTxt.Size = new System.Drawing.Size(184, 20);

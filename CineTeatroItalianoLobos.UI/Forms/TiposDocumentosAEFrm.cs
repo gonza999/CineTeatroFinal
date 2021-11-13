@@ -116,6 +116,5 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             }
         }
-
     }
 }

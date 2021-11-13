@@ -40,7 +40,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // FormaPagoTxt
             // 
-            this.FormaPagoTxt.Location = new System.Drawing.Point(150, 29);
+            this.FormaPagoTxt.Location = new System.Drawing.Point(150, 40);
             this.FormaPagoTxt.MaxLength = 50;
             this.FormaPagoTxt.Name = "FormaPagoTxt";
             this.FormaPagoTxt.Size = new System.Drawing.Size(184, 20);
@@ -50,7 +50,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 30);
+            this.label1.Location = new System.Drawing.Point(16, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 19);
             this.label1.TabIndex = 34;

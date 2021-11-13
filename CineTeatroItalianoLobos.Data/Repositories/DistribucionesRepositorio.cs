@@ -116,6 +116,14 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         {
             try
             {
+                foreach (var dl in distribucion.DistribucionesLocalidades)
+                {
+                    if (dl.Localidad != null)
+                    {
+                        dl.Localidad = _context.Localidades.FirstOrDefault(l => l.LocalidadId == dl.LocalidadId);
+                        _context.Localidades.Attach(dl.Localidad);
+                    }
+                }
                 //foreach (var dl in distribucion.DistribucionesLocalidades)
                 //{
                 //    if (dl != null)

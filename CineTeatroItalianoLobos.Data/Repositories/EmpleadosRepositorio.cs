@@ -119,6 +119,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 return _context.Empleados
+                    .Include(e=>e.TipoDocumento)
                     .OrderBy(p => p.Apellido)
                     .Skip(registros * (pagina - 1))
                     .Take(registros)
@@ -157,6 +158,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 if (empleado.TipoDocumento != null)
                 {
+                    empleado.TipoDocumento = _context.TiposDocumentos.FirstOrDefault(td=>td.TipoDocumentoId==empleado.TipoDocumentoId);
                     _context.TiposDocumentos.Attach(empleado.TipoDocumento);
                 }
                 if (empleado.EmpleadoId == 0)

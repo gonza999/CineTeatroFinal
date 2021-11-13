@@ -66,7 +66,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // PlantaTxt
             // 
-            this.PlantaTxt.Location = new System.Drawing.Point(133, 40);
+            this.PlantaTxt.Location = new System.Drawing.Point(124, 40);
             this.PlantaTxt.MaxLength = 50;
             this.PlantaTxt.Name = "PlantaTxt";
             this.PlantaTxt.Size = new System.Drawing.Size(184, 20);

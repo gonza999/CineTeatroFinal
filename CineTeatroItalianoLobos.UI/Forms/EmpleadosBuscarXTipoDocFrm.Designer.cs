@@ -80,7 +80,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TipoDocumentoCmb.FormattingEnabled = true;
             this.TipoDocumentoCmb.Location = new System.Drawing.Point(207, 45);
             this.TipoDocumentoCmb.Name = "TipoDocumentoCmb";
-            this.TipoDocumentoCmb.Size = new System.Drawing.Size(161, 21);
+            this.TipoDocumentoCmb.Size = new System.Drawing.Size(150, 21);
             this.TipoDocumentoCmb.TabIndex = 34;
             // 
             // errorProvider1
