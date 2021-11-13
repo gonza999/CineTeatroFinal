@@ -5,10 +5,9 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
 {
     public interface IRepositorioHorarios:IRepositorio<Horario>
     {
-   
-     
+
+        List<Horario> BuscarHorario(int eventoId);
         List<Horario> GetLista(Evento evento);
-   
-        Horario GetHorarioPorId(int v);
+        List<Horario> GetLista();
     }
 }

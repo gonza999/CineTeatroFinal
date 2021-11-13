@@ -36,9 +36,15 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public bool EstaRelacionado(Localidad localidad)
         {
+            bool estaRelacionado = false;
             try
             {
-                return _context.Tickets.Any(t => t.LocalidadId == localidad.LocalidadId);
+                estaRelacionado= _context.Tickets.Any(t => t.LocalidadId == localidad.LocalidadId);
+                if (!estaRelacionado)
+                {
+                    estaRelacionado = _context.DistribucionesLocalidades.Any(dl => dl.LocalidadId == localidad.LocalidadId);
+                }
+                return estaRelacionado;
             }
             catch (Exception e)
             {

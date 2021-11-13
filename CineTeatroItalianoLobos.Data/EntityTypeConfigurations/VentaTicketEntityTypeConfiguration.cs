@@ -14,11 +14,9 @@ namespace CineTeatroItalianoLobos.Data.EntityTypeConfigurations
         public VentaTicketEntityTypeConfiguration()
         {
             ToTable("VentasTicket");
-            HasKey(vt => new { vt.VentaId, vt.TicketId });
-            Property(vt=>vt.TicketId).HasColumnOrder(0)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(vt => vt.VentaId).HasColumnOrder(1)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            HasKey(vt => vt.VentaTicketId);
+            Property(vt=>vt.TicketId).IsRequired();
+            Property(vt => vt.VentaId).IsRequired();
 
         }
     }

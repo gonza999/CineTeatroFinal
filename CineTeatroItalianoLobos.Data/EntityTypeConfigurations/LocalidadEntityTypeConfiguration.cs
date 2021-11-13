@@ -14,6 +14,8 @@ namespace CineTeatroItalianoLobos.Data.EntityTypeConfigurations
         {
             ToTable("Localidades");
             HasKey(l=>l.LocalidadId);
+            Property(l => l.UbicacionId).IsRequired();
+            Property(l => l.LocalidadId).IsRequired();
 
         }
     }

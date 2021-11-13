@@ -6,23 +6,12 @@ namespace CineTeatroItalianoLobos.Entities
 {
     public class DistribucionLocalidad:ICloneable
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int DistribucionLocalidadId { get; set; }
         public int DistribucionId { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int LocalidadId { get; set; }
-
-        [Column(TypeName = "numeric")]
         public decimal Precio { get; set; }
-
         public virtual Distribucion Distribucion { get; set; }
-
         public virtual Localidad Localidad { get; set; }
-
         public object Clone()
         {
             return this.MemberwiseClone();

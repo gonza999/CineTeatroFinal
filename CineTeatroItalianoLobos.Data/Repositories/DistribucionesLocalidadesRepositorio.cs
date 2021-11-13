@@ -119,22 +119,11 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 {
                     _context.Localidades.Attach(distribucionLocalidad.Localidad);
                 }
-
-                //var localidadInDb =
-                //     _context.Localidades.SingleOrDefault(l => l.LocalidadId == distribucionLocalidad.LocalidadId);
-                //var distribucionInDb =
-                //    _context.Distribuciones.SingleOrDefault(d => d.DistribucionId == distribucionLocalidad.DistribucionId);
-                //distribucionLocalidad.DistribucionId = distribucionInDb.DistribucionId;
-                //distribucionLocalidad.Distribucion = distribucionInDb;
-                //distribucionLocalidad.Localidad = localidadInDb;
-                //distribucionLocalidad.LocalidadId = localidadInDb.LocalidadId;
-
-                _context.Entry(distribucionLocalidad.Localidad).State = EntityState.Modified;
-                _context.Entry(distribucionLocalidad.Distribucion).State = EntityState.Modified;
-                //distribucionLocalidad.Localidad.Ubicacion.UbicacionId =
-                //    distribucionLocalidad.Localidad.LocalidadId;
-                _context.Entry(distribucionLocalidad).State = EntityState.Added;
-                //_context.DistribucionesLocalidades.Add(distribucionLocalidad);
+                if (distribucionLocalidad.Distribucion != null)
+                {
+                    _context.Distribuciones.Attach(distribucionLocalidad.Distribucion);
+                }
+                _context.DistribucionesLocalidades.Add(distribucionLocalidad);
             }
             catch (Exception e)
             {

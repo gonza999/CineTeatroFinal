@@ -78,6 +78,7 @@
     <Compile Include="Repositories\EventosRepositorio.cs" />
     <Compile Include="Repositories\FormasPagosRepositorio.cs" />
     <Compile Include="Repositories\FormasVentasRepositorio.cs" />
+    <Compile Include="Repositories\HorariosRepositorio.cs" />
     <Compile Include="Repositories\LocalidadesRepositorio.cs" />
     <Compile Include="Repositories\PlantasRepositorio.cs" />
     <Compile Include="Repositories\TiposDeEventosRepositorio.cs" />

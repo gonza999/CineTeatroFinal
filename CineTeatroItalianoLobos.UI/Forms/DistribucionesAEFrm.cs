@@ -74,7 +74,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                     {
                         DialogResult = DialogResult.Cancel;
                     }
-                    distribucion = null;
+                    distribucion = new Distribucion();
                     InicializarControles();
                 }
                 catch (Exception exception)
@@ -89,6 +89,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             DistribucionTxt.Clear();
             DistribucionTxt.Focus();
             PalcosTxt.Clear();
+            ButacasTxt.Clear();
             distribucion = null;
             DatosDataGridView.Rows.Clear();
             FilaCmb.SelectedIndex = 0;

@@ -31,10 +31,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cmnHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatosDgv = new System.Windows.Forms.DataGridView();
+            this.cmnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.HoraPicker = new System.Windows.Forms.DateTimePicker();
@@ -71,27 +71,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.panel1.Size = new System.Drawing.Size(604, 225);
             this.panel1.TabIndex = 69;
             // 
-            // cmnBorrar
-            // 
-            this.cmnBorrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnBorrar.HeaderText = "Borrar";
-            this.cmnBorrar.Name = "cmnBorrar";
-            this.cmnBorrar.ReadOnly = true;
-            // 
-            // cmnHorario
-            // 
-            this.cmnHorario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnHorario.HeaderText = "Horario";
-            this.cmnHorario.Name = "cmnHorario";
-            this.cmnHorario.ReadOnly = true;
-            // 
-            // cmnFecha
-            // 
-            this.cmnFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnFecha.HeaderText = "Fecha";
-            this.cmnFecha.Name = "cmnFecha";
-            this.cmnFecha.ReadOnly = true;
-            // 
             // DatosDgv
             // 
             this.DatosDgv.AllowUserToAddRows = false;
@@ -112,6 +91,27 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDgv.Size = new System.Drawing.Size(604, 225);
             this.DatosDgv.TabIndex = 0;
             this.DatosDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDgv_CellClick);
+            // 
+            // cmnFecha
+            // 
+            this.cmnFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnFecha.HeaderText = "Fecha";
+            this.cmnFecha.Name = "cmnFecha";
+            this.cmnFecha.ReadOnly = true;
+            // 
+            // cmnHorario
+            // 
+            this.cmnHorario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnHorario.HeaderText = "Horario";
+            this.cmnHorario.Name = "cmnHorario";
+            this.cmnHorario.ReadOnly = true;
+            // 
+            // cmnBorrar
+            // 
+            this.cmnBorrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnBorrar.HeaderText = "Borrar";
+            this.cmnBorrar.Name = "cmnBorrar";
+            this.cmnBorrar.ReadOnly = true;
             // 
             // panel2
             // 
@@ -286,6 +286,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
             this.CancelButton.TabIndex = 71;
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // OkButton
             // 
@@ -298,6 +299,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Size = new System.Drawing.Size(94, 53);
             this.OkButton.TabIndex = 72;
             this.OkButton.UseVisualStyleBackColor = false;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // EventoTxt
             // 

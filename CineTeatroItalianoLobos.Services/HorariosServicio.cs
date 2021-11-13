@@ -7,22 +7,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Transactions;
 
 namespace CineTeatroItalianoLobos.Services
 {
-    public class EventosServicio:IEventosServicios
+    public class HorariosServicio:IHorariosServicio
     {
-        private readonly IRepositorioEventos _repositorio;
+        private readonly IRepositorioHorarios _repositorio;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IRepositorioHorarios _repositorioHorarios;
 
-        public EventosServicio(IRepositorioEventos repositorio, IUnitOfWork unitOfWork,
-            IRepositorioHorarios repositorioHorarios)
+        public HorariosServicio(IRepositorioHorarios repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
-            _repositorioHorarios = repositorioHorarios;
         }
         public void Borrar(int id)
         {
@@ -37,11 +33,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Evento> BuscarEvento(string evento)
+        public List<Horario> BuscarHorario(int id)
         {
             try
             {
-                return _repositorio.BuscarEvento(evento);
+                return _repositorio.BuscarHorario(id);
             }
             catch (Exception e)
             {
@@ -49,11 +45,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool EstaRelacionado(Evento evento)
+        public bool EstaRelacionado(Horario horario)
         {
             try
             {
-                return _repositorio.EstaRelacionado(evento);
+                return _repositorio.EstaRelacionado(horario);
             }
             catch (Exception e)
             {
@@ -61,11 +57,11 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public bool Existe(Evento evento)
+        public bool Existe(Horario horario)
         {
             try
             {
-                return _repositorio.Existe(evento);
+                return _repositorio.Existe(horario);
             }
             catch (Exception e)
             {
@@ -85,7 +81,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Evento> GetLista(int registros, int pagina)
+        public List<Horario> GetLista(int registros, int pagina)
         {
             try
             {
@@ -98,20 +94,7 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public List<Evento> GetLista()
-        {
-            try
-            {
-                return _repositorio.GetLista();
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        public Evento GetTEntityPorId(int id)
+        public Horario GetTEntityPorId(int id)
         {
             try
             {
@@ -124,31 +107,42 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
-        public void Guardar(Evento evento,List<Horario> listaHorariosBorrados)
+        public void Guardar(Horario horario)
         {
-            using (var scope = new TransactionScope(TransactionScopeOption.Required))
+            try
             {
-                try
-                {
-                    _repositorio.Guardar(evento);
-                    _unitOfWork.Save();
-                    foreach (var h in evento.Horarios)
-                    {
-                        h.EventoId = h.EventoId;
-                        _repositorioHorarios.Guardar(h);
-                    }
-                    foreach (var h in listaHorariosBorrados)
-                    {
-                        Borrar(h.HorarioId);
-                    }
-                    _unitOfWork.Save();
-                    scope.Complete();
-                }
-                catch (Exception e)
-                {
+                _repositorio.Guardar(horario);
+                _unitOfWork.Save();
+            }
+            catch (Exception e)
+            {
 
-                    throw new Exception(e.Message);
-                }
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Horario> GetLista()
+        {
+            try
+            {
+                return _repositorio.GetLista();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+        public List<Horario> GetLista(Evento evento)
+        {
+            try
+            {
+                return _repositorio.GetLista(evento);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
             }
         }
     }

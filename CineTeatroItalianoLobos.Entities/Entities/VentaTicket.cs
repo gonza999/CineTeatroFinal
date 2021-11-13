@@ -10,20 +10,11 @@ namespace CineTeatroItalianoLobos.Entities
 {
     public class VentaTicket : ICloneable
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int VentaTicketId { get; set; }
         public int TicketId { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int VentaId { get; set; }
-
         public virtual Ticket Ticket { get; set; }
-
         public virtual Venta Venta { get; set; }
-
         public object Clone()
         {
             return this.MemberwiseClone();

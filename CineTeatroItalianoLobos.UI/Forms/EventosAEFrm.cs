@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Services;
 using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.UI.Enums;
 using CineTeatroItalianoLobos.UI.Helpers;
@@ -17,13 +18,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
     public partial class EventosAEFrm : Form
     {
         private List<Horario> lista = new List<Horario>();
-        private IHorariosServicio servicioHorarios = new IHorariosServicio();
+        private readonly IHorariosServicio _servicioHorarios;
         private List<Horario> listaHorarios = new List<Horario>();
 
-        public EventosAEFrm(IEventosServicios servicio)
+        public EventosAEFrm(IEventosServicios servicio,IHorariosServicio servicioHorarios)
         {
             InitializeComponent();
             _servicio = servicio;
+            _servicioHorarios = servicioHorarios;
         }
 
         private Operacion operacion;
@@ -55,6 +57,23 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 evento.Clasificacion = (Clasificacion)ClasificacionCmb.SelectedItem;
                 evento.Distribucion = (Distribucion)DistribucionCmb.SelectedItem;
                 evento.FechaEvento = FechaPicker.Value;
+                listaHorarios.Clear();
+                evento.Horarios.Clear();
+                foreach (DataGridViewRow r in DatosDgv.Rows)
+                {
+                    Horario horario = (Horario)r.Tag;
+                    listaHorarios.Add(horario);
+                }
+                foreach (var h in listaHorarios)
+                {
+                    h.Evento = evento;
+                    evento.Horarios.Add(h);
+                    if (listaHorariosBorrados.Contains(h))
+                    {
+                        listaHorariosBorrados.Remove(h);
+                    }
+                }
+
                 try
                 {
                     if (_servicio.Existe(evento))
@@ -62,7 +81,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                         errorProvider1.SetError(EventoTxt, "Evento existente");
                         return;
                     }
-                    _servicio.Guardar(evento);
+                    _servicio.Guardar(evento,listaHorariosBorrados);
                     MessageBox.Show("Registro Guardado", "Mensaje",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -178,6 +197,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
             {
                 Horario horario = new Horario();
                 horario.Evento = evento;
+                if (evento!=null)
+                {
+                     horario.EventoId = evento.EventoId;
+                }
                 horario.Fecha = FechaPicker.Value;
                 horario.Hora = HoraPicker.Value;
                 if (ValidarFechas(horario))
@@ -190,15 +213,16 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             try
             {
-                lista = servicioHorarios.GetLista(evento);
+                lista = _servicioHorarios.GetLista(evento);
+                evento.Horarios.Clear();
                 evento.Horarios = lista;
                 MostrarDatosEnGrilla();
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(this, ex.Message, "Error",
-                    MessageBoxButtons.OK);
+                //MessageBox.Show(this, ex.Message, "Error",
+                //    MessageBoxButtons.OK);
             }
         }
 
@@ -224,7 +248,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
             foreach (var h in evento.Horarios)
             {
-                if (servicioHorarios.Existe(h))
+                if (_servicioHorarios.Existe(h))
                 {
                     valido = false;
                     errorProvider1.Clear();
@@ -261,18 +285,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 if ((h.Hora.TimeOfDay == HoraPicker.Value.TimeOfDay) && h.Fecha.Date == FechaPicker.Value.Date)
                 {
                     valido = false;
-                    errorProvider1.SetError(FechaPicker, "No puede haber un evento que suceda en el mismo horario en la misma fecha");
+                    errorProvider1.SetError(FechaPicker, "No se pueden agregarle horarios iguales al mismo evento");
                 }
-                if (servicioHorarios.Existe(h))
-                {
-                    valido = false;
-                    errorProvider1.Clear();
-                    errorProvider1.SetError(FechaPicker, "No pueden suceder dos eventos distintos en la misma fecha");
-                }
+              
             }
             if (horario != null)
             {
-                if (servicioHorarios.Existe(horario))
+                var lista = _servicio.GetLista();
+                if (_servicioHorarios.Existe(horario))
                 {
                     valido = false;
                     errorProvider1.Clear();
@@ -282,7 +302,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             return valido;
         }
-
+        private List<Horario> listaHorariosBorrados = new List<Horario>();
         private void DatosDgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 2)
@@ -290,7 +310,12 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 DataGridViewRow r = DatosDgv.Rows[e.RowIndex];
                 Horario horario = (Horario)r.Tag;
                 DatosDgv.Rows.RemoveAt(e.RowIndex);
-                servicioHorarios.Borrar(horario);
+                if (horario.HorarioId>0)
+                {
+                    horario = _servicioHorarios.GetTEntityPorId(horario.HorarioId);
+                    listaHorariosBorrados.Add(horario);
+                }
+                //_servicioHorarios.Borrar(horario.HorarioId);
                 listaHorarios.Remove(horario);
                 if (evento != null)
                 {

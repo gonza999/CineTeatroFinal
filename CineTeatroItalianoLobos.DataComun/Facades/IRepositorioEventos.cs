@@ -7,6 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         List<Evento> BuscarEvento(string text);
         void AnularEvento(int eventoId);
-
+        List<Evento> GetLista();
     }
 }

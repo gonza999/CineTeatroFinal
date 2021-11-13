@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineTeatroItalianoLobos.Entities
 {
-    [Table("Empleados")]
     public class Empleado:ICloneable
     {
         public Empleado()
@@ -20,14 +19,9 @@ namespace CineTeatroItalianoLobos.Entities
         public string NroDocumento { get; set; }
         public string TelefonoFijo { get; set; }
         public string TelefonoMovil { get; set; }
-
-        [StringLength(150)]
         public string Mail { get; set; }
-
         public virtual TipoDocumento TipoDocumento { get; set; }
-
         public virtual ICollection<Venta> Ventas { get; set; }
-
         public object Clone()
         {
             return this.MemberwiseClone();

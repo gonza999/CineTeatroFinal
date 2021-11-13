@@ -15,10 +15,12 @@ namespace CineTeatroItalianoLobos.UI.Forms
 {
     public partial class EventosFrm : Form
     {
-        public EventosFrm(IEventosServicios servicio)
+        private readonly IHorariosServicio _servicioHorarios;
+        public EventosFrm(IEventosServicios servicio,IHorariosServicio servicioHorarios)
         {
             InitializeComponent();
             _servicio = servicio;
+            _servicioHorarios = servicioHorarios;
         }
         private void tsbCerrar_Click(object sender, EventArgs e)
         {
@@ -92,7 +94,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
         }
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            EventosAEFrm frm = new EventosAEFrm(_servicio) { Text = "Nueva Evento" };
+            EventosAEFrm frm = new EventosAEFrm(_servicio,_servicioHorarios) { Text = "Nueva Evento" };
             DialogResult dr = frm.ShowDialog(this);
             RecargarGrilla();
         }
@@ -106,7 +108,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
             Evento evento = (Evento)r.Tag;
-            EventosAEFrm frm = new EventosAEFrm(_servicio) { Text = "Editar Evento" };
+            EventosAEFrm frm = new EventosAEFrm(_servicio,_servicioHorarios) { Text = "Editar Evento" };
             frm.SetEvento(evento);
             DialogResult dr = frm.ShowDialog(this);
             RecargarGrilla();

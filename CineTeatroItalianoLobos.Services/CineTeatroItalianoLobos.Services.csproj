@@ -52,6 +52,7 @@
     <Compile Include="Facades\IEventosServicios.cs" />
     <Compile Include="Facades\IFormasPagosServicio.cs" />
     <Compile Include="Facades\IFormasVentasServicio.cs" />
+    <Compile Include="Facades\IHorariosServicio.cs" />
     <Compile Include="Facades\ILocalidadesServicio.cs" />
     <Compile Include="Facades\IPlantasServicio.cs" />
     <Compile Include="Facades\ITiposDeEventosServicios.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Facades\IUbicacionesServicio.cs" />
     <Compile Include="FormasPagosServicio.cs" />
     <Compile Include="FormasVentasServicio.cs" />
+    <Compile Include="HorariosServicio.cs" />
     <Compile Include="LocalidadesServicio.cs" />
     <Compile Include="PlantasServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -127,6 +127,25 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         {
             try
             {
+                if (evento.Clasificacion != null)
+                {
+                    _context.Clasificaciones.Attach(evento.Clasificacion);
+                }
+                if (evento.Distribucion != null)
+                {
+                    _context.Distribuciones.Attach(evento.Distribucion);
+                }
+                if (evento.TipoEvento != null)
+                {
+                    _context.TiposEventos.Attach(evento.TipoEvento);
+                }
+                foreach (var h in evento.Horarios)
+                {
+                    if (h.HorarioId>0)
+                    {
+                        _context.Horarios.Attach(h);
+                    }
+                }
                 if (evento.EventoId == 0)
                 {
                     _context.Eventos.Add(evento);
@@ -144,7 +163,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                     eventoInDb.Descripcion = evento.Descripcion;
                     eventoInDb.Distribucion = evento.Distribucion;
                     eventoInDb.FechaEvento = evento.FechaEvento;
-                    eventoInDb.Horarios = evento.Horarios;
+                    //eventoInDb.Horarios = evento.Horarios;
                     eventoInDb.NombreEvento = evento.NombreEvento;
                     eventoInDb.Suspendido = evento.Suspendido;
                     eventoInDb.TipoEvento = evento.TipoEvento;
@@ -154,13 +173,31 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception("Error al intentar guardar un registro");
+                throw new Exception(e.Message);
             }
         }
 
         public void AnularEvento(int eventoId)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Evento> GetLista()
+        {
+            try
+            {
+                return _context.Eventos
+                    .OrderBy(e => e.NombreEvento)
+                    .AsNoTracking()
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
         }
     }
 }
