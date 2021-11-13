@@ -330,10 +330,6 @@
       <Project>{da73d46c-c22e-4716-9af0-2cb3a983acb1}</Project>
       <Name>CineTeatroItalianoLobos.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CineTeatroItalianoLobos.Reports\CineTeatroItalianoLobos.Reports.csproj">
-      <Project>{0231696d-3031-409f-8385-a79cce9c5f08}</Project>
-      <Name>CineTeatroItalianoLobos.Reports</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CineTeatroItalianoLobos.Services\CineTeatroItalianoLobos.Services.csproj">
       <Project>{4b0fa9f3-d79c-4a29-9f2a-33aa8e29438d}</Project>
       <Name>CineTeatroItalianoLobos.Services</Name>

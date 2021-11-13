@@ -29,9 +29,9 @@ namespace CineTeatroItalianoLobos.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.clmClasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,12 +48,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
+            this.BuscarTxt = new System.Windows.Forms.ToolStripTextBox();
             this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
-            this.BuscarTxt = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,8 +92,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.AllowUserToAddRows = false;
             this.DatosDataGridView.AllowUserToResizeColumns = false;
             this.DatosDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DatosDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DatosDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DatosDataGridView.BackgroundColor = System.Drawing.Color.Silver;
             this.DatosDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DatosDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
@@ -106,13 +105,13 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
             this.DatosDataGridView.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DatosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DatosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(620, 305);
@@ -121,8 +120,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // clmClasificacion
             // 
             this.clmClasificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clmClasificacion.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clmClasificacion.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmClasificacion.HeaderText = "Clasificacion";
             this.clmClasificacion.Name = "clmClasificacion";
             this.clmClasificacion.ReadOnly = true;
@@ -204,9 +203,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.toolStripSeparator1,
             this.tsbBuscar,
             this.BuscarTxt,
-            this.tsbActualizar,
             this.toolStripSeparator2,
-            this.tsbImprimir,
+            this.tsbActualizar,
             this.toolStripSeparator3,
             this.tsbCerrar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -268,6 +266,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
             // 
+            // BuscarTxt
+            // 
+            this.BuscarTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BuscarTxt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BuscarTxt.MaxLength = 50;
+            this.BuscarTxt.Name = "BuscarTxt";
+            this.BuscarTxt.Size = new System.Drawing.Size(80, 57);
+            // 
             // tsbActualizar
             // 
             this.tsbActualizar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,17 +291,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
             // 
-            // tsbImprimir
-            // 
-            this.tsbImprimir.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbImprimir.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.print_50px;
-            this.tsbImprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbImprimir.Name = "tsbImprimir";
-            this.tsbImprimir.Size = new System.Drawing.Size(82, 54);
-            this.tsbImprimir.Text = "Imprimir";
-            this.tsbImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -312,14 +307,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbCerrar.Text = "Cerrar";
             this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
-            // 
-            // BuscarTxt
-            // 
-            this.BuscarTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BuscarTxt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BuscarTxt.MaxLength = 50;
-            this.BuscarTxt.Name = "BuscarTxt";
-            this.BuscarTxt.Size = new System.Drawing.Size(80, 57);
             // 
             // ClasificacionesFrm
             // 
@@ -370,7 +357,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.ToolStripButton tsbBuscar;
         private System.Windows.Forms.ToolStripButton tsbActualizar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton tsbImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbCerrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmClasificacion;
