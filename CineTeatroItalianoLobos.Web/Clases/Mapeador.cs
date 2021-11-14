@@ -1,7 +1,9 @@
 ﻿using CineTeatroItalianoLobos.Entities;
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
+using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
+using CineTeatroItalianoLobos.Web.Models.Ubicacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,6 +102,50 @@ namespace CineTeatroItalianoLobos.Web.Clases
             };
         }
         #endregion
+        #region Ubicaciones
+        public static List<UbicacionListVm> ConstruirListaUbicacionVm(List<Ubicacion> lista)
+        {
+            List<UbicacionListVm> listaVm = new List<UbicacionListVm>();
+            foreach (var u in lista)
+            {
+                var ubicacionVm = ConstruirUbicacionListVm(u);
+                listaVm.Add(ubicacionVm);
+            }
+            return listaVm;
+        }
+        public static UbicacionEditVm ConstruirUbicacionEditVm(Ubicacion u)
+        {
+            return new UbicacionEditVm()
+            {
+                UbicacionId = u.UbicacionId,
+                Descripcion = u.Descripcion
+            };
+        }
+        public static Ubicacion ConstruirUbicacion(UbicacionEditVm ubicacionEditVm)
+        {
+            return new Ubicacion()
+            {
+                UbicacionId = ubicacionEditVm.UbicacionId,
+                Descripcion = ubicacionEditVm.Descripcion
+            };
+        }
+        public static UbicacionDetail ConstruirUbicacionDetail(Ubicacion u)
+        {
+            return new UbicacionDetail()
+            {
+                UbicacionId = u.UbicacionId,
+                Descripcion = u.Descripcion
+            };
+        }
+        public static UbicacionListVm ConstruirUbicacionListVm(Ubicacion u)
+        {
+            return new UbicacionListVm()
+            {
+                UbicacionId = u.UbicacionId,
+                Descripcion=u.Descripcion
+            };
+        }
+        #endregion
         #region Eventos
         public static List<EventoListVm> ConstruirListaEventosVm(List<Evento> lista)
         {
@@ -123,6 +169,30 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 TipoEvento=e.TipoEvento.Descripcion,
                 Clasificacion=e.Clasificacion.Descripcion,
                 Distribucion=e.Distribucion.Descripcion
+            };
+        }
+        #endregion
+        #region Localidades
+        public static List<LocalidadListVm> ConstruirListaLocalidadesVm(List<Localidad> lista)
+        {
+            var listaVm = new List<LocalidadListVm>();
+            foreach (var l in lista)
+            {
+                var localidadListVm = ConstruirLocalidadListVm(l);
+                listaVm.Add(localidadListVm);
+            }
+            return listaVm;
+        }
+
+        public static LocalidadListVm ConstruirLocalidadListVm(Localidad l)
+        {
+            return new LocalidadListVm()
+            {
+                LocalidadId = l.LocalidadId,
+                Fila=l.Fila,
+                Numero=l.Numero,
+                Planta=l.Planta.Descripcion,
+                Ubicacion=l.Ubicacion.Descripcion
             };
         }
         #endregion

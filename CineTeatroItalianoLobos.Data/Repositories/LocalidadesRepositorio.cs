@@ -214,5 +214,39 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 throw new Exception(e.Message);
             }
         }
+
+        public int GetCantidad(Func<Localidad, bool> p)
+        {
+            try
+            {
+                return _context.Localidades.Count(p);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Localidad> Find(Func<Localidad, bool> p, int? cantidadPorPagina, int? paginaActual)
+        {
+            try
+            {
+                IEnumerable<Localidad> query = _context.Localidades
+                   .Include(l => l.Ubicacion).AsEnumerable()
+                   .Where(p)
+                   .OrderBy(l => l.Numero);
+                if (cantidadPorPagina.HasValue && paginaActual.HasValue)
+                {
+                    query = query.Skip(cantidadPorPagina.Value * (paginaActual.Value - 1))
+                        .Take(cantidadPorPagina.Value);
+                }
+                return query.ToList();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al leer");
+            }
+        }
     }
 }

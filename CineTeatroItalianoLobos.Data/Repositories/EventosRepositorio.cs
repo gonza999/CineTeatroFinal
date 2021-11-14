@@ -217,7 +217,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 IEnumerable<Evento> query = _context.Eventos
-                   .Include(c => c.TipoEvento).AsEnumerable()
+                   .Include(e => e.TipoEvento).AsEnumerable()
                    .Where(predicate)
                    .OrderBy(p => p.NombreEvento);
                 if (cantidadPorPagina.HasValue && paginaActual.HasValue)
