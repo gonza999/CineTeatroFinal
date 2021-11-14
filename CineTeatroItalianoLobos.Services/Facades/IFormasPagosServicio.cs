@@ -18,5 +18,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Borrar(int id);
         FormaPago GetFormaPago(string nombreFormaPago);
         List<FormaPago> BuscarFormaPago(string formaPago);
+        List<FormaPago> GetLista();
     }
 }

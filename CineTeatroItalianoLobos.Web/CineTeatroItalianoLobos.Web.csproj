@@ -156,6 +156,7 @@
     <Compile Include="Clases\PaginadorGenerico.cs" />
     <Compile Include="Controllers\ClasificacionController.cs" />
     <Compile Include="Controllers\DistribucionController.cs" />
+    <Compile Include="Controllers\FormaPagoController.cs" />
     <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
@@ -171,6 +172,9 @@
     <Compile Include="Models\Distribucion\DistribucionEditVm.cs" />
     <Compile Include="Models\Distribucion\DistribucionListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
+    <Compile Include="Models\FormaPago\FormaPagoDetail.cs" />
+    <Compile Include="Models\FormaPago\FormaPagoEditVm.cs" />
+    <Compile Include="Models\FormaPago\FormaPagoListVm.cs" />
     <Compile Include="Models\FormaVenta\FormaVentaDetail.cs" />
     <Compile Include="Models\FormaVenta\FormaVentaEditVm.cs" />
     <Compile Include="Models\FormaVenta\FormaVentaListVm.cs" />
@@ -254,6 +258,10 @@
     <Content Include="Views\FormaVenta\Create.cshtml" />
     <Content Include="Views\FormaVenta\Edit.cshtml" />
     <Content Include="Views\FormaVenta\Delete.cshtml" />
+    <Content Include="Views\FormaPago\Index.cshtml" />
+    <Content Include="Views\FormaPago\Create.cshtml" />
+    <Content Include="Views\FormaPago\Edit.cshtml" />
+    <Content Include="Views\FormaPago\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

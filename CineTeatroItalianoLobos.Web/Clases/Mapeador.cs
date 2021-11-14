@@ -2,6 +2,7 @@
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Distribucion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
+using CineTeatroItalianoLobos.Web.Models.FormaPago;
 using CineTeatroItalianoLobos.Web.Models.FormaVenta;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.Planta;
@@ -234,6 +235,51 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new FormaVentaEditVm()
             {
                 FormaVentaId = c.FormaVentaId,
+                Descripcion = c.Descripcion
+            };
+        }
+        #endregion
+        #region FormasPagos
+        public static FormaPagoDetail ConstruirFormaPagoDetailsVm(FormaPago formaPago)
+        {
+            return new FormaPagoDetail()
+            {
+                FormaPagoId = formaPago.FormaPagoId,
+                Descripcion = formaPago.Descripcion
+            };
+        }
+        public static FormaPago ContruirFormaPago(FormaPagoEditVm formaPagoEditVm)
+        {
+            return new FormaPago()
+            {
+                FormaPagoId = formaPagoEditVm.FormaPagoId,
+                Descripcion = formaPagoEditVm.Descripcion
+            };
+        }
+        public static List<FormaPagoListVm> ConstruirListaFormaPagoVm(List<FormaPago> lista)
+        {
+            var listaVm = new List<FormaPagoListVm>();
+            foreach (var c in lista)
+            {
+                var formaPagoListVm = ConstruirFormaPagoListVm(c);
+                listaVm.Add(formaPagoListVm);
+            }
+            return listaVm;
+        }
+
+        public static FormaPagoListVm ConstruirFormaPagoListVm(FormaPago c)
+        {
+            return new FormaPagoListVm()
+            {
+                FormaPagoId = c.FormaPagoId,
+                Descripcion = c.Descripcion
+            };
+        }
+        public static FormaPagoEditVm ConstruirFormaPagoEditVm(FormaPago c)
+        {
+            return new FormaPagoEditVm()
+            {
+                FormaPagoId = c.FormaPagoId,
                 Descripcion = c.Descripcion
             };
         }

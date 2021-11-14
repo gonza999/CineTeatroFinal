@@ -7,5 +7,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
     {
         FormaPago GetFormaPago(string nombreFormaPago);
         List<FormaPago> BuscarFormaPago(string formaPago);
+        List<FormaPago> GetLista();
     }
 }
