@@ -54,7 +54,7 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             {
                 if (_servicio.Existe(planta))
                 {
-                    ModelState.AddModelError(string.Empty, "Tipo de Localidad existente");
+                    ModelState.AddModelError(string.Empty, "Planta existente");
                     return View(plantaEditVm);
                 }
                 _servicio.Guardar(planta);

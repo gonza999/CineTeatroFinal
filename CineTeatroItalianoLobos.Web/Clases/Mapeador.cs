@@ -1,5 +1,6 @@
 ﻿using CineTeatroItalianoLobos.Entities;
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
+using CineTeatroItalianoLobos.Web.Models.Distribucion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.Planta;
@@ -238,6 +239,51 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Numero=l.Numero,
                 Planta=l.Planta.Descripcion,
                 Ubicacion=l.Ubicacion.Descripcion
+            };
+        }
+        #endregion
+        #region Distribuciones
+        public static DistribucionDetail ConstruirDistribucionDetailsVm(Distribucion distribucion)
+        {
+            return new DistribucionDetail()
+            {
+                DistribucionId = distribucion.DistribucionId,
+                Descripcion = distribucion.Descripcion
+            };
+        }
+        public static Distribucion ContruirDistribucion(DistribucionEditVm distribucionEditVm)
+        {
+            return new Distribucion()
+            {
+                DistribucionId = distribucionEditVm.DistribucionId,
+                Descripcion = distribucionEditVm.Descripcion
+            };
+        }
+        public static List<DistribucionListVm> ConstruirListaDistribucionVm(List<Distribucion> lista)
+        {
+            var listaVm = new List<DistribucionListVm>();
+            foreach (var c in lista)
+            {
+                var distribucionListVm = ConstruirDistribucionListVm(c);
+                listaVm.Add(distribucionListVm);
+            }
+            return listaVm;
+        }
+
+        public static DistribucionListVm ConstruirDistribucionListVm(Distribucion c)
+        {
+            return new DistribucionListVm()
+            {
+                DistribucionId = c.DistribucionId,
+                Descripcion = c.Descripcion
+            };
+        }
+        public static DistribucionEditVm ConstruirDistribucionEditVm(Distribucion c)
+        {
+            return new DistribucionEditVm()
+            {
+                DistribucionId = c.DistribucionId,
+                Descripcion = c.Descripcion
             };
         }
         #endregion

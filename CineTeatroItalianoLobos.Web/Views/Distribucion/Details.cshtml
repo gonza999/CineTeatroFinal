@@ -1,0 +1,68 @@
+﻿@model CineTeatroItalianoLobos.Web.Models.Distribucion.DistribucionDetail
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<h3 class="well">Distribuciones</h3>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Descripcion)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Descripcion)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CantidadEventos)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CantidadEventos)
+    </dd>
+</dl>
+
+<p>
+    <a href="@Url.Action("AddEvento","Distribucion",new { id=Model.DistribucionId})" class="btn btn-primary">Agregar Evento</a>
+    <a href="@Url.Action("Edit","Distribucion",new { id=Model.DistribucionId})" class="btn btn-warning">Editar Distribucion</a>
+    <a href="@Url.Action("Index","Distribucion")" class="btn btn-success">Volver</a>
+</p>
+
+<h3 class="well">Eventos</h3>
+<table class="table table-bordered table-hover table-striped">
+    <thead style="background-color:darkgray">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Eventos[0].NombreEvento)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Eventos.Any())
+        {
+            foreach (var item in Model.Eventos)
+            {
+                <tr>
+                    <td>
+                        @item.NombreEvento
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditEvento","Evento",new {id=item.EventoId})" class="btn btn-warning">Editar</a>
+                        <a href="@Url.Action("DeleteEvento","Evento",new {id=item.EventoId})" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    No se han agregado eventos todavia
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

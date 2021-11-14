@@ -155,6 +155,7 @@
     <Compile Include="Clases\Operacion.cs" />
     <Compile Include="Clases\PaginadorGenerico.cs" />
     <Compile Include="Controllers\ClasificacionController.cs" />
+    <Compile Include="Controllers\DistribucionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
@@ -165,6 +166,9 @@
     <Compile Include="Models\Clasificacion\ClasificacionDetail.cs" />
     <Compile Include="Models\Clasificacion\ClasificacionEditVm.cs" />
     <Compile Include="Models\Clasificacion\ClasificacionListVm.cs" />
+    <Compile Include="Models\Distribucion\DistribucionDetail.cs" />
+    <Compile Include="Models\Distribucion\DistribucionEditVm.cs" />
+    <Compile Include="Models\Distribucion\DistribucionListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\Localidad\LocalidadListVm.cs" />
     <Compile Include="Models\Planta\PlantaDetail.cs" />
@@ -236,6 +240,11 @@
     <Content Include="Views\Planta\Edit.cshtml" />
     <Content Include="Views\Planta\Delete.cshtml" />
     <Content Include="Views\Planta\Details.cshtml" />
+    <Content Include="Views\Distribucion\Index.cshtml" />
+    <Content Include="Views\Distribucion\Create.cshtml" />
+    <Content Include="Views\Distribucion\Edit.cshtml" />
+    <Content Include="Views\Distribucion\Delete.cshtml" />
+    <Content Include="Views\Distribucion\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

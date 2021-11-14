@@ -54,7 +54,7 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             {
                 if (_servicio.Existe(clasificacion))
                 {
-                    ModelState.AddModelError(string.Empty, "Tipo de Evento existente");
+                    ModelState.AddModelError(string.Empty, "Clasificacion existente");
                     return View(clasificacionEditVm);
                 }
                 _servicio.Guardar(clasificacion);
