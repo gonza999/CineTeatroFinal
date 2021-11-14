@@ -156,6 +156,7 @@
     <Compile Include="Clases\PaginadorGenerico.cs" />
     <Compile Include="Controllers\ClasificacionController.cs" />
     <Compile Include="Controllers\DistribucionController.cs" />
+    <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
@@ -170,10 +171,14 @@
     <Compile Include="Models\Distribucion\DistribucionEditVm.cs" />
     <Compile Include="Models\Distribucion\DistribucionListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
+    <Compile Include="Models\FormaVenta\FormaVentaDetail.cs" />
+    <Compile Include="Models\FormaVenta\FormaVentaEditVm.cs" />
+    <Compile Include="Models\FormaVenta\FormaVentaListVm.cs" />
     <Compile Include="Models\Localidad\LocalidadListVm.cs" />
     <Compile Include="Models\Planta\PlantaDetail.cs" />
     <Compile Include="Models\Planta\PlantaEditVm.cs" />
     <Compile Include="Models\Planta\PlantaListVm.cs" />
+    <Compile Include="Models\Ticket\TicketListVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoDetail.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoEditVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoListVm.cs" />
@@ -245,6 +250,10 @@
     <Content Include="Views\Distribucion\Edit.cshtml" />
     <Content Include="Views\Distribucion\Delete.cshtml" />
     <Content Include="Views\Distribucion\Details.cshtml" />
+    <Content Include="Views\FormaVenta\Index.cshtml" />
+    <Content Include="Views\FormaVenta\Create.cshtml" />
+    <Content Include="Views\FormaVenta\Edit.cshtml" />
+    <Content Include="Views\FormaVenta\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

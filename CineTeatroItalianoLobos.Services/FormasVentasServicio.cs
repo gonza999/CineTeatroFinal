@@ -133,5 +133,18 @@ namespace CineTeatroItalianoLobos.Services
                 throw new Exception(e.Message);
             }
         }
+
+        public List<FormaVenta> GetLista()
+        {
+            try
+            {
+                return _repositorio.GetLista();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

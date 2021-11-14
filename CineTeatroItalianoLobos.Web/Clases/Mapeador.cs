@@ -2,6 +2,7 @@
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Distribucion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
+using CineTeatroItalianoLobos.Web.Models.FormaVenta;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.Planta;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
@@ -189,6 +190,51 @@ namespace CineTeatroItalianoLobos.Web.Clases
             {
                 PlantaId = u.PlantaId,
                 Descripcion = u.Descripcion
+            };
+        }
+        #endregion
+        #region FormasVentas
+        public static FormaVentaDetail ConstruirFormaVentaDetailsVm(FormaVenta formaVenta)
+        {
+            return new FormaVentaDetail()
+            {
+                FormaVentaId = formaVenta.FormaVentaId,
+                Descripcion = formaVenta.Descripcion
+            };
+        }
+        public static FormaVenta ContruirFormaVenta(FormaVentaEditVm formaVentaEditVm)
+        {
+            return new FormaVenta()
+            {
+                FormaVentaId = formaVentaEditVm.FormaVentaId,
+                Descripcion = formaVentaEditVm.Descripcion
+            };
+        }
+        public static List<FormaVentaListVm> ConstruirListaFormaVentaVm(List<FormaVenta> lista)
+        {
+            var listaVm = new List<FormaVentaListVm>();
+            foreach (var c in lista)
+            {
+                var formaVentaListVm = ConstruirFormaVentaListVm(c);
+                listaVm.Add(formaVentaListVm);
+            }
+            return listaVm;
+        }
+
+        public static FormaVentaListVm ConstruirFormaVentaListVm(FormaVenta c)
+        {
+            return new FormaVentaListVm()
+            {
+                FormaVentaId = c.FormaVentaId,
+                Descripcion = c.Descripcion
+            };
+        }
+        public static FormaVentaEditVm ConstruirFormaVentaEditVm(FormaVenta c)
+        {
+            return new FormaVentaEditVm()
+            {
+                FormaVentaId = c.FormaVentaId,
+                Descripcion = c.Descripcion
             };
         }
         #endregion
