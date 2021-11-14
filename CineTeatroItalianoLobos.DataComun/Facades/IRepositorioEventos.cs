@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace CineTeatroItalianoLobos.DataComun.Facades
@@ -8,5 +9,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         List<Evento> BuscarEvento(string text);
         void AnularEvento(int eventoId);
         List<Evento> GetLista();
+        int GetCantidad(Func<Evento, bool> p);
     }
 }

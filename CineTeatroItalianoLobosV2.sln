@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.DataComun", "CineTeatroItalianoLobos.DataComun\CineTeatroItalianoLobos.DataComun.csproj", "{7E43A6A9-CF20-4530-B05F-DE2C092F9260}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineTeatroItalianoLobos.Web", "CineTeatroItalianoLobos.Web\CineTeatroItalianoLobos.Web.csproj", "{D3EE5274-6EBC-41CD-A3AE-F49392654694}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E43A6A9-CF20-4530-B05F-DE2C092F9260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EE5274-6EBC-41CD-A3AE-F49392654694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EE5274-6EBC-41CD-A3AE-F49392654694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EE5274-6EBC-41CD-A3AE-F49392654694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EE5274-6EBC-41CD-A3AE-F49392654694}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

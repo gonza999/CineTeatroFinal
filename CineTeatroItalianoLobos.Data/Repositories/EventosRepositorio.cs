@@ -199,5 +199,17 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
             }
         }
+
+        public int GetCantidad(Func<Evento, bool> p)
+        {
+            try
+            {
+                return _context.Eventos.Count(p);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
