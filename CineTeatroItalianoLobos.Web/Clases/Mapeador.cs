@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using System;
@@ -21,7 +22,6 @@ namespace CineTeatroItalianoLobos.Web.Clases
             }
             return listaVm;
         }
-
         public static TipoEventoListVm ConstruirTipoEventoListVm(TipoEvento te)
         {
             return new TipoEventoListVm()
@@ -30,7 +30,6 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Descripcion=te.Descripcion
             };
         }
-
         public static TipoEvento ContruirTipoEvento(TipoEventoEditVm tipoEventoEditVm)
         {
             return new TipoEvento()
@@ -39,7 +38,6 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Descripcion = tipoEventoEditVm.Descripcion
             };
         }
-
         public static TipoEventoEditVm ConstruirTipoEventoEditVm(TipoEvento tipoEvento)
         {
             return new TipoEventoEditVm()
@@ -48,7 +46,6 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Descripcion = tipoEvento.Descripcion
             };
         }
-
         public static TipoEventoDetail ConstruirTipoEventoDetailsVm(TipoEvento tipoEvento)
         {
             return new TipoEventoDetail()
@@ -57,9 +54,52 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Descripcion = tipoEvento.Descripcion
             };
         }
-
         #endregion
+        #region Clasificaciones
+        public static ClasificacionDetail ConstruirClasificacionDetailsVm(Clasificacion clasificacion)
+        {
+            return new ClasificacionDetail()
+            {
+                ClasificacionId = clasificacion.ClasificacionId,
+                Descripcion = clasificacion.Descripcion
+            }; 
+        }
+        public static Clasificacion ContruirClasificacion(ClasificacionEditVm clasificacionEditVm)
+        {
+            return new Clasificacion()
+            {
+                ClasificacionId = clasificacionEditVm.ClasificacionId,
+                Descripcion = clasificacionEditVm.Descripcion
+            };
+        }
+        public static List<ClasificacionListVm> ConstruirListaClasificacionVm(List<Clasificacion> lista)
+        {
+            var listaVm =new List<ClasificacionListVm>();
+            foreach (var c in lista)
+            {
+                var clasificacionListVm = ConstruirClasificacionListVm(c);
+                listaVm.Add(clasificacionListVm);
+            }
+            return listaVm;
+        }
 
+        public static ClasificacionListVm ConstruirClasificacionListVm(Clasificacion c)
+        {
+            return new ClasificacionListVm()
+            {
+                ClasificacionId = c.ClasificacionId,
+                Descripcion=c.Descripcion
+            };
+        }
+        public static ClasificacionEditVm ConstruirClasificacionEditVm(Clasificacion c)
+        {
+            return new ClasificacionEditVm()
+            {
+                ClasificacionId = c.ClasificacionId,
+                Descripcion = c.Descripcion
+            };
+        }
+        #endregion
         #region Eventos
         public static List<EventoListVm> ConstruirListaEventosVm(List<Evento> lista)
         {

@@ -154,11 +154,15 @@
     <Compile Include="Clases\Mapeador.cs" />
     <Compile Include="Clases\Operacion.cs" />
     <Compile Include="Clases\PaginadorGenerico.cs" />
+    <Compile Include="Controllers\ClasificacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Clasificacion\ClasificacionDetail.cs" />
+    <Compile Include="Models\Clasificacion\ClasificacionEditVm.cs" />
+    <Compile Include="Models\Clasificacion\ClasificacionListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoDetail.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoEditVm.cs" />
@@ -208,6 +212,11 @@
     <Content Include="Views\TipoEvento\Edit.cshtml" />
     <Content Include="Views\TipoEvento\Delete.cshtml" />
     <Content Include="Views\TipoEvento\Details.cshtml" />
+    <Content Include="Views\Clasificacion\Index.cshtml" />
+    <Content Include="Views\Clasificacion\Create.cshtml" />
+    <Content Include="Views\Clasificacion\Edit.cshtml" />
+    <Content Include="Views\Clasificacion\Delete.cshtml" />
+    <Content Include="Views\Clasificacion\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

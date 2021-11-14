@@ -1,10 +1,10 @@
-﻿@model CineTeatroItalianoLobos.Web.Models.TipoEvento.TipoEventoDetail
+﻿@model CineTeatroItalianoLobos.Web.Models.Clasificacion.ClasificacionDetail
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Detalles</h2>
-<h3 class="well">Tipos de Eventos</h3>
+<h3 class="well">Clasificaciones</h3>
 <dl class="dl-horizontal">
     <dt>
         @Html.DisplayNameFor(model => model.Descripcion)
@@ -21,9 +21,9 @@
 </dl>
 
 <p>
-    <a href="@Url.Action("AddEvento","TipoEvento",new { id=Model.TipoEventoId})" class="btn btn-primary">Agregar Evento</a>
-    <a href="@Url.Action("Edit","TipoEvento",new { id=Model.TipoEventoId})" class="btn btn-warning">Editar Tipo de Evento</a>
-    <a href="@Url.Action("Index","TipoEvento")" class="btn btn-success">Volver</a>
+    <a href="@Url.Action("AddEvento","Clasificacion",new { id=Model.ClasificacionId})" class="btn btn-primary">Agregar Evento</a>
+    <a href="@Url.Action("Edit","Clasificacion",new { id=Model.ClasificacionId})" class="btn btn-warning">Editar Clasificacion</a>
+    <a href="@Url.Action("Index","Clasificacion")" class="btn btn-success">Volver</a>
 </p>
 
 <h3 class="well">Eventos</h3>

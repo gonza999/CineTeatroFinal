@@ -1,0 +1,52 @@
+﻿@model PagedList.IPagedList<CineTeatroItalianoLobos.Web.Models.Clasificacion.ClasificacionListVm>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Clasificaciones</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CantidadEventos)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadEventos)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ClasificacionId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.ClasificacionId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.ClasificacionId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Página: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber), de: @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))
+
+
