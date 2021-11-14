@@ -1,11 +1,13 @@
 ﻿using CineTeatroItalianoLobos.Entities;
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Distribucion;
+using CineTeatroItalianoLobos.Web.Models.Empleado;
 using CineTeatroItalianoLobos.Web.Models.Evento;
 using CineTeatroItalianoLobos.Web.Models.FormaPago;
 using CineTeatroItalianoLobos.Web.Models.FormaVenta;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.Planta;
+using CineTeatroItalianoLobos.Web.Models.TipoDocumento;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using CineTeatroItalianoLobos.Web.Models.Ubicacion;
 using System;
@@ -33,7 +35,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new TipoEventoListVm()
             {
                 TipoEventoId = te.TipoEventoId,
-                Descripcion=te.Descripcion
+                Descripcion = te.Descripcion
             };
         }
         public static TipoEvento ContruirTipoEvento(TipoEventoEditVm tipoEventoEditVm)
@@ -68,7 +70,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
             {
                 ClasificacionId = clasificacion.ClasificacionId,
                 Descripcion = clasificacion.Descripcion
-            }; 
+            };
         }
         public static Clasificacion ContruirClasificacion(ClasificacionEditVm clasificacionEditVm)
         {
@@ -80,7 +82,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
         }
         public static List<ClasificacionListVm> ConstruirListaClasificacionVm(List<Clasificacion> lista)
         {
-            var listaVm =new List<ClasificacionListVm>();
+            var listaVm = new List<ClasificacionListVm>();
             foreach (var c in lista)
             {
                 var clasificacionListVm = ConstruirClasificacionListVm(c);
@@ -94,7 +96,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new ClasificacionListVm()
             {
                 ClasificacionId = c.ClasificacionId,
-                Descripcion=c.Descripcion
+                Descripcion = c.Descripcion
             };
         }
         public static ClasificacionEditVm ConstruirClasificacionEditVm(Clasificacion c)
@@ -146,7 +148,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new UbicacionListVm()
             {
                 UbicacionId = u.UbicacionId,
-                Descripcion=u.Descripcion
+                Descripcion = u.Descripcion
             };
         }
         #endregion
@@ -284,6 +286,77 @@ namespace CineTeatroItalianoLobos.Web.Clases
             };
         }
         #endregion
+        #region TiposDocumentos
+        public static List<TipoDocumentoListVm> ConstruirListaTipoDocumentoVm(List<TipoDocumento> lista)
+        {
+            var listaVm = new List<TipoDocumentoListVm>();
+            foreach (var te in lista)
+            {
+                var tipoDocumentoListVm = ConstruirTipoDocumentoListVm(te);
+                listaVm.Add(tipoDocumentoListVm);
+            }
+            return listaVm;
+        }
+        public static TipoDocumentoListVm ConstruirTipoDocumentoListVm(TipoDocumento te)
+        {
+            return new TipoDocumentoListVm()
+            {
+                TipoDocumentoId = te.TipoDocumentoId,
+                Descripcion = te.Descripcion
+            };
+        }
+        public static TipoDocumento ContruirTipoDocumento(TipoDocumentoEditVm tipoDocumentoEditVm)
+        {
+            return new TipoDocumento()
+            {
+                TipoDocumentoId = tipoDocumentoEditVm.TipoDocumentoId,
+                Descripcion = tipoDocumentoEditVm.Descripcion
+            };
+        }
+        public static TipoDocumentoEditVm ConstruirTipoDocumentoEditVm(TipoDocumento tipoDocumento)
+        {
+            return new TipoDocumentoEditVm()
+            {
+                TipoDocumentoId = tipoDocumento.TipoDocumentoId,
+                Descripcion = tipoDocumento.Descripcion
+            };
+        }
+        public static TipoDocumentoDetail ConstruirTipoDocumentoDetailsVm(TipoDocumento tipoDocumento)
+        {
+            return new TipoDocumentoDetail()
+            {
+                TipoDocumentoId = tipoDocumento.TipoDocumentoId,
+                Descripcion = tipoDocumento.Descripcion
+            };
+        }
+        #endregion
+        #region Empleados 
+        public static List<EmpleadoListVm> ConstruirListaEmpleadosVm(List<Empleado> lista)
+        {
+            var listaVm = new List<EmpleadoListVm>();
+            foreach (var e in lista)
+            {
+                var empleadoListVm = ConstruirEmpleadoListVm(e);
+                listaVm.Add(empleadoListVm);
+            }
+            return listaVm;
+        }
+
+        public static EmpleadoListVm ConstruirEmpleadoListVm(Empleado e)
+        {
+            return new EmpleadoListVm()
+            {
+                EmpleadoId = e.EmpleadoId,
+                Nombre=e.Nombre,
+                Apellido=e.Apellido,
+                NroDocumento=e.NroDocumento,
+                TipoDocumento=e.TipoDocumento.Descripcion,
+                Mail=e.Mail,
+                TelefonoFijo=e.TelefonoFijo,
+                TelefonoMovil=e.TelefonoMovil
+            };
+        }
+        #endregion
         #region Eventos
         public static List<EventoListVm> ConstruirListaEventosVm(List<Evento> lista)
         {
@@ -301,12 +374,12 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new EventoListVm()
             {
                 EventoId = e.EventoId,
-                NombreEvento=e.NombreEvento,
-                Descripcion=e.Descripcion,
-                Suspendido=e.Suspendido,
-                TipoEvento=e.TipoEvento.Descripcion,
-                Clasificacion=e.Clasificacion.Descripcion,
-                Distribucion=e.Distribucion.Descripcion
+                NombreEvento = e.NombreEvento,
+                Descripcion = e.Descripcion,
+                Suspendido = e.Suspendido,
+                TipoEvento = e.TipoEvento.Descripcion,
+                Clasificacion = e.Clasificacion.Descripcion,
+                Distribucion = e.Distribucion.Descripcion
             };
         }
         #endregion
@@ -327,10 +400,10 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new LocalidadListVm()
             {
                 LocalidadId = l.LocalidadId,
-                Fila=l.Fila,
-                Numero=l.Numero,
-                Planta=l.Planta.Descripcion,
-                Ubicacion=l.Ubicacion.Descripcion
+                Fila = l.Fila,
+                Numero = l.Numero,
+                Planta = l.Planta.Descripcion,
+                Ubicacion = l.Ubicacion.Descripcion
             };
         }
         #endregion

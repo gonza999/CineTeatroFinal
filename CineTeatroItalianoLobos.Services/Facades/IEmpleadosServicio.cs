@@ -18,5 +18,7 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Borrar(int id);
         Empleado GetEmpleado(string nombreEmpleado);
         List<Empleado> BuscarEmpleado(string empleado, int v);
+        int GetCantidad(Func<Empleado, bool> p);
+        List<Empleado> Find(Func<Empleado, bool> p, int? cantidadPorPagina, int? paginaActual);
     }
 }

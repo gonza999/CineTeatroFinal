@@ -1,0 +1,86 @@
+﻿@model CineTeatroItalianoLobos.Web.Models.TipoDocumento.TipoDocumentoDetail
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<h3 class="well">Tipos de Documentos</h3>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Descripcion)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Descripcion)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CantidadEmpleados)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CantidadEmpleados)
+    </dd>
+</dl>
+
+<p>
+    <a href="@Url.Action("AddEmpleado","TipoDocumento",new { id=Model.TipoDocumentoId})" class="btn btn-primary">Agregar Empleado</a>
+    <a href="@Url.Action("Edit","TipoDocumento",new { id=Model.TipoDocumentoId})" class="btn btn-warning">Editar Tipo de Documento</a>
+    <a href="@Url.Action("Index","TipoDocumento")" class="btn btn-success">Volver</a>
+</p>
+
+<h3 class="well">Empleados</h3>
+<table class="table table-bordered table-hover table-striped">
+    <thead style="background-color:darkgray">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Empleados[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Empleados[0].Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Empleados[0].NroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Empleados[0].Mail)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Empleados.Any())
+        {
+            foreach (var item in Model.Empleados)
+            {
+        <tr>
+            <td>
+                @item.Nombre
+            </td>
+            <td>
+                @item.Apellido
+            </td>
+            <td>
+                @item.NroDocumento
+            </td>
+            <td>
+                @item.Mail
+            </td>
+            <td>
+                <a href="@Url.Action("EditEmpleado","Empleado",new {id=item.EmpleadoId})" class="btn btn-warning">Editar</a>
+                <a href="@Url.Action("DeleteEmpleado","Empleado",new {id=item.EmpleadoId})" class="btn btn-danger">Borrar</a>
+            </td>
+        </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" style="text-align:center">
+                    No se han agregado empleados todavia
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -191,5 +191,39 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 throw new Exception("Error al intentar guardar un registro");
             }
         }
+
+        public int GetCantidad(Func<Empleado, bool> p)
+        {
+            try
+            {
+                return _context.Empleados.Count(p);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Empleado> Find(Func<Empleado, bool> p, int? cantidadPorPagina, int? paginaActual)
+        {
+            try
+            {
+                IEnumerable<Empleado> query = _context.Empleados
+                   .Include(e => e.TipoDocumento).AsEnumerable()
+                   .Where(p)
+                   .OrderBy(e => e.Apellido);
+                if (cantidadPorPagina.HasValue && paginaActual.HasValue)
+                {
+                    query = query.Skip(cantidadPorPagina.Value * (paginaActual.Value - 1))
+                        .Take(cantidadPorPagina.Value);
+                }
+                return query.ToList();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al leer");
+            }
+        }
     }
 }

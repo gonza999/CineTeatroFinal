@@ -160,6 +160,7 @@
     <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
+    <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
     <Compile Include="Controllers\UbicacionController.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,6 +172,7 @@
     <Compile Include="Models\Distribucion\DistribucionDetail.cs" />
     <Compile Include="Models\Distribucion\DistribucionEditVm.cs" />
     <Compile Include="Models\Distribucion\DistribucionListVm.cs" />
+    <Compile Include="Models\Empleado\EmpleadoListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\FormaPago\FormaPagoDetail.cs" />
     <Compile Include="Models\FormaPago\FormaPagoEditVm.cs" />
@@ -183,6 +185,9 @@
     <Compile Include="Models\Planta\PlantaEditVm.cs" />
     <Compile Include="Models\Planta\PlantaListVm.cs" />
     <Compile Include="Models\Ticket\TicketListVm.cs" />
+    <Compile Include="Models\TipoDocumento\TipoDocumentoDetail.cs" />
+    <Compile Include="Models\TipoDocumento\TipoDocumentoEditVm.cs" />
+    <Compile Include="Models\TipoDocumento\TipoDocumentoListVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoDetail.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoEditVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoListVm.cs" />
@@ -262,6 +267,11 @@
     <Content Include="Views\FormaPago\Create.cshtml" />
     <Content Include="Views\FormaPago\Edit.cshtml" />
     <Content Include="Views\FormaPago\Delete.cshtml" />
+    <Content Include="Views\TipoDocumento\Index.cshtml" />
+    <Content Include="Views\TipoDocumento\Create.cshtml" />
+    <Content Include="Views\TipoDocumento\Edit.cshtml" />
+    <Content Include="Views\TipoDocumento\Delete.cshtml" />
+    <Content Include="Views\TipoDocumento\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
