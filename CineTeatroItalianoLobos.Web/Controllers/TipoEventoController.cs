@@ -155,22 +155,22 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             }
         }
 
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var tipoEvento = _servicio.GetTEntityPorId(id.Value);
-        //    if (tipoEvento == null)
-        //    {
-        //        return HttpNotFound("Codigo de TipoEvento Inexistente");
-        //    }
-        //    var tipoEventoDetailsVm = Mapeador.ConstruirTipoEventoDetailsVm(tipoEvento);
-        //    tipoEventoDetailsVm.CantidadEventos = _servicioEventos.GetCantidad(p => p.TipoEventoId == tipoEvento.TipoEventoId);
-        //    tipoEventoDetailsVm.Eventos = Mapeador.ConstruirListaEventosVm(_servicioEventos.Find(p => p.TipoEventoId == tipoEvento.TipoEventoId, null, null));
-        //    return View(tipoEventoDetailsVm);
-        //}
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var tipoEvento = _servicio.GetTEntityPorId(id.Value);
+            if (tipoEvento == null)
+            {
+                return HttpNotFound("Codigo de TipoEvento Inexistente");
+            }
+            var tipoEventoDetailsVm = Mapeador.ConstruirTipoEventoDetailsVm(tipoEvento);
+            tipoEventoDetailsVm.CantidadEventos = _servicioEventos.GetCantidad(e => e.TipoEventoId == tipoEvento.TipoEventoId);
+            tipoEventoDetailsVm.Eventos = Mapeador.ConstruirListaEventosVm(_servicioEventos.Find(e=>e.TipoEventoId==tipoEvento.TipoEventoId,null,null));
+            return View(tipoEventoDetailsVm);
+        }
 
         //public ActionResult AddEvento(int? id)
         //{

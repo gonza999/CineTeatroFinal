@@ -159,6 +159,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoDetail.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoEditVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoListVm.cs" />
@@ -206,6 +207,7 @@
     <Content Include="Views\TipoEvento\Create.cshtml" />
     <Content Include="Views\TipoEvento\Edit.cshtml" />
     <Content Include="Views\TipoEvento\Delete.cshtml" />
+    <Content Include="Views\TipoEvento\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

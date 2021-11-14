@@ -10,5 +10,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         void AnularEvento(int eventoId);
         List<Evento> GetLista();
         int GetCantidad(Func<Evento, bool> p);
+        List<Evento> Find(Func<Evento, bool> predicate, int? cantidadPorPagina, int? paginaActual);
     }
 }

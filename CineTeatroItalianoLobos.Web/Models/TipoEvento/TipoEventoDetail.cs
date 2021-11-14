@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Web.Models.Evento;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace CineTeatroItalianoLobos.Web.Models.TipoEvento
     {
         public int TipoEventoId { get; set; }
         public string Descripcion { get; set; }
-        public List<Evento> Productos { get; set; }
+
+        public int CantidadEventos { get; set; }
+        public List<EventoListVm> Eventos { get; set; }
     }
 }

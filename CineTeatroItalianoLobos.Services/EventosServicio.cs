@@ -73,6 +73,19 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
+        public List<Evento> Find(Func<Evento, bool> predicate, int? cantidadPorPagina, int? paginaActual)
+        {
+            try
+            {
+                return _repositorio.Find(predicate, cantidadPorPagina, paginaActual);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         public int GetCantidad()
         {
             try

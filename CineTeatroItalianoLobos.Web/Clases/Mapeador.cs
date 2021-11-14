@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Web.Models.Evento;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,42 @@ namespace CineTeatroItalianoLobos.Web.Clases
             };
         }
 
+        public static TipoEventoDetail ConstruirTipoEventoDetailsVm(TipoEvento tipoEvento)
+        {
+            return new TipoEventoDetail()
+            {
+                TipoEventoId = tipoEvento.TipoEventoId,
+                Descripcion = tipoEvento.Descripcion
+            };
+        }
+
+        #endregion
+
+        #region Eventos
+        public static List<EventoListVm> ConstruirListaEventosVm(List<Evento> lista)
+        {
+            var listaVm = new List<EventoListVm>();
+            foreach (var e in lista)
+            {
+                var eventoListVm = ConstruirEventoListVm(e);
+                listaVm.Add(eventoListVm);
+            }
+            return listaVm;
+        }
+
+        public static EventoListVm ConstruirEventoListVm(Evento e)
+        {
+            return new EventoListVm()
+            {
+                EventoId = e.EventoId,
+                NombreEvento=e.NombreEvento,
+                Descripcion=e.Descripcion,
+                Suspendido=e.Suspendido,
+                TipoEvento=e.TipoEvento.Descripcion,
+                Clasificacion=e.Clasificacion.Descripcion,
+                Distribucion=e.Distribucion.Descripcion
+            };
+        }
         #endregion
     }
 }
