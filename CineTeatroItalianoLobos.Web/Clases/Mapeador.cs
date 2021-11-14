@@ -2,6 +2,7 @@
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
+using CineTeatroItalianoLobos.Web.Models.Planta;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using CineTeatroItalianoLobos.Web.Models.Ubicacion;
 using System;
@@ -143,6 +144,50 @@ namespace CineTeatroItalianoLobos.Web.Clases
             {
                 UbicacionId = u.UbicacionId,
                 Descripcion=u.Descripcion
+            };
+        }
+        #endregion
+        #region Planta
+        public static List<PlantaListVm> ConstruirListaPlantaVm(List<Planta> lista)
+        {
+            List<PlantaListVm> listaVm = new List<PlantaListVm>();
+            foreach (var u in lista)
+            {
+                var plantaVm = ConstruirPlantaListVm(u);
+                listaVm.Add(plantaVm);
+            }
+            return listaVm;
+        }
+        public static PlantaEditVm ConstruirPlantaEditVm(Planta u)
+        {
+            return new PlantaEditVm()
+            {
+                PlantaId = u.PlantaId,
+                Descripcion = u.Descripcion
+            };
+        }
+        public static Planta ConstruirPlanta(PlantaEditVm plantaEditVm)
+        {
+            return new Planta()
+            {
+                PlantaId = plantaEditVm.PlantaId,
+                Descripcion = plantaEditVm.Descripcion
+            };
+        }
+        public static PlantaDetail ConstruirPlantaDetail(Planta u)
+        {
+            return new PlantaDetail()
+            {
+                PlantaId = u.PlantaId,
+                Descripcion = u.Descripcion
+            };
+        }
+        public static PlantaListVm ConstruirPlantaListVm(Planta u)
+        {
+            return new PlantaListVm()
+            {
+                PlantaId = u.PlantaId,
+                Descripcion = u.Descripcion
             };
         }
         #endregion

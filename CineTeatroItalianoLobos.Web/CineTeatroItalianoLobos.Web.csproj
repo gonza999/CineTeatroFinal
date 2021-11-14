@@ -156,6 +156,7 @@
     <Compile Include="Clases\PaginadorGenerico.cs" />
     <Compile Include="Controllers\ClasificacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlantaController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
     <Compile Include="Controllers\UbicacionController.cs" />
     <Compile Include="Global.asax.cs">
@@ -166,6 +167,9 @@
     <Compile Include="Models\Clasificacion\ClasificacionListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\Localidad\LocalidadListVm.cs" />
+    <Compile Include="Models\Planta\PlantaDetail.cs" />
+    <Compile Include="Models\Planta\PlantaEditVm.cs" />
+    <Compile Include="Models\Planta\PlantaListVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoDetail.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoEditVm.cs" />
     <Compile Include="Models\TipoEvento\TipoEventoListVm.cs" />
@@ -227,6 +231,11 @@
     <Content Include="Views\Ubicacion\Edit.cshtml" />
     <Content Include="Views\Ubicacion\Delete.cshtml" />
     <Content Include="Views\Ubicacion\Details.cshtml" />
+    <Content Include="Views\Planta\Index.cshtml" />
+    <Content Include="Views\Planta\Create.cshtml" />
+    <Content Include="Views\Planta\Edit.cshtml" />
+    <Content Include="Views\Planta\Delete.cshtml" />
+    <Content Include="Views\Planta\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

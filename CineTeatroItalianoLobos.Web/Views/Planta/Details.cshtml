@@ -1,10 +1,10 @@
-﻿@model CineTeatroItalianoLobos.Web.Models.Ubicacion.UbicacionDetail
+﻿@model CineTeatroItalianoLobos.Web.Models.Planta.PlantaDetail
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Detalles</h2>
-<h3 class="well">Ubicaciones</h3>
+<h3 class="well">Plantas</h3>
 <dl class="dl-horizontal">
     <dt>
         @Html.DisplayNameFor(model => model.Descripcion)
@@ -21,9 +21,9 @@
 </dl>
 
 <p>
-    <a href="@Url.Action("AddLocalidad","Ubicacion",new { id=Model.UbicacionId})" class="btn btn-primary">Agregar Localidad</a>
-    <a href="@Url.Action("Edit","Ubicacion",new { id=Model.UbicacionId})" class="btn btn-warning">Editar Ubicacion</a>
-    <a href="@Url.Action("Index","Ubicacion")" class="btn btn-success">Volver</a>
+    <a href="@Url.Action("AddLocalidad","Planta",new { id=Model.PlantaId})" class="btn btn-primary">Agregar Localidad</a>
+    <a href="@Url.Action("Edit","Planta",new { id=Model.PlantaId})" class="btn btn-warning">Editar Planta</a>
+    <a href="@Url.Action("Index","Planta")" class="btn btn-success">Volver</a>
 </p>
 
 <h3 class="well">Localidades</h3>
@@ -37,7 +37,7 @@
                 @Html.DisplayNameFor(Model => Model.Localidades[0].Fila)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Localidades[0].Planta)
+                @Html.DisplayNameFor(Model => Model.Localidades[0].Ubicacion)
             </th>
             <th>
                 Acciones
@@ -49,21 +49,21 @@
         {
             foreach (var item in Model.Localidades)
             {
-        <tr>
-            <td>
-                @item.Numero
-            </td>
-            <td>
-                @item.Fila
-            </td>
-            <td>
-                @item.Planta
-            </td>
-            <td>
-                <a href="@Url.Action("EditLocalidad","Localidad",new {id=item.LocalidadId})" class="btn btn-warning">Editar</a>
-                <a href="@Url.Action("DeleteLocalidad","Localidad",new {id=item.LocalidadId})" class="btn btn-danger">Borrar</a>
-            </td>
-        </tr>
+                <tr>
+                    <td>
+                        @item.Numero
+                    </td>
+                    <td>
+                        @item.Fila
+                    </td>
+                    <td>
+                        @item.Ubicacion
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditLocalidad","Localidad",new {id=item.LocalidadId})" class="btn btn-warning">Editar</a>
+                        <a href="@Url.Action("DeleteLocalidad","Localidad",new {id=item.LocalidadId})" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
             }
         }
         else
