@@ -85,12 +85,28 @@ namespace CineTeatroItalianoLobos.UI.Helpers
 
                     break;
                 case Horario _:
+                    string hora = "";
+                    string minutos = "";
+                    if (((Horario)obj).Hora.TimeOfDay.Minutes < 10)
+                    {
+                        minutos = "0" + ((Horario)obj).Hora.TimeOfDay.Minutes;
+                    }
+                    else
+                    {
+                        minutos = ((Horario)obj).Hora.TimeOfDay.Minutes.ToString();
+                    }
+                    if (((Horario)obj).Hora.TimeOfDay.Hours < 10)
+                    {
+                        hora = "0" + ((Horario)obj).Hora.TimeOfDay.Hours;
+                    }
+                    else
+                    {
+                        hora = ((Horario)obj).Hora.TimeOfDay.Hours.ToString();
+                    }
                     r.Cells[0].Value = ((Horario)obj).Fecha.Year+"/"+
                         ((Horario)obj).Fecha.Month + "/"+
                         ((Horario)obj).Fecha.Day;
-                    r.Cells[1].Value = ((Horario)obj).Hora.TimeOfDay.Hours +":"+
-                        ((Horario)obj).Hora.TimeOfDay.Minutes + ":"+
-                        ((Horario)obj).Hora.TimeOfDay.Seconds;
+                    r.Cells[1].Value = hora+":"+minutos;
                     break;
                 default:
                     break;

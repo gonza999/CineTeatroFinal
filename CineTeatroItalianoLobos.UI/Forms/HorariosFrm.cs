@@ -111,13 +111,29 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void SetearFila(DataGridViewRow r, Horario horario)
         {
+            string minutos = "";
+            string hora = "";
             r.Cells[cmnEvento.Index].Value = horario.Evento.NombreEvento;
             r.Cells[cmnFecha.Index].Value = horario.Fecha.Year+"/"+
                 horario.Fecha.Month + "/"+
                 horario.Fecha.Day;
-            r.Cells[cmnHora.Index].Value = horario.Hora.TimeOfDay.Hours + ":" +
-                       horario.Hora.TimeOfDay.Minutes + ":" +
-                        horario.Hora.TimeOfDay.Seconds;
+            if (horario.Hora.TimeOfDay.Minutes<10)
+            {
+                minutos = "0"+horario.Hora.TimeOfDay.Minutes;
+            }
+            else
+            {
+                minutos = horario.Hora.TimeOfDay.Minutes.ToString();
+            }
+            if (horario.Hora.TimeOfDay.Hours < 10)
+            {
+                hora = "0" + horario.Hora.TimeOfDay.Hours;
+            }
+            else
+            {
+                hora = horario.Hora.TimeOfDay.Hours.ToString();
+            }
+            r.Cells[cmnHora.Index].Value = hora+":"+minutos;
             r.Tag = horario;
         }
 

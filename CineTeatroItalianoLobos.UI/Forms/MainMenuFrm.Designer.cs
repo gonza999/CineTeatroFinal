@@ -207,6 +207,7 @@ namespace CineTeatroItalianoLobos.UI
             // listaDeLocalidadesToolStripMenuItem
             // 
             this.listaDeLocalidadesToolStripMenuItem.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.listaDeLocalidadesToolStripMenuItem.Enabled = false;
             this.listaDeLocalidadesToolStripMenuItem.Name = "listaDeLocalidadesToolStripMenuItem";
             this.listaDeLocalidadesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.listaDeLocalidadesToolStripMenuItem.Text = "Lista de Localidades";
@@ -218,6 +219,7 @@ namespace CineTeatroItalianoLobos.UI
             this.venderToolStripMenuItem,
             this.listaDeLasVentasToolStripMenuItem,
             this.listaDeLosTicketsToolStripMenuItem});
+            this.ventasToolStripMenuItem.Enabled = false;
             this.ventasToolStripMenuItem.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.ticket_booth_50px;
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
