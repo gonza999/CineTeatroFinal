@@ -297,6 +297,14 @@ namespace CineTeatroItalianoLobos.Web.Clases
             }
             return listaVm;
         }
+        public static TipoDocumento ConstruirTipoDocumento(TipoDocumentoListVm te)
+        {
+            return new TipoDocumento()
+            {
+                TipoDocumentoId = te.TipoDocumentoId,
+                Descripcion = te.Descripcion
+            };
+        }
         public static TipoDocumentoListVm ConstruirTipoDocumentoListVm(TipoDocumento te)
         {
             return new TipoDocumentoListVm()
@@ -347,13 +355,69 @@ namespace CineTeatroItalianoLobos.Web.Clases
             return new EmpleadoListVm()
             {
                 EmpleadoId = e.EmpleadoId,
-                Nombre=e.Nombre,
-                Apellido=e.Apellido,
-                NroDocumento=e.NroDocumento,
-                TipoDocumento=e.TipoDocumento.Descripcion,
-                Mail=e.Mail,
-                TelefonoFijo=e.TelefonoFijo,
-                TelefonoMovil=e.TelefonoMovil
+                Nombre = e.Nombre,
+                Apellido = e.Apellido,
+                NroDocumento = e.NroDocumento,
+                TipoDocumento = e.TipoDocumento.Descripcion,
+                //Mail = e.Mail,
+                //TelefonoFijo = e.TelefonoFijo,
+                //TelefonoMovil = e.TelefonoMovil
+            };
+        }
+        public static Empleado ConstruirEmpleado(EmpleadoEditVm e)
+        {
+            return new Empleado()
+            {
+                EmpleadoId = e.EmpleadoId,
+                Nombre = e.Nombre,
+                Apellido = e.Apellido,
+                NroDocumento = e.NroDocumento,
+                TipoDocumentoId = e.TipoDocumentoId,
+                Mail = e.Mail,
+                TelefonoFijo = e.TelefonoFijo,
+                TelefonoMovil = e.TelefonoMovil
+            };
+        }
+        public static EmpleadoDetail ConstruirEmpleadoDetailsVm(Empleado e)
+        {
+            return new EmpleadoDetail()
+            {
+                EmpleadoId = e.EmpleadoId,
+                Nombre = e.Nombre,
+                Apellido = e.Apellido,
+                NroDocumento = e.NroDocumento,
+                TipoDocumento = e.TipoDocumento.Descripcion,
+                Mail = e.Mail,
+                TelefonoFijo = e.TelefonoFijo,
+                TelefonoMovil = e.TelefonoMovil
+            };
+        }
+        public static Empleado ContruirEmpleado(EmpleadoEditVm e)
+        {
+            return new Empleado()
+            {
+                EmpleadoId = e.EmpleadoId,
+                Nombre = e.Nombre,
+                Apellido = e.Apellido,
+                NroDocumento = e.NroDocumento,
+                TipoDocumentoId = e.TipoDocumentoId,
+                Mail = e.Mail,
+                TelefonoFijo = e.TelefonoFijo,
+                TelefonoMovil = e.TelefonoMovil
+            };
+        }
+        public static EmpleadoEditVm ConstruirEmpleadoEditVm(Empleado e)
+        {
+            return new EmpleadoEditVm()
+            {
+                EmpleadoId = e.EmpleadoId,
+                Nombre = e.Nombre,
+                Apellido = e.Apellido,
+                NroDocumento = e.NroDocumento,
+                TipoDocumentoId = e.TipoDocumentoId,
+                Mail = e.Mail,
+                TelefonoFijo = e.TelefonoFijo,
+                TelefonoMovil = e.TelefonoMovil
             };
         }
         #endregion

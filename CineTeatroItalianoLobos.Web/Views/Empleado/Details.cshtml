@@ -1,0 +1,57 @@
+﻿@model CineTeatroItalianoLobos.Web.Models.Empleado.EmpleadoDetail
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<h3 class="well">Empleados</h3>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Nombre)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Nombre)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Apellido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Apellido)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TipoDocumento)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TipoDocumento)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.NroDocumento)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NroDocumento)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TelefonoMovil)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TelefonoMovil)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TelefonoFijo)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TelefonoFijo)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Mail)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Mail)
+    </dd>
+</dl>
+
+<p>
+    @*<a href="@Url.Action("AddVenta","Empleado",new { id=Model.EmpleadoId})" class="btn btn-primary">Agregar Venta</a>*@
+    <a href="@Url.Action("Edit","Empleado",new { id=Model.EmpleadoId})" class="btn btn-warning">Editar Empleado</a>
+    <a href="@Url.Action("Index","Empleado")" class="btn btn-success">Volver</a>
+</p>

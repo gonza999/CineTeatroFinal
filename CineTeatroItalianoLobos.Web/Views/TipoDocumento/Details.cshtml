@@ -40,9 +40,6 @@
                 @Html.DisplayNameFor(Model => Model.Empleados[0].NroDocumento)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Empleados[0].Mail)
-            </th>
-            <th>
                 Acciones
             </th>
         </tr>
@@ -63,9 +60,6 @@
                 @item.NroDocumento
             </td>
             <td>
-                @item.Mail
-            </td>
-            <td>
                 <a href="@Url.Action("EditEmpleado","Empleado",new {id=item.EmpleadoId})" class="btn btn-warning">Editar</a>
                 <a href="@Url.Action("DeleteEmpleado","Empleado",new {id=item.EmpleadoId})" class="btn btn-danger">Borrar</a>
             </td>
@@ -75,7 +69,7 @@
         else
         {
             <tr>
-                <td colspan="5" style="text-align:center">
+                <td colspan="4" style="text-align:center">
                     No se han agregado empleados todavia
                 </td>
             </tr>

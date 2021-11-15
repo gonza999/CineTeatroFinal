@@ -158,5 +158,18 @@ namespace CineTeatroItalianoLobos.Services
                 throw new Exception(e.Message);
             }
         }
+
+        public List<Empleado> GetLista()
+        {
+            try
+            {
+                return _repositorio.GetLista();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         Empleado GetEmpleado(string nombreEmpleado);
         int GetCantidad(Func<Empleado, bool> p);
         List<Empleado> Find(Func<Empleado, bool> p, int? cantidadPorPagina, int? paginaActual);
+        List<Empleado> GetLista();
     }
 }

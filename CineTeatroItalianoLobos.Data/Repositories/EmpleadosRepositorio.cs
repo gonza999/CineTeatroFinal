@@ -225,5 +225,24 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 throw new Exception("Error al leer");
             }
         }
+
+        public List<Empleado> GetLista()
+        {
+            try
+            {
+                return _context.Empleados
+                    .Include(e => e.TipoDocumento)
+                    .OrderBy(p => p.Apellido)
+                    .AsNoTracking()
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
     }
 }

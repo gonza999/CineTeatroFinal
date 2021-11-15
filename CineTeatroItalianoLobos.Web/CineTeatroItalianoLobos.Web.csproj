@@ -156,6 +156,7 @@
     <Compile Include="Clases\PaginadorGenerico.cs" />
     <Compile Include="Controllers\ClasificacionController.cs" />
     <Compile Include="Controllers\DistribucionController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\FormaPagoController.cs" />
     <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -172,6 +173,8 @@
     <Compile Include="Models\Distribucion\DistribucionDetail.cs" />
     <Compile Include="Models\Distribucion\DistribucionEditVm.cs" />
     <Compile Include="Models\Distribucion\DistribucionListVm.cs" />
+    <Compile Include="Models\Empleado\EmpleadoDetail.cs" />
+    <Compile Include="Models\Empleado\EmpleadoEditVm.cs" />
     <Compile Include="Models\Empleado\EmpleadoListVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\FormaPago\FormaPagoDetail.cs" />
@@ -273,6 +276,12 @@
     <Content Include="Views\TipoDocumento\Edit.cshtml" />
     <Content Include="Views\TipoDocumento\Delete.cshtml" />
     <Content Include="Views\TipoDocumento\Details.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\Empleado\Create.cshtml" />
+    <Content Include="Views\Empleado\Edit.cshtml" />
+    <Content Include="Views\Empleado\Delete.cshtml" />
+    <Content Include="Views\Empleado\Details.cshtml" />
+    <Content Include="Views\TipoDocumento\AddEmpleado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

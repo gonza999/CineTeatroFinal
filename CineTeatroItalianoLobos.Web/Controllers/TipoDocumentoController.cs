@@ -1,6 +1,7 @@
 ﻿using CineTeatroItalianoLobos.Services;
 using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.Web.Clases;
+using CineTeatroItalianoLobos.Web.Models.Empleado;
 using CineTeatroItalianoLobos.Web.Models.TipoDocumento;
 using PagedList;
 using System;
@@ -171,6 +172,61 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             tipoDocumentoDetailsVm.CantidadEmpleados = _servicioEmpleados.GetCantidad(e => e.TipoDocumentoId == tipoDocumento.TipoDocumentoId);
             tipoDocumentoDetailsVm.Empleados = Mapeador.ConstruirListaEmpleadosVm(_servicioEmpleados.Find(e => e.TipoDocumentoId == tipoDocumento.TipoDocumentoId, null, null));
             return View(tipoDocumentoDetailsVm);
+        }
+
+        public ActionResult AddEmpleado(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var tipoDocumento = _servicio.GetTEntityPorId(id.Value);
+            if (tipoDocumento == null)
+            {
+                return HttpNotFound("Código de tipo de documento inexistente!!!");
+            }
+
+            var empleadoEditVm = new EmpleadoEditVm()
+            {
+                TipoDocumentoId = tipoDocumento.TipoDocumentoId,
+                TipoDocumento = Mapeador.ConstruirTipoDocumentoListVm(tipoDocumento)
+            };
+            return View(empleadoEditVm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEmpleado(EmpleadoEditVm empleadoEditVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                var tipoDocumento = Mapeador.ConstruirTipoDocumentoListVm(_servicio.GetTEntityPorId(empleadoEditVm.TipoDocumentoId));
+                empleadoEditVm.TipoDocumento = tipoDocumento;
+                return View(empleadoEditVm);
+            }
+
+            var empleado = Mapeador.ConstruirEmpleado(empleadoEditVm);
+            try
+            {
+                if (_servicioEmpleados.Existe(empleado))
+                {
+                    var tipoDocumento = Mapeador.ConstruirTipoDocumentoListVm(_servicio.GetTEntityPorId(empleadoEditVm.TipoDocumentoId));
+                    empleadoEditVm.TipoDocumento = tipoDocumento;
+
+                    ModelState.AddModelError(string.Empty, "Empleado existente!!!");
+                    return View(empleadoEditVm);
+                }
+                _servicioEmpleados.Guardar(empleado);
+                return RedirectToAction($"Details/{empleado.TipoDocumentoId}");
+            }
+            catch (Exception e)
+            {
+                var tipoDocumento = Mapeador.ConstruirTipoDocumentoListVm(_servicio.GetTEntityPorId(empleadoEditVm.TipoDocumentoId));
+                empleadoEditVm.TipoDocumento = tipoDocumento;
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(empleadoEditVm);
+            }
         }
 
     }
