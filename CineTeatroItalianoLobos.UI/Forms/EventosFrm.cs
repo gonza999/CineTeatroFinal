@@ -200,5 +200,24 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 frmHorarios.ShowDialog(this);
             }
         }
+
+        private void BuscarXTipoDocumentoTsb_Click(object sender, EventArgs e)
+        {
+            EventosFiltrarFrm frm = new EventosFiltrarFrm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.OK)
+            {
+                var distribucion = frm.GetDistribucion();
+                var tipoEvento = frm.GetTipoEvento();
+                var clasificacion = frm.GetClasificacion();
+                lista = _servicio.GetLista(distribucion, tipoEvento,clasificacion);
+                cantidadRegistros = lista.Count();
+
+                HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
+                paginaActual = 1;
+
+                MostrarDatosEnGrilla();
+            }
+        }
     }
 }

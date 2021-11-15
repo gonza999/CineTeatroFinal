@@ -51,7 +51,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbBorrar = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
+            this.tsbBuscar = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BuscarXTipoDocumentoTsb = new System.Windows.Forms.ToolStripMenuItem();
             this.BuscarTxt = new System.Windows.Forms.ToolStripTextBox();
             this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -296,14 +297,28 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // tsbBuscar
             // 
+            this.tsbBuscar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BuscarXTipoDocumentoTsb});
             this.tsbBuscar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsbBuscar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.search_50px;
             this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBuscar.Name = "tsbBuscar";
-            this.tsbBuscar.Size = new System.Drawing.Size(65, 54);
-            this.tsbBuscar.Text = "Buscar";
+            this.tsbBuscar.Size = new System.Drawing.Size(144, 54);
+            this.tsbBuscar.Text = "Buscar x Evento";
             this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
+            // BuscarXTipoDocumentoTsb
+            // 
+            this.BuscarXTipoDocumentoTsb.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarXTipoDocumentoTsb.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BuscarXTipoDocumentoTsb.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BuscarXTipoDocumentoTsb.Name = "BuscarXTipoDocumentoTsb";
+            this.BuscarXTipoDocumentoTsb.Size = new System.Drawing.Size(180, 22);
+            this.BuscarXTipoDocumentoTsb.Text = "Filtrar";
+            this.BuscarXTipoDocumentoTsb.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BuscarXTipoDocumentoTsb.ToolTipText = "Buscar \r\nx Apellido";
+            this.BuscarXTipoDocumentoTsb.Click += new System.EventHandler(this.BuscarXTipoDocumentoTsb_Click);
             // 
             // BuscarTxt
             // 
@@ -394,10 +409,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.ToolStripButton tsbBorrar;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsbBuscar;
         private System.Windows.Forms.ToolStripTextBox BuscarTxt;
         private System.Windows.Forms.ToolStripButton tsbActualizar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbCerrar;
+        private System.Windows.Forms.ToolStripDropDownButton tsbBuscar;
+        private System.Windows.Forms.ToolStripMenuItem BuscarXTipoDocumentoTsb;
     }
 }

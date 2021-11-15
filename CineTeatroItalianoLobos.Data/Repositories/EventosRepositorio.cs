@@ -244,5 +244,85 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 throw new Exception("Error al leer");
             }
         }
+
+        public List<Evento> GetLista(Distribucion distribucion, TipoEvento tipoEvento, Clasificacion clasificacion)
+        {
+            try
+            {
+                if (distribucion != null && tipoEvento != null && clasificacion != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.DistribucionId == distribucion.DistribucionId &&
+                        e.TipoEventoId == tipoEvento.TipoEventoId && 
+                        e.ClasificacionId==clasificacion.ClasificacionId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (distribucion != null && tipoEvento != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.DistribucionId == distribucion.DistribucionId &&
+                        e.TipoEventoId == tipoEvento.TipoEventoId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if ( tipoEvento != null && clasificacion != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.TipoEventoId == tipoEvento.TipoEventoId &&
+                        e.ClasificacionId == clasificacion.ClasificacionId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (distribucion != null && clasificacion != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.DistribucionId == distribucion.DistribucionId &&
+                       e.ClasificacionId == clasificacion.ClasificacionId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (distribucion != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.DistribucionId == distribucion.DistribucionId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (clasificacion != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.ClasificacionId == clasificacion.ClasificacionId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (tipoEvento != null)
+                {
+                    return _context.Eventos
+                        .Where(e => e.TipoEventoId == tipoEvento.TipoEventoId)
+                        .OrderBy(e => e.NombreEvento)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                return _context.Eventos
+    .OrderBy(e => e.NombreEvento)
+    .AsNoTracking()
+    .ToList();
+
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
     }
 }

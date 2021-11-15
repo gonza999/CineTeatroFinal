@@ -114,6 +114,12 @@
     <Compile Include="Forms\EventosAEFrm.Designer.cs">
       <DependentUpon>EventosAEFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EventosFiltrarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EventosFiltrarFrm.Designer.cs">
+      <DependentUpon>EventosFiltrarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EventosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EventosAEFrm.resx">
       <DependentUpon>EventosAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventosFiltrarFrm.resx">
+      <DependentUpon>EventosFiltrarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EventosFrm.resx">
       <DependentUpon>EventosFrm.cs</DependentUpon>
