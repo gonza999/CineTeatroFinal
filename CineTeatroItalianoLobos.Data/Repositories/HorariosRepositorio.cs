@@ -132,6 +132,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 if (horario.Evento != null)
                 {
+                    horario.Evento = _context.Eventos.FirstOrDefault(e => e.EventoId == horario.EventoId);
                     _context.Eventos.Attach(horario.Evento);
                 }
                 if (horario.HorarioId == 0)

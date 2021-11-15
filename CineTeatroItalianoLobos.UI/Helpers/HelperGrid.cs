@@ -86,7 +86,9 @@ namespace CineTeatroItalianoLobos.UI.Helpers
                     break;
                 case Horario _:
                     r.Cells[0].Value = ((Horario)obj).Fecha.Date;
-                    r.Cells[1].Value = ((Horario)obj).Hora.TimeOfDay;
+                    r.Cells[1].Value = ((Horario)obj).Hora.TimeOfDay.Hours +":"+
+                        ((Horario)obj).Hora.TimeOfDay.Minutes + ":"+
+                        ((Horario)obj).Hora.TimeOfDay.Seconds;
                     break;
                 default:
                     break;

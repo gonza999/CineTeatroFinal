@@ -129,23 +129,30 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 if (evento.Clasificacion != null)
                 {
+                    evento.Clasificacion = _context.Clasificaciones.FirstOrDefault(c => c.ClasificacionId == evento.ClasificacionId);
                     _context.Clasificaciones.Attach(evento.Clasificacion);
                 }
                 if (evento.Distribucion != null)
                 {
+                    evento.Distribucion = _context.Distribuciones.FirstOrDefault(d => d.DistribucionId == evento.DistribucionId);
                     _context.Distribuciones.Attach(evento.Distribucion);
                 }
                 if (evento.TipoEvento != null)
                 {
+                    evento.TipoEvento = _context.TiposEventos.FirstOrDefault(te => te.TipoEventoId == evento.TipoEventoId);
                     _context.TiposEventos.Attach(evento.TipoEvento);
                 }
+                var listaHorarios = new List<Horario>();
                 foreach (var h in evento.Horarios)
                 {
-                    if (h.HorarioId>0)
+                    if (h.HorarioId > 0)
                     {
-                        _context.Horarios.Attach(h);
+                        var horario = _context.Horarios.FirstOrDefault(hora => hora.HorarioId == h.HorarioId);
+                        _context.Horarios.Attach(horario);
+                        listaHorarios.Add(horario);
                     }
                 }
+                evento.Horarios = listaHorarios;
                 if (evento.EventoId == 0)
                 {
                     _context.Eventos.Add(evento);

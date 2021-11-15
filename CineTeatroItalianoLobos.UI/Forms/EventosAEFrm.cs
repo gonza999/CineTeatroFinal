@@ -54,8 +54,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 evento.Descripcion = DescripcionTxt.Text;
                 evento.Suspendido = false;
                 evento.TipoEvento = (TipoEvento)TipoEventoCmb.SelectedItem;
+                evento.TipoEventoId = ((TipoEvento)TipoEventoCmb.SelectedItem).TipoEventoId;
                 evento.Clasificacion = (Clasificacion)ClasificacionCmb.SelectedItem;
+                evento.ClasificacionId = ((Clasificacion)ClasificacionCmb.SelectedItem).ClasificacionId;
                 evento.Distribucion = (Distribucion)DistribucionCmb.SelectedItem;
+                evento.DistribucionId = ((Distribucion)DistribucionCmb.SelectedItem).DistribucionId;
                 evento.FechaEvento = FechaPicker.Value;
                 listaHorarios.Clear();
                 evento.Horarios.Clear();
@@ -274,7 +277,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             errorProvider1.Clear();
             bool valido = true;
-
+            if (HoraPicker.Value.Hour<DateTime.Now.Hour && FechaPicker.Value.Date == DateTime.Today)
+            {
+                valido = false;
+                errorProvider1.SetError(HoraPicker, "La hora del evento no puede ser anterior a la actual");
+            }
             if (FechaPicker.Value.Date < DateTime.Today)
             {
                 valido = false;
