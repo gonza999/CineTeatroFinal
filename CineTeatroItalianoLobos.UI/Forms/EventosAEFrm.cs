@@ -298,12 +298,18 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
             if (horario != null)
             {
-                var lista = _servicio.GetLista();
-                if (_servicioHorarios.Existe(horario))
+                var listaHorarios = _servicioHorarios.GetLista();
+                foreach (var h in listaHorarios)
                 {
-                    valido = false;
-                    errorProvider1.Clear();
-                    errorProvider1.SetError(FechaPicker, "No pueden suceder dos eventos distintos en la misma fecha");
+                    if (h.EventoId != horario.EventoId)
+                    {
+                        if (h.Fecha.Date==horario.Fecha.Date)
+                        {
+                            valido = false;
+                            errorProvider1.Clear();
+                            errorProvider1.SetError(FechaPicker, "No pueden suceder dos eventos distintos en la misma fecha");
+                        }
+                    }
                 }
             }
 

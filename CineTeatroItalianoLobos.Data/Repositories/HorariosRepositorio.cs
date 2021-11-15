@@ -69,11 +69,11 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 if (horario.HorarioId == 0)
                 {
                     return _context.Horarios.Any(h=>h.EventoId != horario.EventoId
-                    && h.Hora == horario.Hora);
+                    && h.Fecha==horario.Fecha);
                 }
 
                 return _context.Horarios.Any(h => h.HorarioId!=horario.HorarioId
-                        && h.Hora == horario.Hora
+                        && h.Fecha == horario.Fecha
                        && h.EventoId != horario.EventoId);
             }
             catch (Exception e)

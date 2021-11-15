@@ -13,18 +13,21 @@ using System.Windows.Forms;
 
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    public partial class EventosFrm : Form
+    public partial class HorariosFrm : Form
     {
-        private readonly IHorariosServicio _servicioHorarios;
-        public EventosFrm(IEventosServicios servicio,IHorariosServicio servicioHorarios)
+        private readonly IEventosServicios _servicioEventos;
+        private Evento evento = null;
+        public HorariosFrm(IHorariosServicio servicio, IEventosServicios servicioEventos,
+            Evento evento = null)
         {
             InitializeComponent();
             _servicio = servicio;
-            _servicioHorarios = servicioHorarios;
+            _servicioEventos = servicioEventos;
+            this.evento = evento;
         }
         private void tsbCerrar_Click(object sender, EventArgs e)
         {
-           Close();
+            Close();
         }
         const int cantidadPorPagina = 20;
         private bool filtroOn = false;
@@ -33,12 +36,25 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private int paginaActual;
 
 
-        private readonly IEventosServicios _servicio;
-        private List<Evento> lista;
+        private readonly IHorariosServicio _servicio;
+        private List<Horario> lista;
         private int cantidadRegistros;
-        private void EventosFrm_Load(object sender, EventArgs e)
+        private void HorariosFrm_Load(object sender, EventArgs e)
         {
-            RecargarGrilla();
+            if (evento == null)
+            {
+                RecargarGrilla();
+            }
+            else
+            {
+                lista = _servicio.BuscarHorario(evento.EventoId);
+                cantidadRegistros = lista.Count();
+
+                HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
+                paginaActual = 1;
+
+                MostrarDatosEnGrilla();
+            }
         }
         private void AsignarEventHandler(Panel botonesPanel)
         {
@@ -83,38 +99,34 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void MostrarDatosEnGrilla()
         {
             HelperGrid.LimpiarGrilla(DatosDataGridView);
-            foreach (var evento in lista)
+            foreach (var horario in lista)
             {
                 DataGridViewRow r = HelperGrid.CrearFila(DatosDataGridView);
 
-                HelperGrid.SetearFila(r, evento);
+                SetearFila(r, horario);
                 HelperGrid.AgregarFila(DatosDataGridView, r);
             }
             HelperForm.MostrarInfoPaginas(splitContainer1.Panel2, cantidadRegistros, cantidadPaginas, paginaActual);
         }
+
+        private void SetearFila(DataGridViewRow r, Horario horario)
+        {
+            r.Cells[cmnEvento.Index].Value = horario.Evento.NombreEvento;
+            r.Cells[cmnFecha.Index].Value = horario.Fecha.Year+"/"+
+                horario.Fecha.Month + "/"+
+                horario.Fecha.Day;
+            r.Cells[cmnHora.Index].Value = horario.Hora.TimeOfDay.Hours + ":" +
+                       horario.Hora.TimeOfDay.Minutes + ":" +
+                        horario.Hora.TimeOfDay.Seconds;
+            r.Tag = horario;
+        }
+
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            EventosAEFrm frm = new EventosAEFrm(_servicio,_servicioHorarios) { Text = "Nueva Evento" };
+            EventosFrm frm = new EventosFrm(_servicioEventos, _servicio) { Text = "Eventos" };
             DialogResult dr = frm.ShowDialog(this);
             RecargarGrilla();
         }
-
-        private void tsbEditar_Click(object sender, EventArgs e)
-        {
-            if (DatosDataGridView.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            Evento evento = (Evento)r.Tag;
-            EventosAEFrm frm = new EventosAEFrm(_servicio,_servicioHorarios) { Text = "Editar Evento" };
-            frm.SetEvento(evento);
-            DialogResult dr = frm.ShowDialog(this);
-            RecargarGrilla();
-            //MostrarPaginado(cantidadPaginas, paginaActual);
-        }
-
         private void tsbBorrar_Click(object sender, EventArgs e)
         {
             if (DatosDataGridView.SelectedRows.Count == 0)
@@ -123,8 +135,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            Evento evento = (Evento)r.Tag;
-            DialogResult dr = MessageBox.Show($"¿Desea dar de baja el registro de {evento.NombreEvento}?",
+            Horario horario = (Horario)r.Tag;
+            DialogResult dr = MessageBox.Show($"¿Desea dar de baja el registro?",
                 "Confirmar Baja",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,
@@ -136,9 +148,9 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             try
             {
-                if (!_servicio.EstaRelacionado(evento))
+                if (!_servicio.EstaRelacionado(horario))
                 {
-                    _servicio.Borrar(evento.EventoId);
+                    _servicio.Borrar(horario.HorarioId);
                     HelperGrid.BorrarFila(DatosDataGridView, r);
 
                     cantidadRegistros = _servicio.GetCantidad();
@@ -161,43 +173,19 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             RecargarGrilla();
         }
-
-        private void EventosFrm_KeyPress(object sender, KeyPressEventArgs e)
+        private void BuscarXEventoTsb_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            HorariosBuscarXEventoFrm frm = new HorariosBuscarXEventoFrm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.OK)
             {
-                if (string.IsNullOrEmpty(BuscarTxt.Text)
-                    || string.IsNullOrWhiteSpace(BuscarTxt.Text))
-                {
-                    return;
-                }
-                lista = _servicio.BuscarEvento(BuscarTxt.Text);
-
+                lista = _servicio.BuscarHorario(frm.GetEvento().EventoId);
                 cantidadRegistros = lista.Count();
 
                 HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
                 paginaActual = 1;
 
                 MostrarDatosEnGrilla();
-
-
-            }
-        }
-
-        private void DatosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            Evento evento = (Evento)r.Tag;
-            var listaHorarios = _servicioHorarios.GetLista(evento);
-            evento.Horarios = listaHorarios;
-            if (e.ColumnIndex == 5)
-            {
-
-            }
-            if (e.ColumnIndex == 4)
-            {
-                HorariosFrm frmHorarios = new HorariosFrm(_servicioHorarios,_servicio,evento);
-                frmHorarios.ShowDialog(this);
             }
         }
     }

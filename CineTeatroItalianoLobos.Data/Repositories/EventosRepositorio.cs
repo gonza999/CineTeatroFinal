@@ -151,6 +151,10 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                         _context.Horarios.Attach(horario);
                         listaHorarios.Add(horario);
                     }
+                    else
+                    {
+                        listaHorarios.Add(h);
+                    }
                 }
                 evento.Horarios = listaHorarios;
                 if (evento.EventoId == 0)

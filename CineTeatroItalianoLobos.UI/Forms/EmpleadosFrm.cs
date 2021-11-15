@@ -216,15 +216,5 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 MostrarDatosEnGrilla();
             }
         }
-
-        //private void tsbImprimir_Click(object sender, EventArgs e)
-        //{
-        //    ReportePaises rpt = DI.Create<IManejadorDeReportes>().GetReportePaises(lista);
-        //    FrmVisorReportes frm = new FrmVisorReportes();
-        //    frm.SetReporte(rpt);
-        //    frm.ShowDialog(this);
-        //}
-
-
     }
 }

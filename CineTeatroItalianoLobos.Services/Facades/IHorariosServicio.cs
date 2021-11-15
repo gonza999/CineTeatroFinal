@@ -15,7 +15,9 @@ namespace CineTeatroItalianoLobos.Services.Facades
         bool Existe(Horario horario);
         bool EstaRelacionado(Horario horario);
         int GetCantidad();
+        List<Horario> BuscarHorario(int id);
         void Borrar(int id);
         List<Horario> GetLista(Evento evento);
+        List<Horario> GetLista();
     }
 }

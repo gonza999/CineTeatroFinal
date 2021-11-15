@@ -23,8 +23,22 @@ namespace CineTeatroItalianoLobos.UI.Helpers
             combo.DisplayMember = "Descripcion";
             combo.ValueMember = "TipoDocumentoId";
             combo.SelectedIndex = 0;
+        }
 
-
+        public static void CargarDatosComboEventos(ref ComboBox eventoCmb)
+        {
+            IEventosServicios servicio = DI.Create<IEventosServicios>();
+            List<Evento> lista = servicio.GetLista();
+            var defaultEvento = new Evento()
+            {
+                EventoId = 0,
+                NombreEvento = "<Seleccione Evento>"
+            };
+            lista.Insert(0, defaultEvento);
+            eventoCmb.DataSource = lista;
+            eventoCmb.DisplayMember = "NombreEvento";
+            eventoCmb.ValueMember = "EventoId";
+            eventoCmb.SelectedIndex = 0;
         }
 
         public static void CargarDatosComboPlantas(ref ComboBox plantaCmb)

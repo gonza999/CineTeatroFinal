@@ -144,6 +144,18 @@
     <Compile Include="Forms\FormasVentasFrm.Designer.cs">
       <DependentUpon>FormasVentasFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HorariosBuscarXEventoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HorariosBuscarXEventoFrm.Designer.cs">
+      <DependentUpon>HorariosBuscarXEventoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HorariosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HorariosFrm.Designer.cs">
+      <DependentUpon>HorariosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LocalidadesAEFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +271,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormasVentasFrm.resx">
       <DependentUpon>FormasVentasFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HorariosBuscarXEventoFrm.resx">
+      <DependentUpon>HorariosBuscarXEventoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HorariosFrm.resx">
+      <DependentUpon>HorariosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LocalidadesAEFrm.resx">
       <DependentUpon>LocalidadesAEFrm.cs</DependentUpon>
