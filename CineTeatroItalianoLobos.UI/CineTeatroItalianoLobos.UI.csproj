@@ -162,6 +162,12 @@
     <Compile Include="Forms\LocalidadesAEFrm.Designer.cs">
       <DependentUpon>LocalidadesAEFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LocalidadesFiltrarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LocalidadesFiltrarFrm.Designer.cs">
+      <DependentUpon>LocalidadesFiltrarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LocalidadesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LocalidadesAEFrm.resx">
       <DependentUpon>LocalidadesAEFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LocalidadesFiltrarFrm.resx">
+      <DependentUpon>LocalidadesFiltrarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LocalidadesFrm.resx">
       <DependentUpon>LocalidadesFrm.cs</DependentUpon>

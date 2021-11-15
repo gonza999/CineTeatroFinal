@@ -114,8 +114,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBuscar.Name = "tsbBuscar";
-            this.tsbBuscar.Size = new System.Drawing.Size(135, 54);
-            this.tsbBuscar.Text = "Buscar x Evento";
+            this.tsbBuscar.Size = new System.Drawing.Size(134, 54);
+            this.tsbBuscar.Text = "Filtrar x Evento";
             this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.tsbBuscar.Click += new System.EventHandler(this.BuscarXEventoTsb_Click);
             // 

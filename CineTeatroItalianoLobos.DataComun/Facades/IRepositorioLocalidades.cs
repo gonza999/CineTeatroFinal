@@ -14,5 +14,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         int GetCantidad(Func<Localidad, bool> p);
         int GetCantidad();
         List<Localidad> Find(Func<Localidad, bool> p, int? cantidadPorPagina, int? paginaActual);
+        List<Localidad> GetLista(Planta planta, Ubicacion ubicacion);
     }
 }

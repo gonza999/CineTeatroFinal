@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CineTeatroItalianoLobos.Data.Repositories
 {
-    public class LocalidadesRepositorio:IRepositorioLocalidades
+    public class LocalidadesRepositorio : IRepositorioLocalidades
     {
         private readonly CineTeatroDbContext _context;
 
@@ -39,7 +39,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             bool estaRelacionado = false;
             try
             {
-                estaRelacionado= _context.Tickets.Any(t => t.LocalidadId == localidad.LocalidadId);
+                estaRelacionado = _context.Tickets.Any(t => t.LocalidadId == localidad.LocalidadId);
                 if (!estaRelacionado)
                 {
                     estaRelacionado = _context.DistribucionesLocalidades.Any(dl => dl.LocalidadId == localidad.LocalidadId);
@@ -59,7 +59,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 if (localidad.LocalidadId == 0)
                 {
                     return _context.Localidades.Any(l => l.Numero == localidad.Numero &&
-                                                    l.UbicacionId==localidad.UbicacionId);
+                                                    l.UbicacionId == localidad.UbicacionId);
                 }
 
                 return _context.Localidades.Any(l => l.Numero == localidad.Numero &&
@@ -89,7 +89,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 return _context.Localidades
-                    .OrderBy(l => l.UbicacionId).ThenBy(l=>l.Numero)
+                    .OrderBy(l => l.UbicacionId).ThenBy(l => l.Numero)
                     .Skip(registros * (pagina - 1))
                     .Take(registros)
                     .AsNoTracking()
@@ -167,7 +167,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 return _context.Localidades
                   .OrderBy(l => l.Numero)
-                  .Where(p => p.UbicacionId==ubicacion.UbicacionId)
+                  .Where(p => p.UbicacionId == ubicacion.UbicacionId)
                   .AsNoTracking()
                   .ToList();
             }
@@ -183,7 +183,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             {
                 return _context.Localidades
                   .OrderBy(l => l.Numero)
-                  .Where(l => l.Fila==fila && l.UbicacionId==1)
+                  .Where(l => l.Fila == fila && l.UbicacionId == 1)
                   .AsNoTracking()
                   .ToList();
             }
@@ -197,10 +197,10 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         {
             try
             {
-                List<String> lista=new List<string>();
-                var grupo= _context.Localidades
+                List<String> lista = new List<string>();
+                var grupo = _context.Localidades
                   .OrderBy(l => l.Fila)
-                  .GroupBy(l=>l.Fila)
+                  .GroupBy(l => l.Fila)
                   .ToList();
                 foreach (var l in grupo)
                 {
@@ -246,6 +246,50 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             catch (Exception e)
             {
                 throw new Exception("Error al leer");
+            }
+        }
+
+        public List<Localidad> GetLista(Planta planta, Ubicacion ubicacion)
+        {
+            try
+            {
+                if (planta != null && ubicacion != null)
+                {
+                    return _context.Localidades
+                        .Where(l => l.PlantaId == planta.PlantaId && l.UbicacionId == ubicacion.UbicacionId)
+                        .OrderBy(l => l.UbicacionId).ThenBy(l => l.Numero)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (planta != null)
+                {
+                    return _context.Localidades
+                        .Where(l => l.PlantaId == planta.PlantaId)
+                        .OrderBy(l => l.UbicacionId).ThenBy(l => l.Numero)
+                        .AsNoTracking()
+                        .ToList();
+                }
+                if (ubicacion != null)
+                {
+                    return _context.Localidades
+                        .Where(l => l.UbicacionId == ubicacion.UbicacionId)
+                        .OrderBy(l => l.UbicacionId).ThenBy(l => l.Numero)
+                        .AsNoTracking()
+                        .ToList();
+                }
+
+                return _context.Localidades
+    .OrderBy(l => l.UbicacionId).ThenBy(l => l.Numero)
+    .AsNoTracking()
+    .ToList();
+
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
             }
         }
     }

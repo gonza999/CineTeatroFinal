@@ -308,7 +308,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.BuscarXNombreTsb.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BuscarXNombreTsb.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BuscarXNombreTsb.Name = "BuscarXNombreTsb";
-            this.BuscarXNombreTsb.Size = new System.Drawing.Size(241, 22);
+            this.BuscarXNombreTsb.Size = new System.Drawing.Size(240, 22);
             this.BuscarXNombreTsb.Text = "Buscar x Nombre";
             this.BuscarXNombreTsb.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BuscarXNombreTsb.ToolTipText = "Buscar \r\nx Apellido";
@@ -320,8 +320,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.BuscarXTipoDocumentoTsb.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BuscarXTipoDocumentoTsb.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BuscarXTipoDocumentoTsb.Name = "BuscarXTipoDocumentoTsb";
-            this.BuscarXTipoDocumentoTsb.Size = new System.Drawing.Size(241, 22);
-            this.BuscarXTipoDocumentoTsb.Text = "Buscar x Tipo de Doc.";
+            this.BuscarXTipoDocumentoTsb.Size = new System.Drawing.Size(240, 22);
+            this.BuscarXTipoDocumentoTsb.Text = "Filtrar x Tipo de Doc.";
             this.BuscarXTipoDocumentoTsb.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BuscarXTipoDocumentoTsb.ToolTipText = "Buscar \r\nx Apellido";
             this.BuscarXTipoDocumentoTsb.Click += new System.EventHandler(this.BuscarXTipoDocumentoTsb_Click);
