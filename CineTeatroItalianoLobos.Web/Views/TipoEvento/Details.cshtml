@@ -47,17 +47,17 @@
                     <td>
                         @item.NombreEvento
                     </td>
-                    <td>
+                    @*<td>
                         <a href="@Url.Action("EditEvento","Evento",new {id=item.EventoId})" class="btn btn-warning">Editar</a>
                         <a href="@Url.Action("DeleteEvento","Evento",new {id=item.EventoId})" class="btn btn-danger">Borrar</a>
-                    </td>
+                    </td>*@
                 </tr>
             }
         }
         else
         {
             <tr>
-                <td colspan="2" style="text-align:center">
+                <td colspan="1" style="text-align:center">
                     No se han agregado eventos todavia
                 </td>
             </tr>

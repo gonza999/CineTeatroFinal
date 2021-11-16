@@ -59,17 +59,17 @@
                     <td>
                         @item.Ubicacion
                     </td>
-                    <td>
+                    @*<td>
                         <a href="@Url.Action("EditLocalidad","Localidad",new {id=item.LocalidadId})" class="btn btn-warning">Editar</a>
                         <a href="@Url.Action("DeleteLocalidad","Localidad",new {id=item.LocalidadId})" class="btn btn-danger">Borrar</a>
-                    </td>
+                    </td>*@
                 </tr>
             }
         }
         else
         {
             <tr>
-                <td colspan="4" style="text-align:center">
+                <td colspan="3" style="text-align:center">
                     No se han agregado localidades todavia
                 </td>
             </tr>

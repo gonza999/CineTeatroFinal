@@ -59,17 +59,17 @@
             <td>
                 @item.NroDocumento
             </td>
-            <td>
+            @*<td>
                 <a href="@Url.Action("EditEmpleado","Empleado",new {id=item.EmpleadoId})" class="btn btn-warning">Editar</a>
                 <a href="@Url.Action("DeleteEmpleado","Empleado",new {id=item.EmpleadoId})" class="btn btn-danger">Borrar</a>
-            </td>
+            </td>*@
         </tr>
             }
         }
         else
         {
             <tr>
-                <td colspan="4" style="text-align:center">
+                <td colspan="3" style="text-align:center">
                     No se han agregado empleados todavia
                 </td>
             </tr>

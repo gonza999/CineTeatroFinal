@@ -173,7 +173,6 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             tipoDocumentoDetailsVm.Empleados = Mapeador.ConstruirListaEmpleadosVm(_servicioEmpleados.Find(e => e.TipoDocumentoId == tipoDocumento.TipoDocumentoId, null, null));
             return View(tipoDocumentoDetailsVm);
         }
-
         public ActionResult AddEmpleado(int? id)
         {
             if (id == null)
@@ -228,6 +227,5 @@ namespace CineTeatroItalianoLobos.Web.Controllers
                 return View(empleadoEditVm);
             }
         }
-
     }
 }
