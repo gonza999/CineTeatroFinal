@@ -33,8 +33,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbBorrar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
+            this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.clmPlanta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,12 +54,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CantidadDeRegistrosLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbBorrar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
-            this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
-            this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -80,15 +80,87 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.toolStrip1.TabIndex = 33;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbNuevo.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.create_order_50px;
+            this.tsbNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(60, 54);
+            this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
+            // 
+            // tsbBorrar
+            // 
+            this.tsbBorrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbBorrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.eraser_50px;
+            this.tsbBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBorrar.Name = "tsbBorrar";
+            this.tsbBorrar.Size = new System.Drawing.Size(65, 54);
+            this.tsbBorrar.Text = "Borrar";
+            this.tsbBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbBorrar.Click += new System.EventHandler(this.tsbBorrar_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbEditar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.book_and_pencil_50px;
+            this.tsbEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(61, 54);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
             // 
+            // tsbBuscar
+            // 
+            this.tsbBuscar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbBuscar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.search_50px;
+            this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBuscar.Name = "tsbBuscar";
+            this.tsbBuscar.Size = new System.Drawing.Size(64, 54);
+            this.tsbBuscar.Text = "Filtrar";
+            this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
+            // 
+            // tsbActualizar
+            // 
+            this.tsbActualizar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbActualizar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.update_50px;
+            this.tsbActualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbActualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbActualizar.Name = "tsbActualizar";
+            this.tsbActualizar.Size = new System.Drawing.Size(93, 54);
+            this.tsbActualizar.Text = "Actualizar";
+            this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbActualizar.Click += new System.EventHandler(this.tsbActualizar_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
+            // 
+            // tsbCerrar
+            // 
+            this.tsbCerrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbCerrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.close_pane_50px;
+            this.tsbCerrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbCerrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCerrar.Name = "tsbCerrar";
+            this.tsbCerrar.Size = new System.Drawing.Size(64, 54);
+            this.tsbCerrar.Text = "Cerrar";
+            this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
             // DatosDataGridView
             // 
@@ -163,6 +235,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.DatosDataGridView);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Panel1MinSize = 15;
             // 
             // splitContainer1.Panel2
             // 
@@ -174,6 +248,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.splitContainer1.Panel2.Controls.Add(this.CantidadDeRegistrosLabel);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.Size = new System.Drawing.Size(679, 421);
             this.splitContainer1.SplitterDistance = 325;
             this.splitContainer1.SplitterIncrement = 11;
@@ -247,78 +322,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.label4.Size = new System.Drawing.Size(22, 15);
             this.label4.TabIndex = 18;
             this.label4.Text = "de";
-            // 
-            // tsbNuevo
-            // 
-            this.tsbNuevo.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbNuevo.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.create_order_50px;
-            this.tsbNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(60, 54);
-            this.tsbNuevo.Text = "Nuevo";
-            this.tsbNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
-            // 
-            // tsbBorrar
-            // 
-            this.tsbBorrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbBorrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.eraser_50px;
-            this.tsbBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBorrar.Name = "tsbBorrar";
-            this.tsbBorrar.Size = new System.Drawing.Size(65, 54);
-            this.tsbBorrar.Text = "Borrar";
-            this.tsbBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbBorrar.Click += new System.EventHandler(this.tsbBorrar_Click);
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbEditar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.book_and_pencil_50px;
-            this.tsbEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(61, 54);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
-            // 
-            // tsbBuscar
-            // 
-            this.tsbBuscar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbBuscar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.search_50px;
-            this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBuscar.Name = "tsbBuscar";
-            this.tsbBuscar.Size = new System.Drawing.Size(64, 54);
-            this.tsbBuscar.Text = "Filtrar";
-            this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
-            // 
-            // tsbActualizar
-            // 
-            this.tsbActualizar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbActualizar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.update_50px;
-            this.tsbActualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbActualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbActualizar.Name = "tsbActualizar";
-            this.tsbActualizar.Size = new System.Drawing.Size(93, 54);
-            this.tsbActualizar.Text = "Actualizar";
-            this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbActualizar.Click += new System.EventHandler(this.tsbActualizar_Click);
-            // 
-            // tsbCerrar
-            // 
-            this.tsbCerrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbCerrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.close_pane_50px;
-            this.tsbCerrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbCerrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCerrar.Name = "tsbCerrar";
-            this.tsbCerrar.Size = new System.Drawing.Size(64, 54);
-            this.tsbCerrar.Text = "Cerrar";
-            this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
             // LocalidadesFrm
             // 

@@ -118,7 +118,8 @@ namespace CineTeatroItalianoLobos.Services
         }
         public void Guardar(Distribucion distribucion)
         {
-            using (var scope = new TransactionScope(TransactionScopeOption.Required))
+            using (var scope = new TransactionScope(TransactionScopeOption.Required,
+                new TimeSpan(0, 10, 0)))
             {
                 try
                 {

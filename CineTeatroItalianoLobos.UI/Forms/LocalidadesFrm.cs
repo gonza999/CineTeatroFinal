@@ -37,6 +37,50 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void LocalidadesFrm_Load(object sender, EventArgs e)
         {
             RecargarGrilla();
+            ////Inserta 3000 butacas en 20 filas
+            //int fila = 1;
+            //int cambiarFila = 0;
+            //for (int numero = 1; numero < 3001; numero++)
+            //{
+            //    cambiarFila++;
+            //    Localidad localidad = new Localidad()
+            //    {
+            //        Fila = fila,
+            //        UbicacionId = 1,
+            //        PlantaId = 1,
+            //        Numero = numero,
+            //    };
+            //    if (cambiarFila == 20)
+            //    {
+            //        fila++;
+            //        cambiarFila = 0;
+            //    }
+            //    _servicio.Guardar(localidad);
+            //}
+            //Inserta 12 palcos en planta baja
+            //for (int numero = 1; numero < 13; numero++)
+            //{
+            //    Localidad localidad = new Localidad()
+            //    {
+            //        Fila = 1,
+            //        UbicacionId = 2,
+            //        PlantaId = 1,
+            //        Numero = numero,
+            //    };
+            //    _servicio.Guardar(localidad);
+            //}
+            ////Inserta 15 palcos en primer piso
+            //for (int numero = 1; numero < 16; numero++)
+            //{
+            //    Localidad localidad = new Localidad()
+            //    {
+            //        Fila = 1,
+            //        UbicacionId = 2,
+            //        PlantaId = 2,
+            //        Numero = numero,
+            //    };
+            //    _servicio.Guardar(localidad);
+            //}
         }
         private void AsignarEventHandler(Panel botonesPanel)
         {
@@ -44,6 +88,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             {
                 if (control is Button)
                 {
+                    ((Button)control).Size = new Size(50, 50);
                     ((Button)control).Click += Miclick;
                 }
             }

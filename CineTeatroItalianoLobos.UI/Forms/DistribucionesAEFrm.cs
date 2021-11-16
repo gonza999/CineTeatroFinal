@@ -79,7 +79,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message,"Error");
+                    MessageBox.Show(exception.Message, "Error");
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 errorProvider1.SetError(PalcosTxt, "El precio no debe ser menor a cero");
 
             }
-            if (DatosDataGridView.Rows.Count != FilaCmb.Items.Count-1)
+            if (DatosDataGridView.Rows.Count != FilaCmb.Items.Count - 1)
             {
                 valido = false;
                 errorProvider1.SetError(btnAgregar, "Debe ingresar un precio a cada fila");
@@ -153,7 +153,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             {
                 if (ValidarFila())
                 {
-                    if (FilaCmb.SelectedIndex!=0)
+                    if (FilaCmb.SelectedIndex != 0)
                     {
                         int fila = int.Parse((string)FilaCmb.SelectedValue);
                         var listaLocalidades = _servicioLocalidades.GetLista(fila);
@@ -163,7 +163,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                             distribucionLocalidad.Precio = decimal.Parse(ButacasTxt.Text);
                             distribucionLocalidad.LocalidadId = l.LocalidadId;
                             distribucionLocalidad.Localidad = l;
-                            distribucionLocalidades.Add(distribucionLocalidad); 
+                            distribucionLocalidades.Add(distribucionLocalidad);
                         }
                         DataGridViewRow r = HelperGrid.CrearFila(DatosDataGridView);
                         HelperGrid.SetearFila(r, distribucionLocalidad);
@@ -192,7 +192,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             bool valido = true;
             foreach (var dl in distribucionLocalidades)
             {
-                if (FilaCmb.SelectedIndex!=0)
+                if (FilaCmb.SelectedIndex != 0)
                 {
 
                     if (dl.Localidad.Fila == int.Parse((string)FilaCmb.SelectedValue))
@@ -221,6 +221,43 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 });
                 DatosDataGridView.Rows.RemoveAt(e.RowIndex);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ValidarPrecio())
+            {
+                var listaDeFilas = ConstruirFilasSinPrecio();
+                foreach (var fila in listaDeFilas)
+                {
+                    DistribucionLocalidad distribucionLocalidad = new DistribucionLocalidad();
+                    var listaLocalidades = _servicioLocalidades.GetLista(int.Parse(fila));
+                    foreach (var l in listaLocalidades)
+                    {
+                        distribucionLocalidad = new DistribucionLocalidad();
+                        distribucionLocalidad.Precio = decimal.Parse(ButacasTxt.Text);
+                        distribucionLocalidad.LocalidadId = l.LocalidadId;
+                        distribucionLocalidad.Localidad = l;
+                        distribucionLocalidades.Add(distribucionLocalidad);
+                    }
+                    DataGridViewRow r = HelperGrid.CrearFila(DatosDataGridView);
+                    HelperGrid.SetearFila(r, distribucionLocalidad);
+                    HelperGrid.AgregarFila(DatosDataGridView, r);
+                }
+            }
+        }
+
+        private List<string> ConstruirFilasSinPrecio()
+        {
+            List<string> listaFilas = _servicioLocalidades.GetFilas();
+            foreach (var dl in distribucionLocalidades)
+            {
+                if (listaFilas.Contains(dl.Localidad.Fila.ToString()))
+                {
+                    listaFilas.Remove(dl.Localidad.Fila.ToString());
+                }
+            }
+            return listaFilas;
         }
     }
 }

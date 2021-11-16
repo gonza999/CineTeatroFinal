@@ -117,6 +117,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
                 var listaDistribucionesLocalidades = new List<DistribucionLocalidad>();
+                _context.Configuration.AutoDetectChangesEnabled = false;
                 foreach (var dl in distribucion.DistribucionesLocalidades)
                 {
                     if (dl.LocalidadId > 0)
@@ -128,6 +129,7 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                         listaDistribucionesLocalidades.Add(distribucionLocalidad);
                     }
                 }
+                _context.Configuration.AutoDetectChangesEnabled = true;
                 distribucion.DistribucionesLocalidades = listaDistribucionesLocalidades;
                 _context.Distribuciones.Add(distribucion);
             }
