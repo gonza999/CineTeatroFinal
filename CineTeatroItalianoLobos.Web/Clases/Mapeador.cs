@@ -439,11 +439,54 @@ namespace CineTeatroItalianoLobos.Web.Clases
             {
                 EventoId = e.EventoId,
                 NombreEvento = e.NombreEvento,
-                Descripcion = e.Descripcion,
                 Suspendido = e.Suspendido,
                 TipoEvento = e.TipoEvento.Descripcion,
                 Clasificacion = e.Clasificacion.Descripcion,
                 Distribucion = e.Distribucion.Descripcion
+            };
+        }
+        public static Evento ConstruirEvento(EventoEditVm e)
+        {
+            return new Evento()
+            {
+                EventoId = e.EventoId,
+                NombreEvento = e.NombreEvento,
+                Suspendido = e.Suspendido,
+                TipoEventoId = e.TipoEventoId,
+                ClasificacionId = e.ClasificacionId,
+                DistribucionId = e.DistribucionId,
+                Descripcion=e.Descripcion,
+                FechaEvento=e.FechaEvento
+                
+            };
+        }
+        public static EventoDetail ConstruirEventoDetailsVm(Evento e)
+        {
+            return new EventoDetail()
+            {
+                EventoId = e.EventoId,
+                NombreEvento = e.NombreEvento,
+                Suspendido = e.Suspendido,
+                TipoEvento = e.TipoEvento.Descripcion,
+                Clasificacion= e.Clasificacion.Descripcion,
+                Distribucion = e.Distribucion.Descripcion,
+                Descripcion = e.Descripcion,
+                FechaEvento = e.FechaEvento.Year+"/"+e.FechaEvento.Month+"/"+
+                e.FechaEvento.Day
+            };
+        }
+        public static EventoEditVm ConstruirEventoEditVm(Evento e)
+        {
+            return new EventoEditVm()
+            {
+                EventoId = e.EventoId,
+                NombreEvento = e.NombreEvento,
+                Suspendido = e.Suspendido,
+                TipoEventoId = e.TipoEventoId,
+                ClasificacionId = e.ClasificacionId,
+                DistribucionId = e.DistribucionId,
+                Descripcion = e.Descripcion,
+                FechaEvento = e.FechaEvento
             };
         }
         #endregion

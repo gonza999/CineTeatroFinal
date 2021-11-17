@@ -6,20 +6,19 @@ using System.Web;
 
 namespace CineTeatroItalianoLobos.Web.Models.Evento
 {
-    public class EventoListVm
+    public class EventoDetail
     {
         public int EventoId { get; set; }
-        [Display(Name = "Evento")]
-        public string NombreEvento { get; set; }
         [Display(Name = "Tipo de Evento")]
         public string TipoEvento { get; set; }
-        [Display(Name = "Clasificacion")]
         public string Clasificacion { get; set; }
-        [Display(Name = "Suspendido")]
+        [Display(Name = "Evento")]
+        public string NombreEvento { get; set; }
+        [Display(Name = "Fecha del Evento")]
+        public string FechaEvento { get; set; }
+        public string Descripcion { get; set; }
         public bool Suspendido { get; set; }
-        [Display(Name = "Distribucion")]
         public string Distribucion { get; set; }
-
         //public int CantidadHorarios { get; set; }
     }
 }

@@ -157,6 +157,7 @@
     <Compile Include="Controllers\ClasificacionController.cs" />
     <Compile Include="Controllers\DistribucionController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
+    <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\FormaPagoController.cs" />
     <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -176,6 +177,8 @@
     <Compile Include="Models\Empleado\EmpleadoDetail.cs" />
     <Compile Include="Models\Empleado\EmpleadoEditVm.cs" />
     <Compile Include="Models\Empleado\EmpleadoListVm.cs" />
+    <Compile Include="Models\Evento\EventoDetail.cs" />
+    <Compile Include="Models\Evento\EventoEditVm.cs" />
     <Compile Include="Models\Evento\EventoListVm.cs" />
     <Compile Include="Models\FormaPago\FormaPagoDetail.cs" />
     <Compile Include="Models\FormaPago\FormaPagoEditVm.cs" />
@@ -282,6 +285,11 @@
     <Content Include="Views\Empleado\Delete.cshtml" />
     <Content Include="Views\Empleado\Details.cshtml" />
     <Content Include="Views\TipoDocumento\AddEmpleado.cshtml" />
+    <Content Include="Views\Evento\Index.cshtml" />
+    <Content Include="Views\Evento\Create.cshtml" />
+    <Content Include="Views\Evento\Edit.cshtml" />
+    <Content Include="Views\Evento\Delete.cshtml" />
+    <Content Include="Views\Evento\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

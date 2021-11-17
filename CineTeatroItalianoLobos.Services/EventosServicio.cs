@@ -190,5 +190,19 @@ namespace CineTeatroItalianoLobos.Services
                 }
             }
         }
+
+        public void Guardar(Evento evento)
+        {
+            try
+            {
+                _repositorio.Guardar(evento);
+                _unitOfWork.Save();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
