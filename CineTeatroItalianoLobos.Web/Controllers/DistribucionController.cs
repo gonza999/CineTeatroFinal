@@ -1,6 +1,7 @@
 ﻿using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.Web.Clases;
 using CineTeatroItalianoLobos.Web.Models.Distribucion;
+using CineTeatroItalianoLobos.Web.Models.Evento;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,17 @@ namespace CineTeatroItalianoLobos.Web.Controllers
     {
         private readonly IDistribucionesServicio _servicio;
         private readonly IEventosServicios _servicioEventos;
+        private readonly ITiposDeEventosServicios _servicioTiposEventos;
+        private readonly IClasificacionesServicio _servicioClasificaciones;
         private readonly int cantidadPorPaginas = 12;
         public DistribucionController(IDistribucionesServicio servicio,
-            IEventosServicios servicioEventos)
+            IEventosServicios servicioEventos, ITiposDeEventosServicios servicioTiposEventos,
+            IClasificacionesServicio servicioClasificaciones)
         {
             _servicio = servicio;
             _servicioEventos = servicioEventos;
+            _servicioTiposEventos = servicioTiposEventos;
+            _servicioClasificaciones = servicioClasificaciones;
         }
         public ActionResult Index(int? page = null)
         {
@@ -171,5 +177,69 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             distribucionDetailsVm.Eventos = Mapeador.ConstruirListaEventosVm(_servicioEventos.Find(e => e.DistribucionId == distribucion.DistribucionId, null, null));
             return View(distribucionDetailsVm);
         }
+
+        public ActionResult AddEvento(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var distribucion = _servicio.GetTEntityPorId(id.Value);
+            if (distribucion == null)
+            {
+                return HttpNotFound("Código de distribucion inexistente!!!");
+            }
+
+            var eventoEditVm = new EventoEditVm()
+            {
+                DistribucionId = distribucion.DistribucionId,
+                Distribucion = Mapeador.ConstruirDistribucionListVm(distribucion),
+                TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista()),
+                Clasificaciones = Mapeador.ConstruirListaClasificacionVm(_servicioClasificaciones.GetLista())
+            };
+            return View(eventoEditVm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEvento(EventoEditVm eventoEditVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                var distribucion = Mapeador.ConstruirDistribucionListVm(_servicio.GetTEntityPorId(eventoEditVm.DistribucionId));
+                eventoEditVm.Distribucion = distribucion;
+                eventoEditVm.TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista());
+                eventoEditVm.Clasificaciones = Mapeador.ConstruirListaClasificacionVm(_servicioClasificaciones.GetLista());
+                return View(eventoEditVm);
+            }
+
+            var evento = Mapeador.ConstruirEvento(eventoEditVm);
+            try
+            {
+                if (_servicioEventos.Existe(evento))
+                {
+                    var distribucion = Mapeador.ConstruirDistribucionListVm(_servicio.GetTEntityPorId(eventoEditVm.DistribucionId));
+                    eventoEditVm.Distribucion = distribucion;
+                    eventoEditVm.TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista());
+                    eventoEditVm.Clasificaciones = Mapeador.ConstruirListaClasificacionVm(_servicioClasificaciones.GetLista());
+                    ModelState.AddModelError(string.Empty, "Evento existente!!!");
+                    return View(eventoEditVm);
+                }
+                evento.FechaEvento = DateTime.Now;
+                _servicioEventos.Guardar(evento);
+                return RedirectToAction($"Details/{evento.DistribucionId}");
+            }
+            catch (Exception e)
+            {
+                var distribucion = Mapeador.ConstruirDistribucionListVm(_servicio.GetTEntityPorId(eventoEditVm.DistribucionId));
+                eventoEditVm.Distribucion = distribucion;
+                eventoEditVm.TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista());
+                eventoEditVm.Clasificaciones = Mapeador.ConstruirListaClasificacionVm(_servicioClasificaciones.GetLista());
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(eventoEditVm);
+            }
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.Web.Clases;
 using CineTeatroItalianoLobos.Web.Models.Clasificacion;
+using CineTeatroItalianoLobos.Web.Models.Evento;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,17 @@ namespace CineTeatroItalianoLobos.Web.Controllers
     {
         private readonly IClasificacionesServicio _servicio;
         private readonly IEventosServicios _servicioEventos;
+        private readonly ITiposDeEventosServicios _servicioTiposEventos;
+        private readonly IDistribucionesServicio _servicioDistribuciones;
         private readonly int cantidadPorPaginas = 12;
         public ClasificacionController(IClasificacionesServicio servicio,
-            IEventosServicios servicioEventos)
+            IEventosServicios servicioEventos, ITiposDeEventosServicios servicioTiposEventos,
+            IDistribucionesServicio servicioDistribuciones)
         {
             _servicio = servicio;
             _servicioEventos = servicioEventos;
+            _servicioTiposEventos = servicioTiposEventos;
+            _servicioDistribuciones = servicioDistribuciones;
         }
         public ActionResult Index(int? page = null)
         {
@@ -170,6 +176,69 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             clasificacionDetailsVm.CantidadEventos = _servicioEventos.GetCantidad(e => e.ClasificacionId == clasificacion.ClasificacionId);
             clasificacionDetailsVm.Eventos = Mapeador.ConstruirListaEventosVm(_servicioEventos.Find(e => e.ClasificacionId == clasificacion.ClasificacionId, null, null));
             return View(clasificacionDetailsVm);
+        }
+
+        public ActionResult AddEvento(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var clasificacion = _servicio.GetTEntityPorId(id.Value);
+            if (clasificacion == null)
+            {
+                return HttpNotFound("Código de clasificacion inexistente!!!");
+            }
+
+            var eventoEditVm = new EventoEditVm()
+            {
+                ClasificacionId = clasificacion.ClasificacionId,
+                Clasificacion = Mapeador.ConstruirClasificacionListVm(clasificacion),
+                TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista()),
+                Distribuciones = Mapeador.ConstruirListaDistribucionVm(_servicioDistribuciones.GetLista())
+            };
+            return View(eventoEditVm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEvento(EventoEditVm eventoEditVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                var clasificacion = Mapeador.ConstruirClasificacionListVm(_servicio.GetTEntityPorId(eventoEditVm.ClasificacionId));
+                eventoEditVm.Clasificacion = clasificacion;
+                eventoEditVm.TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista());
+                eventoEditVm.Distribuciones = Mapeador.ConstruirListaDistribucionVm(_servicioDistribuciones.GetLista());
+                return View(eventoEditVm);
+            }
+
+            var evento = Mapeador.ConstruirEvento(eventoEditVm);
+            try
+            {
+                if (_servicioEventos.Existe(evento))
+                {
+                    var clasificacion = Mapeador.ConstruirClasificacionListVm(_servicio.GetTEntityPorId(eventoEditVm.ClasificacionId));
+                    eventoEditVm.Clasificacion = clasificacion;
+                    eventoEditVm.TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista());
+                    eventoEditVm.Distribuciones = Mapeador.ConstruirListaDistribucionVm(_servicioDistribuciones.GetLista());
+                    ModelState.AddModelError(string.Empty, "Evento existente!!!");
+                    return View(eventoEditVm);
+                }
+                evento.FechaEvento = DateTime.Now;
+                _servicioEventos.Guardar(evento);
+                return RedirectToAction($"Details/{evento.ClasificacionId}");
+            }
+            catch (Exception e)
+            {
+                var clasificacion = Mapeador.ConstruirClasificacionListVm(_servicio.GetTEntityPorId(eventoEditVm.ClasificacionId));
+                eventoEditVm.Clasificacion = clasificacion;
+                eventoEditVm.TiposEventos = Mapeador.ConstruirListaTipoEventoVm(_servicioTiposEventos.GetLista());
+                eventoEditVm.Distribuciones = Mapeador.ConstruirListaDistribucionVm(_servicioDistribuciones.GetLista());
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(eventoEditVm);
+            }
         }
 
     }
