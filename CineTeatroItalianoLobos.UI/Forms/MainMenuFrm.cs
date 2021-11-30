@@ -89,5 +89,11 @@ namespace CineTeatroItalianoLobos.UI
             HorariosFrm frm = new HorariosFrm(DI.Create<IHorariosServicio>(), DI.Create<IEventosServicios>());
             frm.ShowDialog(this);
         }
+
+        private void listaDeLocalidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaLocalidadesFrm frm = new ListaLocalidadesFrm();
+            frm.ShowDialog(this);
+        }
     }
 }

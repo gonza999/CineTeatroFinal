@@ -157,8 +157,8 @@
   <data name="theatre_mask_30px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_mask_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="theatre_seats_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\theatre_seats_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="occupied_theatre_seat_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\occupied_theatre_seat_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="theatre_mask_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_mask_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,8 +166,14 @@
   <data name="stairs_up_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stairs_up_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="occupied_theatre_seat_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\occupied_theatre_seat_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="people_30px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\people_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="theatre_seats_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\theatre_seats_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="create_order_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\create_order_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="theatre_curtain_30px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_curtain_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,9 +190,6 @@
   <data name="update_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\update_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="theatre_seat_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_seat_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,20 +199,23 @@
   <data name="document_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="create_order_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\create_order_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="theatre_seat_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\theatre_seat_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="theatre_seat_30px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\theatre_seat_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ticket_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ticket_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="theatre_seat_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\theatre_seat_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancel_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="theatre_curtain_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_curtain_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="people_30px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\people_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="theatre_seat_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\theatre_seat_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="theatre_mask_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_mask_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,17 +223,14 @@
   <data name="theatre_seats_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_seats_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stairs_down_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stairs_down_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="money_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\money_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_pane_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_pane_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="theatre_seat_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\theatre_seat_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stairs_down_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stairs_down_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="print_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,16 +238,16 @@
   <data name="book_and_pencil_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book_and_pencil_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="theatre_seat_30px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\theatre_seat_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ok_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ok_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="theatre_mask_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\theatre_mask_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ok_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ok_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Teatro - copia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teatro - copia.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

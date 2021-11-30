@@ -283,6 +283,16 @@ namespace CineTeatroItalianoLobos.UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Teatro___copia {
+            get {
+                object obj = ResourceManager.GetObject("Teatro - copia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap theatre_curtain_30px {
             get {
                 object obj = ResourceManager.GetObject("theatre_curtain_30px", resourceCulture);
