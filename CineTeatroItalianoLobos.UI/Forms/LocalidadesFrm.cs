@@ -37,10 +37,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void LocalidadesFrm_Load(object sender, EventArgs e)
         {
             RecargarGrilla();
-            ////Inserta 3000 butacas en 20 filas
+            ////Inserta 117 butacas en 20 filas
+            //bool primerFila = true;
             //int fila = 1;
             //int cambiarFila = 0;
-            //for (int numero = 1; numero < 3001; numero++)
+            //for (int numero = 1; numero < 118; numero++)
             //{
             //    cambiarFila++;
             //    Localidad localidad = new Localidad()
@@ -50,15 +51,21 @@ namespace CineTeatroItalianoLobos.UI.Forms
             //        PlantaId = 1,
             //        Numero = numero,
             //    };
-            //    if (cambiarFila == 20)
+            //    if (cambiarFila == 17)
             //    {
             //        fila++;
             //        cambiarFila = 0;
             //    }
+            //    if (primerFila && cambiarFila==15)
+            //    {
+            //        fila++;
+            //        cambiarFila = 0;
+            //        primerFila = false;
+            //    }
             //    _servicio.Guardar(localidad);
             //}
-            //Inserta 12 palcos en planta baja
-            //for (int numero = 1; numero < 13; numero++)
+            ////Inserta 14 palcos en planta baja
+            //for (int numero = 1; numero < 15; numero++)
             //{
             //    Localidad localidad = new Localidad()
             //    {
@@ -69,8 +76,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             //    };
             //    _servicio.Guardar(localidad);
             //}
-            ////Inserta 15 palcos en primer piso
-            //for (int numero = 1; numero < 16; numero++)
+            ////Inserta 20 palcos en primer piso
+            //for (int numero = 1; numero < 21; numero++)
             //{
             //    Localidad localidad = new Localidad()
             //    {

@@ -17,6 +17,7 @@ namespace CineTeatroItalianoLobos.Data.EntityTypeConfigurations
             Property(h => h.EventoId).IsRequired();
             Property(h => h.Fecha).HasColumnName("Fecha");
             Property(h => h.Hora).HasColumnName("Hora");
+            Ignore(h => h.FechaYHora);
         }
     }
 }

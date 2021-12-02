@@ -99,6 +99,27 @@ namespace CineTeatroItalianoLobos.UI.Helpers
             clasificacionCmb.SelectedIndex = 0;
         }
 
+        public static void CargarDatosComboHorario(ref ComboBox horarioCmb, Evento evento)
+        {
+            IHorariosServicio servicio = DI.Create<IHorariosServicio>();
+            List<Horario> lista = servicio.GetLista(evento);
+            foreach (var h in lista)
+            {
+                h.SetearFechaYHora();
+            }
+            var defaultHorario = new Horario()
+            {
+                HorarioId = 0,
+                FechaYHora = "<Seleccione Horario>"
+            };
+            lista.Insert(0, defaultHorario);
+            defaultHorario.FechaYHora = "<Seleccione Horario>";
+            horarioCmb.DataSource = lista;
+            horarioCmb.DisplayMember = "FechaYHora";
+            horarioCmb.ValueMember = "HorarioId";
+            horarioCmb.SelectedIndex = 0;
+        }
+
         public static void CargarDatosComboTipoEventos(ref ComboBox tipoEventoCmb)
         {
             ITiposDeEventosServicios servicio = DI.Create<ITiposDeEventosServicios>();

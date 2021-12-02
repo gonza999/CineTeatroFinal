@@ -379,6 +379,10 @@
       <Project>{4b0fa9f3-d79c-4a29-9f2a-33aa8e29438d}</Project>
       <Name>CineTeatroItalianoLobos.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CineTeatroItalianoLobos.Web\CineTeatroItalianoLobos.Web.csproj">
+      <Project>{D3EE5274-6EBC-41CD-A3AE-F49392654694}</Project>
+      <Name>CineTeatroItalianoLobos.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\descarga.png" />
