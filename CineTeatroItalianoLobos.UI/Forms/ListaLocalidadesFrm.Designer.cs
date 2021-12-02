@@ -35,11 +35,23 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.HorarioCmb = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ObjetosPnl = new System.Windows.Forms.Panel();
-            this.B117 = new System.Windows.Forms.Button();
+            this.VenderBtn = new System.Windows.Forms.Button();
+            this.ImporteTotalTxt = new System.Windows.Forms.TextBox();
+            this.ImporteLocalidadTxt = new System.Windows.Forms.TextBox();
+            this.ImporteTotalLbl = new System.Windows.Forms.Label();
+            this.ImporteLocalidadLbl = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button200 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button201 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SeleccionadoBtn = new System.Windows.Forms.Button();
+            this.button203 = new System.Windows.Forms.Button();
+            this.SeleccionadoLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button202 = new System.Windows.Forms.Button();
+            this.B117 = new System.Windows.Forms.Button();
             this.B100 = new System.Windows.Forms.Button();
             this.B83 = new System.Windows.Forms.Button();
             this.B66 = new System.Windows.Forms.Button();
@@ -184,10 +196,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.P30 = new System.Windows.Forms.Button();
             this.P34 = new System.Windows.Forms.Button();
             this.P20 = new System.Windows.Forms.Button();
-            this.button203 = new System.Windows.Forms.Button();
-            this.button202 = new System.Windows.Forms.Button();
-            this.button201 = new System.Windows.Forms.Button();
-            this.button200 = new System.Windows.Forms.Button();
             this.P24 = new System.Windows.Forms.Button();
             this.P7 = new System.Windows.Forms.Button();
             this.B16 = new System.Windows.Forms.Button();
@@ -197,13 +205,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ImagenPbx = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ClosePbx = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.ObjetosPnl.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPbx)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePbx)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // EventoCmb
@@ -259,6 +268,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // ObjetosPnl
             // 
+            this.ObjetosPnl.Controls.Add(this.panel4);
             this.ObjetosPnl.Controls.Add(this.panel3);
             this.ObjetosPnl.Controls.Add(this.B117);
             this.ObjetosPnl.Controls.Add(this.B100);
@@ -418,22 +428,178 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ObjetosPnl.Size = new System.Drawing.Size(763, 595);
             this.ObjetosPnl.TabIndex = 53;
             // 
-            // B117
+            // VenderBtn
             // 
-            this.B117.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.VenderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.VenderBtn.Enabled = false;
+            this.VenderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.VenderBtn.Font = new System.Drawing.Font("Copperplate Gothic Light", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VenderBtn.Location = new System.Drawing.Point(4, 423);
+            this.VenderBtn.Name = "VenderBtn";
+            this.VenderBtn.Size = new System.Drawing.Size(104, 33);
+            this.VenderBtn.TabIndex = 65;
+            this.VenderBtn.Text = "Vender -->";
+            this.VenderBtn.UseVisualStyleBackColor = false;
+            this.VenderBtn.Visible = false;
+            this.VenderBtn.Click += new System.EventHandler(this.VenderBtn_Click);
+            // 
+            // ImporteTotalTxt
+            // 
+            this.ImporteTotalTxt.Enabled = false;
+            this.ImporteTotalTxt.Location = new System.Drawing.Point(6, 285);
+            this.ImporteTotalTxt.MaxLength = 10;
+            this.ImporteTotalTxt.Name = "ImporteTotalTxt";
+            this.ImporteTotalTxt.Size = new System.Drawing.Size(102, 20);
+            this.ImporteTotalTxt.TabIndex = 52;
+            this.ImporteTotalTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ImporteTotalTxt.Visible = false;
+            // 
+            // ImporteLocalidadTxt
+            // 
+            this.ImporteLocalidadTxt.Enabled = false;
+            this.ImporteLocalidadTxt.Location = new System.Drawing.Point(6, 114);
+            this.ImporteLocalidadTxt.MaxLength = 10;
+            this.ImporteLocalidadTxt.Name = "ImporteLocalidadTxt";
+            this.ImporteLocalidadTxt.Size = new System.Drawing.Size(102, 20);
+            this.ImporteLocalidadTxt.TabIndex = 52;
+            this.ImporteLocalidadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ImporteLocalidadTxt.Visible = false;
+            // 
+            // ImporteTotalLbl
+            // 
+            this.ImporteTotalLbl.AutoSize = true;
+            this.ImporteTotalLbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImporteTotalLbl.Location = new System.Drawing.Point(17, 241);
+            this.ImporteTotalLbl.Name = "ImporteTotalLbl";
+            this.ImporteTotalLbl.Size = new System.Drawing.Size(80, 38);
+            this.ImporteTotalLbl.TabIndex = 51;
+            this.ImporteTotalLbl.Text = "Importe \r\n   Total:";
+            this.ImporteTotalLbl.Visible = false;
+            // 
+            // ImporteLocalidadLbl
+            // 
+            this.ImporteLocalidadLbl.AutoSize = true;
+            this.ImporteLocalidadLbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImporteLocalidadLbl.Location = new System.Drawing.Point(2, 33);
+            this.ImporteLocalidadLbl.Name = "ImporteLocalidadLbl";
+            this.ImporteLocalidadLbl.Size = new System.Drawing.Size(115, 57);
+            this.ImporteLocalidadLbl.TabIndex = 51;
+            this.ImporteLocalidadLbl.Text = "Importe \r\nlocalidad \r\nseleccionada:";
+            this.ImporteLocalidadLbl.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button200);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.button201);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.SeleccionadoBtn);
+            this.panel3.Controls.Add(this.button203);
+            this.panel3.Controls.Add(this.SeleccionadoLbl);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.button202);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(127, 595);
+            this.panel3.TabIndex = 50;
+            // 
+            // button200
+            // 
+            this.button200.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.B117.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.B117.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.B117.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.B117.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.B117.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B117.Location = new System.Drawing.Point(507, 289);
-            this.B117.Name = "B117";
-            this.B117.Size = new System.Drawing.Size(13, 29);
-            this.B117.TabIndex = 1;
-            this.B117.Text = "117";
-            this.B117.UseVisualStyleBackColor = false;
+            this.button200.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button200.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button200.Enabled = false;
+            this.button200.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button200.Location = new System.Drawing.Point(3, 16);
+            this.button200.Name = "button200";
+            this.button200.Size = new System.Drawing.Size(25, 28);
+            this.button200.TabIndex = 1;
+            this.button200.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Butacas";
+            // 
+            // button201
+            // 
+            this.button201.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button201.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button201.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button201.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button201.Enabled = false;
+            this.button201.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button201.Location = new System.Drawing.Point(1, 91);
+            this.button201.Name = "button201";
+            this.button201.Size = new System.Drawing.Size(25, 28);
+            this.button201.TabIndex = 1;
+            this.button201.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cooper Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(28, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 32);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "Palcos \r\n- Planta Baja";
+            // 
+            // SeleccionadoBtn
+            // 
+            this.SeleccionadoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SeleccionadoBtn.BackColor = System.Drawing.Color.White;
+            this.SeleccionadoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SeleccionadoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SeleccionadoBtn.Enabled = false;
+            this.SeleccionadoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeleccionadoBtn.Location = new System.Drawing.Point(2, 370);
+            this.SeleccionadoBtn.Name = "SeleccionadoBtn";
+            this.SeleccionadoBtn.Size = new System.Drawing.Size(25, 28);
+            this.SeleccionadoBtn.TabIndex = 1;
+            this.SeleccionadoBtn.UseVisualStyleBackColor = false;
+            this.SeleccionadoBtn.Visible = false;
+            // 
+            // button203
+            // 
+            this.button203.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button203.BackColor = System.Drawing.Color.Red;
+            this.button203.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button203.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button203.Enabled = false;
+            this.button203.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button203.Location = new System.Drawing.Point(1, 281);
+            this.button203.Name = "button203";
+            this.button203.Size = new System.Drawing.Size(25, 28);
+            this.button203.TabIndex = 1;
+            this.button203.UseVisualStyleBackColor = false;
+            // 
+            // SeleccionadoLbl
+            // 
+            this.SeleccionadoLbl.AutoSize = true;
+            this.SeleccionadoLbl.Font = new System.Drawing.Font("Cooper Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeleccionadoLbl.Location = new System.Drawing.Point(29, 375);
+            this.SeleccionadoLbl.Name = "SeleccionadoLbl";
+            this.SeleccionadoLbl.Size = new System.Drawing.Size(97, 16);
+            this.SeleccionadoLbl.TabIndex = 49;
+            this.SeleccionadoLbl.Text = "Seleccionado";
+            this.SeleccionadoLbl.Visible = false;
             // 
             // label6
             // 
@@ -455,25 +621,38 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.label5.TabIndex = 49;
             this.label5.Text = "Palcos \r\n- Primer Piso";
             // 
-            // label4
+            // button202
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cooper Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 32);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "Palcos \r\n- Planta Baja";
+            this.button202.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button202.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button202.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button202.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button202.Enabled = false;
+            this.button202.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button202.Location = new System.Drawing.Point(1, 174);
+            this.button202.Name = "button202";
+            this.button202.Size = new System.Drawing.Size(25, 28);
+            this.button202.TabIndex = 1;
+            this.button202.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // B117
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Butacas";
+            this.B117.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.B117.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.B117.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.B117.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.B117.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.B117.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B117.Location = new System.Drawing.Point(507, 289);
+            this.B117.Name = "B117";
+            this.B117.Size = new System.Drawing.Size(13, 29);
+            this.B117.TabIndex = 1;
+            this.B117.Text = "117";
+            this.B117.UseVisualStyleBackColor = false;
             // 
             // B100
             // 
@@ -3113,70 +3292,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.P20.Text = "20";
             this.P20.UseVisualStyleBackColor = false;
             // 
-            // button203
-            // 
-            this.button203.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button203.BackColor = System.Drawing.Color.Red;
-            this.button203.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button203.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button203.Enabled = false;
-            this.button203.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button203.Location = new System.Drawing.Point(1, 281);
-            this.button203.Name = "button203";
-            this.button203.Size = new System.Drawing.Size(25, 28);
-            this.button203.TabIndex = 1;
-            this.button203.UseVisualStyleBackColor = false;
-            // 
-            // button202
-            // 
-            this.button202.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button202.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button202.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button202.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button202.Enabled = false;
-            this.button202.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button202.Location = new System.Drawing.Point(1, 174);
-            this.button202.Name = "button202";
-            this.button202.Size = new System.Drawing.Size(25, 28);
-            this.button202.TabIndex = 1;
-            this.button202.UseVisualStyleBackColor = false;
-            // 
-            // button201
-            // 
-            this.button201.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button201.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button201.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button201.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button201.Enabled = false;
-            this.button201.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button201.Location = new System.Drawing.Point(1, 91);
-            this.button201.Name = "button201";
-            this.button201.Size = new System.Drawing.Size(25, 28);
-            this.button201.TabIndex = 1;
-            this.button201.UseVisualStyleBackColor = false;
-            // 
-            // button200
-            // 
-            this.button200.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button200.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button200.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button200.Enabled = false;
-            this.button200.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button200.Location = new System.Drawing.Point(3, 16);
-            this.button200.Name = "button200";
-            this.button200.Size = new System.Drawing.Size(25, 28);
-            this.button200.TabIndex = 1;
-            this.button200.UseVisualStyleBackColor = false;
-            // 
             // P24
             // 
             this.P24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -3330,21 +3445,18 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ClosePbx.MouseLeave += new System.EventHandler(this.ClosePbx_MouseLeave);
             this.ClosePbx.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
-            // panel3
+            // panel4
             // 
-            this.panel3.Controls.Add(this.button200);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.button201);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.button203);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.button202);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(127, 595);
-            this.panel3.TabIndex = 50;
+            this.panel4.Controls.Add(this.ImporteTotalLbl);
+            this.panel4.Controls.Add(this.VenderBtn);
+            this.panel4.Controls.Add(this.ImporteLocalidadLbl);
+            this.panel4.Controls.Add(this.ImporteTotalTxt);
+            this.panel4.Controls.Add(this.ImporteLocalidadTxt);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(639, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(124, 595);
+            this.panel4.TabIndex = 66;
             // 
             // ListaLocalidadesFrm
             // 
@@ -3363,12 +3475,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.Load += new System.EventHandler(this.ListaLocalidadesFrm_Load);
             this.panel1.ResumeLayout(false);
             this.ObjetosPnl.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPbx)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePbx)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3544,5 +3658,13 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button SeleccionadoBtn;
+        private System.Windows.Forms.Label SeleccionadoLbl;
+        private System.Windows.Forms.TextBox ImporteTotalTxt;
+        private System.Windows.Forms.TextBox ImporteLocalidadTxt;
+        private System.Windows.Forms.Label ImporteTotalLbl;
+        private System.Windows.Forms.Label ImporteLocalidadLbl;
+        private System.Windows.Forms.Button VenderBtn;
+        private System.Windows.Forms.Panel panel4;
     }
 }

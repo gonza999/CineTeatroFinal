@@ -240,6 +240,12 @@
     <Compile Include="Forms\UbicacionesFrm.Designer.cs">
       <DependentUpon>UbicacionesFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\VentasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VentasFrm.Designer.cs">
+      <DependentUpon>VentasFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\HelperCalculos.cs" />
     <Compile Include="Helpers\HelperCombos.cs" />
     <Compile Include="Helpers\HelperForm.cs" />
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UbicacionesFrm.resx">
       <DependentUpon>UbicacionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VentasFrm.resx">
+      <DependentUpon>VentasFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

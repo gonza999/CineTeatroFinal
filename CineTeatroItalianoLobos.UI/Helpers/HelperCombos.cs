@@ -25,6 +25,54 @@ namespace CineTeatroItalianoLobos.UI.Helpers
             combo.SelectedIndex = 0;
         }
 
+        public static void CargarDatosComboFormasPagos(ref ComboBox formaDePagoCmb)
+        {
+            IFormasPagosServicio servicio = DI.Create<IFormasPagosServicio>();
+            List<FormaPago> lista = servicio.GetLista();
+            var defaultFormaPago = new FormaPago()
+            {
+                FormaPagoId = 0,
+                Descripcion = "<Seleccione Forma de Pago>"
+            };
+            lista.Insert(0, defaultFormaPago);
+            formaDePagoCmb.DataSource = lista;
+            formaDePagoCmb.DisplayMember = "Descripcion";
+            formaDePagoCmb.ValueMember = "FormaPagoId";
+            formaDePagoCmb.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboFormasVentas(ref ComboBox formaDeVentaCmb)
+        {
+            IFormasVentasServicio servicio = DI.Create<IFormasVentasServicio>();
+            List<FormaVenta> lista = servicio.GetLista();
+            var defaultFormaVenta = new FormaVenta()
+            {
+                FormaVentaId = 0,
+                Descripcion = "<Seleccione Forma de Venta>"
+            };
+            lista.Insert(0, defaultFormaVenta);
+            formaDeVentaCmb.DataSource = lista;
+            formaDeVentaCmb.DisplayMember = "Descripcion";
+            formaDeVentaCmb.ValueMember = "FormaVentaId";
+            formaDeVentaCmb.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboEmpleados(ref ComboBox empleadoCmb)
+        {
+            IEmpleadosServicio servicio = DI.Create<IEmpleadosServicio>();
+            List<Empleado> lista = servicio.GetLista();
+            var defaultEmpleado = new Empleado()
+            {
+                EmpleadoId = 0,
+                Apellido = "<Seleccione Empleado>"
+            };
+            lista.Insert(0, defaultEmpleado);
+            empleadoCmb.DataSource = lista;
+            empleadoCmb.DisplayMember = "Apellido";
+            empleadoCmb.ValueMember = "EmpleadoId";
+            empleadoCmb.SelectedIndex = 0;
+        }
+
         public static void CargarDatosComboEventos(ref ComboBox eventoCmb)
         {
             IEventosServicios servicio = DI.Create<IEventosServicios>();

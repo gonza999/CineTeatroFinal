@@ -17,6 +17,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
     public partial class ListaLocalidadesFrm : Form
     {
         private readonly ILocalidadesServicio _servicio;
+        private readonly IDistribucionesServicio _servicioDistribuciones;
+
         private List<Button> butacasControles = new List<Button>();
         private List<Button> palcosBajosControles = new List<Button>();
         private List<Button> palcosAltosControles = new List<Button>();
@@ -26,10 +28,12 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private List<Localidad> listaPalcosAltos = new List<Localidad>();
 
         private bool modoCompras = false;
-        public ListaLocalidadesFrm(ILocalidadesServicio servicio, bool modo)
+        public ListaLocalidadesFrm(ILocalidadesServicio servicio,
+            IDistribucionesServicio servicioDistribuciones, bool modo)
         {
             InitializeComponent();
             _servicio = servicio;
+            _servicioDistribuciones = servicioDistribuciones;
             modoCompras = modo;
         }
 
@@ -48,9 +52,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             ClosePbx.BorderStyle = BorderStyle.FixedSingle;
         }
-
+        private Color seleccionadoColor = Color.White;
         private void ListaLocalidadesFrm_Load(object sender, EventArgs e)
         {
+            VerModoCompras();
             Ubicacion ubicacion = new Ubicacion() { UbicacionId = 1 };
             listaButacas = _servicio.GetLista(ubicacion);
             ubicacion.UbicacionId = 2;
@@ -67,6 +72,20 @@ namespace CineTeatroItalianoLobos.UI.Forms
             HelperCombos.CargarDatosComboEventos(ref EventoCmb);
             ConstruirListaLocalidades();
             BloquearLocalidades();
+        }
+
+        private void VerModoCompras()
+        {
+            if (modoCompras)
+            {
+                SeleccionadoBtn.Visible = true;
+                SeleccionadoLbl.Visible = true;
+                ImporteLocalidadLbl.Visible = true;
+                ImporteLocalidadTxt.Visible = true;
+                ImporteTotalLbl.Visible = true;
+                ImporteTotalTxt.Visible = true;
+                VenderBtn.Visible = true;
+            }
         }
 
         private void BloquearLocalidades()
@@ -129,7 +148,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                     //Palcos Bajos
                     if (((Button)control).BackColor == Color.FromArgb(255, 192, 128))
                     {
-                        foreach (var p in listaButacas)
+                        foreach (var p in listaPalcosBajos)
                         {
                             if (p.Numero.ToString() == ((Button)control).Text)
                             {
@@ -141,7 +160,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                     //Palcos Altos
                     if (((Button)control).BackColor == Color.FromArgb(192, 255, 192))
                     {
-                        foreach (var p in listaButacas)
+                        foreach (var p in listaPalcosAltos)
                         {
                             if ((p.Numero + 14).ToString() == ((Button)control).Text)
                             {
@@ -154,10 +173,45 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 }
             }
         }
-
+        private decimal importeTotal = 0;
+        private List<Localidad> listaVendidas = new List<Localidad>();
         private void Miclick(object sender, EventArgs e)
         {
             Button b = (Button)sender;
+            var localidad = (Localidad)b.Tag;
+            var precio = MostrarPrecio(localidad);
+            if (b.BackColor != seleccionadoColor)
+            {
+                b.BackColor = seleccionadoColor;
+                importeTotal += precio;
+                listaVendidas.Add(localidad);
+            }
+            else
+            {
+                listaVendidas.Remove(localidad);
+                importeTotal -= precio;
+                if (localidad.UbicacionId == 1)
+                {
+                    b.BackColor = Color.FromArgb(255, 224, 192);
+                }
+                else if (localidad.UbicacionId == 2 && localidad.PlantaId == 1)
+                {
+                    b.BackColor = Color.FromArgb(255, 192, 128);
+                }
+                else if (localidad.UbicacionId == 2 && localidad.PlantaId == 2)
+                {
+                    b.BackColor = Color.FromArgb(192, 255, 192);
+                }
+            }
+            ImporteTotalTxt.Text = importeTotal.ToString("c");
+            if (listaVendidas.Count > 0)
+            {
+                VenderBtn.Enabled = true;
+            }
+            else
+            {
+                VenderBtn.Enabled = false;
+            }
         }
 
         private Evento evento = new Evento();
@@ -177,16 +231,37 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 BloquearLocalidades();
             }
         }
-
+        private Horario horario = new Horario();
         private void HorarioCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             BloquearLocalidades();
             VerificarOcupado();
+            horario = (Horario)HorarioCmb.SelectedItem;
         }
 
         private void VerificarOcupado()
         {
             return;
+        }
+        private decimal MostrarPrecio(Localidad localidad)
+        {
+            decimal precio = 0;
+            foreach (var dl in evento.Distribucion.DistribucionesLocalidades)
+            {
+                if (dl.Localidad.LocalidadId == localidad.LocalidadId
+                    && dl.Localidad.UbicacionId == localidad.UbicacionId)
+                {
+                    ImporteLocalidadTxt.Text = dl.Precio.ToString("c");
+                    precio = dl.Precio;
+                }
+            }
+            return precio;
+        }
+
+        private void VenderBtn_Click(object sender, EventArgs e)
+        {
+            VentasFrm frm = new VentasFrm(listaVendidas, horario);
+            frm.ShowDialog(this);
         }
     }
 }

@@ -230,6 +230,7 @@ namespace CineTeatroItalianoLobos.UI
             this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
             this.venderToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.venderToolStripMenuItem.Text = "Vender";
+            this.venderToolStripMenuItem.Click += new System.EventHandler(this.venderToolStripMenuItem_Click);
             // 
             // listaDeLasVentasToolStripMenuItem
             // 
