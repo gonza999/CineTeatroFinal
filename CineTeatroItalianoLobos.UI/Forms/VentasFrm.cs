@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.UI.Helpers;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,13 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private Horario horario;
 
         private List<Ticket> listaTickets = new List<Ticket>();
-        public VentasFrm(List<Localidad> listaVendidas, Horario horario)
+        private readonly IVentasServicio _servicio;
+        public VentasFrm(IVentasServicio servicio,List<Localidad> listaVendidas, Horario horario)
         {
             InitializeComponent();
             this.horario = horario;
             this.listaVendidas = listaVendidas;
+            _servicio = servicio;
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -59,15 +62,22 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 }
 
                 ConstruirTickets();
+
                 Venta venta = new Venta();
                 venta.Tickets = listaTickets;
+                venta.VentasTickets = ConstruirVentasTickets();
                 venta.Total += importeTotal;
                 venta.Empleado = (Empleado)EmpleadoCmb.SelectedItem;
+                venta.EmpleadoId = ((Empleado)EmpleadoCmb.SelectedItem).EmpleadoId;
                 venta.Fecha = DateTime.Now;
                 venta.Estado = false;
                 try
                 {
-                    //_servicio.Guardar(venta);
+                    _servicio.Guardar(venta);
+                    MessageBox.Show("Registro guardado", "Mensaje",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
                 catch (Exception exception)
                 {
@@ -77,8 +87,23 @@ namespace CineTeatroItalianoLobos.UI.Forms
             }
         }
 
+        private List<VentaTicket> ConstruirVentasTickets()
+        {
+            List<VentaTicket> listaVentaTickets = new List<VentaTicket>();
+            foreach (var t in listaTickets)
+            {
+                VentaTicket ventaTicket = new VentaTicket()
+                {
+                    Ticket=t
+                };
+                listaVentaTickets.Add(ventaTicket);
+            }
+            return listaVentaTickets;
+        }
+
         private void ConstruirTickets()
         {
+            listaTickets.Clear();
             foreach (var l in listaVendidas)
             {
                 Ticket ticket = new Ticket()

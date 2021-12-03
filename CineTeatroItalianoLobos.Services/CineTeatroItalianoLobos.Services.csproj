@@ -61,18 +61,22 @@
     <Compile Include="Facades\IHorariosServicio.cs" />
     <Compile Include="Facades\ILocalidadesServicio.cs" />
     <Compile Include="Facades\IPlantasServicio.cs" />
+    <Compile Include="Facades\ITicketsServicio.cs" />
     <Compile Include="Facades\ITiposDeEventosServicios.cs" />
     <Compile Include="Facades\ITiposDocumentosServicio.cs" />
     <Compile Include="Facades\IUbicacionesServicio.cs" />
+    <Compile Include="Facades\IVentasServicio.cs" />
     <Compile Include="FormasPagosServicio.cs" />
     <Compile Include="FormasVentasServicio.cs" />
     <Compile Include="HorariosServicio.cs" />
     <Compile Include="LocalidadesServicio.cs" />
     <Compile Include="PlantasServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketsServicio.cs" />
     <Compile Include="TiposDeEventosServicios.cs" />
     <Compile Include="TiposDocumentosServicio.cs" />
     <Compile Include="UbicacionesServicio.cs" />
+    <Compile Include="VentasServicio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CineTeatroItalianoLobos.DataComun\CineTeatroItalianoLobos.DataComun.csproj">

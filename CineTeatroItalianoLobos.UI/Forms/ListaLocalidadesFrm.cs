@@ -18,6 +18,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
     {
         private readonly ILocalidadesServicio _servicio;
         private readonly IDistribucionesServicio _servicioDistribuciones;
+        private readonly IVentasServicio _servicioVentas;
 
         private List<Button> butacasControles = new List<Button>();
         private List<Button> palcosBajosControles = new List<Button>();
@@ -29,12 +30,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private bool modoCompras = false;
         public ListaLocalidadesFrm(ILocalidadesServicio servicio,
-            IDistribucionesServicio servicioDistribuciones, bool modo)
+            IDistribucionesServicio servicioDistribuciones,
+            IVentasServicio servicioVentas, bool modo)
         {
             InitializeComponent();
             _servicio = servicio;
             _servicioDistribuciones = servicioDistribuciones;
             modoCompras = modo;
+            _servicioVentas = servicioVentas;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -260,8 +263,12 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void VenderBtn_Click(object sender, EventArgs e)
         {
-            VentasFrm frm = new VentasFrm(listaVendidas, horario);
-            frm.ShowDialog(this);
+            VentasFrm frm = new VentasFrm(_servicioVentas,listaVendidas, horario);
+            DialogResult dr=frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                Close();
+            }
         }
     }
 }

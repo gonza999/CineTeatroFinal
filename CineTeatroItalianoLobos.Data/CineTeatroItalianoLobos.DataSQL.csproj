@@ -81,9 +81,12 @@
     <Compile Include="Repositories\HorariosRepositorio.cs" />
     <Compile Include="Repositories\LocalidadesRepositorio.cs" />
     <Compile Include="Repositories\PlantasRepositorio.cs" />
+    <Compile Include="Repositories\TicketsRepositorio.cs" />
     <Compile Include="Repositories\TiposDeEventosRepositorio.cs" />
     <Compile Include="Repositories\TiposDocumentosRepositorio.cs" />
     <Compile Include="Repositories\UbicacionesRepositorio.cs" />
+    <Compile Include="Repositories\VentasRepositorio.cs" />
+    <Compile Include="Repositories\VentasTicketsRepositorio.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

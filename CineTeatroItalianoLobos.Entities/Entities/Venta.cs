@@ -8,7 +8,8 @@ namespace CineTeatroItalianoLobos.Entities
     {
         public Venta()
         {
-            Tickets = new HashSet<Ticket>();
+            //Tickets = new HashSet<Ticket>();
+            VentasTickets = new HashSet<VentaTicket>();
         }
         public int VentaId { get; set; }
         public DateTime Fecha { get; set; }
@@ -17,6 +18,8 @@ namespace CineTeatroItalianoLobos.Entities
         public int EmpleadoId { get; set; }
         public virtual Empleado Empleado { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<VentaTicket> VentasTickets { get; set; }
+
 
         public object Clone()
         {

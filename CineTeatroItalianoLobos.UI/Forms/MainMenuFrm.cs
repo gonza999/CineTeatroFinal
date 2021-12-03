@@ -93,14 +93,14 @@ namespace CineTeatroItalianoLobos.UI
         private void listaDeLocalidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListaLocalidadesFrm frm = new ListaLocalidadesFrm(DI.Create<ILocalidadesServicio>(),
-                DI.Create<IDistribucionesServicio>(), false);
+                DI.Create<IDistribucionesServicio>(), DI.Create<IVentasServicio>(), false);
             frm.ShowDialog(this);
         }
 
         private void venderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListaLocalidadesFrm frm = new ListaLocalidadesFrm(DI.Create<ILocalidadesServicio>(),
-                DI.Create<IDistribucionesServicio>(), true);
+                DI.Create<IDistribucionesServicio>(), DI.Create<IVentasServicio>(), true);
             frm.ShowDialog(this);
         }
     }
