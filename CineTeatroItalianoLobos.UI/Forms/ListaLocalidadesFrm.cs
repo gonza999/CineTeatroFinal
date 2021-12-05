@@ -258,6 +258,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private Evento evento = new Evento();
         private void EventoCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Limpiar();
+
             if (EventoCmb.SelectedIndex != 0)
             {
                 HorarioCmb.Enabled = true;
@@ -272,9 +274,19 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 BloquearLocalidades();
             }
         }
+
+        private void Limpiar()
+        {
+            importeTotal = 0;
+            listaVendidas.Clear();
+            ImporteTotalTxt.Text = 0.ToString("c");
+            ImporteLocalidadTxt.Text = 0.ToString("c");
+        }
+
         private Horario horario = new Horario();
         private void HorarioCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Limpiar();
             BloquearLocalidades();
             horario = (Horario)HorarioCmb.SelectedItem;
             if (HorarioCmb.SelectedIndex != 0)

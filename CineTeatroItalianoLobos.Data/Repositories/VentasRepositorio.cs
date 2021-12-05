@@ -43,12 +43,51 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public int GetCantidad()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Ventas.Count();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public List<Venta> GetLista(int registros, int pagina)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Ventas
+                    .OrderBy(v => v.Fecha)
+                    .Skip(registros * (pagina - 1))
+                    .Take(registros)
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
+
+        public List<Venta> GetLista(Empleado empleado)
+        {
+            try
+            {
+                return _context.Ventas
+                    .OrderBy(v => v.Fecha)
+                    .Where(v=>v.EmpleadoId==empleado.EmpleadoId)
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
         }
 
         public Venta GetTEntityPorId(int id)

@@ -27,11 +27,36 @@ namespace CineTeatroItalianoLobos.Services
             _repositorioTickets = repositorioTickets;
             _repositorioVentaTickets = repositorioVentaTickets;
         }
+
+        public int GetCantidad()
+        {
+            try
+            {
+                return _repositorio.GetCantidad();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public List<Venta> GetLista(int registros, int pagina)
         {
             try
             {
                 return _repositorio.GetLista(registros, pagina);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Venta> GetLista(Empleado empleado)
+        {
+            try
+            {
+                return _repositorio.GetLista(empleado);
             }
             catch (Exception e)
             {

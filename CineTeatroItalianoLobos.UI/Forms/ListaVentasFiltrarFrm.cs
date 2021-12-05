@@ -12,32 +12,23 @@ using System.Windows.Forms;
 
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    public partial class LocalidadesFiltrarFrm : Form
+    public partial class ListaVentasFiltrarFrm : Form
     {
-        public LocalidadesFiltrarFrm()
+        public ListaVentasFiltrarFrm()
         {
             InitializeComponent();
         }
-        private Planta planta = null;
-        private Ubicacion ubicacion = null;
+        private Empleado empleado = null;
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            HelperCombos.CargarDatosComboPlantas(ref PlantaCmb);
-            HelperCombos.CargarDatosComboUbicacion(ref UbicacionCmb);
+            HelperCombos.CargarDatosComboEmpleados(ref EmpleadoCmb);
         }
         private void OkButton_Click(object sender, EventArgs e)
         {
             if (Validar())
             {
-                if (PlantaCmb.SelectedIndex != 0)
-                {
-                    planta = (Planta)PlantaCmb.SelectedItem;
-                }
-                if (UbicacionCmb.SelectedIndex != 0)
-                {
-                    ubicacion = (Ubicacion)UbicacionCmb.SelectedItem;
-                }
+                empleado = (Empleado)EmpleadoCmb.SelectedItem;
                 DialogResult = DialogResult.OK;
             }
         }
@@ -46,21 +37,17 @@ namespace CineTeatroItalianoLobos.UI.Forms
         {
             errorProvider1.Clear();
             bool valido = true;
-            if (PlantaCmb.SelectedIndex==0 && UbicacionCmb.SelectedIndex==0)
+            if (EmpleadoCmb.SelectedIndex==0)
             {
+                errorProvider1.SetError(EmpleadoCmb,"Debe seleccionar un empleado");
                 valido = false;
-                errorProvider1.SetError(OkButton,"Debe seleccionar alguno");
             }
             return valido;
         }
 
-        public Planta GetPlanta()
+        public Empleado GetEmpleado()
         {
-            return planta;
-        }
-        public Ubicacion GetUbicacion()
-        {
-            return ubicacion;
+            return empleado;
         }
         private void CancelButton_Click(object sender, EventArgs e)
         {
@@ -68,3 +55,4 @@ namespace CineTeatroItalianoLobos.UI.Forms
         }
     }
 }
+

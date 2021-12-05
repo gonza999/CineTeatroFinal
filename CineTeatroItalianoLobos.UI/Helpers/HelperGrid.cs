@@ -113,6 +113,6 @@ namespace CineTeatroItalianoLobos.UI.Helpers
             }
             r.Tag = obj;
         }
-
+        
     }
 }
