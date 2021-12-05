@@ -71,21 +71,21 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                     venta.Empleado = _context.Empleados.FirstOrDefault(e => e.EmpleadoId == venta.EmpleadoId);
                     _context.Empleados.Attach(venta.Empleado);
                 }
-                //_context.Configuration.AutoDetectChangesEnabled = false;
-                //foreach (var vt in venta.VentasTickets)
-                //{
-                //    if (vt.TicketId > 0)
-                //    {
-                //        var ticket = _context.Tickets.FirstOrDefault(t => t.TicketId == vt.TicketId);
-                //        _context.Tickets.Attach(vt.Ticket);
-                //        var ventaTicket = vt;
-                //        ventaTicket.Ticket = ticket;
-                //        listaVentasTickets.Add(ventaTicket);
-                //    }
-                //}
-                //_context.Configuration.AutoDetectChangesEnabled = true;
+                _context.Configuration.AutoDetectChangesEnabled = false;
+                foreach (var vt in venta.VentasTickets)
+                {
+                    if (vt.TicketId > 0)
+                    {
+                        var ticket = _context.Tickets.FirstOrDefault(t => t.TicketId == vt.TicketId);
+                        _context.Tickets.Attach(vt.Ticket);
+                        var ventaTicket = vt;
+                        ventaTicket.Ticket = ticket;
+                        listaVentasTickets.Add(ventaTicket);
+                    }
+                }
+                _context.Configuration.AutoDetectChangesEnabled = true;
 
-                //venta.VentasTickets = listaVentasTickets;
+                venta.VentasTickets = listaVentasTickets;
                 _context.Ventas.Add(venta);
             }
             catch (Exception e)

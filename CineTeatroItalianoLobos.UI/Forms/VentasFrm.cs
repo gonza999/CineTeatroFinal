@@ -64,7 +64,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 ConstruirTickets();
 
                 Venta venta = new Venta();
-                venta.Tickets = listaTickets;
+                //venta.Tickets = listaTickets;
                 venta.VentasTickets = ConstruirVentasTickets();
                 venta.Total += importeTotal;
                 venta.Empleado = (Empleado)EmpleadoCmb.SelectedItem;

@@ -45,14 +45,19 @@ namespace CineTeatroItalianoLobos.Services
             {
                 try
                 {
-                    _repositorio.Guardar(venta);
-                    _unitOfWork.Save();
                     foreach (var vt in venta.VentasTickets)
                     {
                         _repositorioTickets.Guardar(vt.Ticket);
-                        vt.VentaId = venta.VentaId;
-                        _repositorioVentaTickets.Guardar(vt);
+                        _unitOfWork.Save();
+                        vt.TicketId = vt.Ticket.TicketId;
                     }
+                    _repositorio.Guardar(venta);
+                    //_unitOfWork.Save();
+                    //foreach (var vt in venta.VentasTickets)
+                    //{
+                    //    vt.VentaId = venta.VentaId;
+                    //    _repositorioVentaTickets.Guardar(vt);
+                    //}
                     _unitOfWork.Save();
                     scope.Complete();
                 }
