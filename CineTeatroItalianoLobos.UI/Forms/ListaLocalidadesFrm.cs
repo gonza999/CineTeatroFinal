@@ -109,7 +109,45 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 CambiarEstadoDeBotones(false);
             }
         }
-
+        private void VerificarOcupado()
+        {
+            foreach (var b in butacasControles)
+            {
+                if (_servicio.Existe((Localidad)b.Tag, horario))
+                {
+                    b.Enabled = false;
+                    b.BackColor = Color.Red;
+                }
+                else
+                {
+                    b.BackColor = Color.FromArgb(255, 224, 192);
+                }
+            }
+            foreach (var p in palcosBajosControles)
+            {
+                if (_servicio.Existe((Localidad)p.Tag, horario))
+                {
+                    p.Enabled = false;
+                    p.BackColor = Color.Red;
+                }
+                else
+                {
+                    p.BackColor = Color.FromArgb(255, 192, 128);
+                }
+            }
+            foreach (var p in palcosAltosControles)
+            {
+                if (_servicio.Existe((Localidad)p.Tag, horario))
+                {
+                    p.Enabled = false;
+                    p.BackColor = Color.Red;
+                }
+                else
+                {
+                    p.BackColor = Color.FromArgb(192, 255, 192);
+                }
+            }
+        }
         private void CambiarEstadoDeBotones(bool disponible)
         {
             foreach (var b in butacasControles)
@@ -238,13 +276,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void HorarioCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             BloquearLocalidades();
-            VerificarOcupado();
             horario = (Horario)HorarioCmb.SelectedItem;
-        }
-
-        private void VerificarOcupado()
-        {
-            return;
+            if (HorarioCmb.SelectedIndex != 0)
+            {
+                VerificarOcupado();
+            }
         }
         private decimal MostrarPrecio(Localidad localidad)
         {
@@ -263,9 +299,9 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void VenderBtn_Click(object sender, EventArgs e)
         {
-            VentasFrm frm = new VentasFrm(_servicioVentas,listaVendidas, horario);
-            DialogResult dr=frm.ShowDialog(this);
-            if (dr==DialogResult.OK)
+            VentasFrm frm = new VentasFrm(_servicioVentas, listaVendidas, horario);
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.OK)
             {
                 Close();
             }

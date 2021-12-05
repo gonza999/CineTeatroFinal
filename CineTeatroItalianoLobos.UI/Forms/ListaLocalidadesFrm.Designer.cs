@@ -35,11 +35,12 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.HorarioCmb = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ObjetosPnl = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ImporteTotalLbl = new System.Windows.Forms.Label();
             this.VenderBtn = new System.Windows.Forms.Button();
+            this.ImporteLocalidadLbl = new System.Windows.Forms.Label();
             this.ImporteTotalTxt = new System.Windows.Forms.TextBox();
             this.ImporteLocalidadTxt = new System.Windows.Forms.TextBox();
-            this.ImporteTotalLbl = new System.Windows.Forms.Label();
-            this.ImporteLocalidadLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button200 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -205,14 +206,13 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ImagenPbx = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ClosePbx = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.ObjetosPnl.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPbx)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePbx)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // EventoCmb
@@ -428,6 +428,30 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ObjetosPnl.Size = new System.Drawing.Size(763, 595);
             this.ObjetosPnl.TabIndex = 53;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.ImporteTotalLbl);
+            this.panel4.Controls.Add(this.VenderBtn);
+            this.panel4.Controls.Add(this.ImporteLocalidadLbl);
+            this.panel4.Controls.Add(this.ImporteTotalTxt);
+            this.panel4.Controls.Add(this.ImporteLocalidadTxt);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(639, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(124, 595);
+            this.panel4.TabIndex = 66;
+            // 
+            // ImporteTotalLbl
+            // 
+            this.ImporteTotalLbl.AutoSize = true;
+            this.ImporteTotalLbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImporteTotalLbl.Location = new System.Drawing.Point(17, 241);
+            this.ImporteTotalLbl.Name = "ImporteTotalLbl";
+            this.ImporteTotalLbl.Size = new System.Drawing.Size(80, 38);
+            this.ImporteTotalLbl.TabIndex = 51;
+            this.ImporteTotalLbl.Text = "Importe \r\n   Total:";
+            this.ImporteTotalLbl.Visible = false;
+            // 
             // VenderBtn
             // 
             this.VenderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -442,6 +466,17 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.VenderBtn.UseVisualStyleBackColor = false;
             this.VenderBtn.Visible = false;
             this.VenderBtn.Click += new System.EventHandler(this.VenderBtn_Click);
+            // 
+            // ImporteLocalidadLbl
+            // 
+            this.ImporteLocalidadLbl.AutoSize = true;
+            this.ImporteLocalidadLbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImporteLocalidadLbl.Location = new System.Drawing.Point(2, 33);
+            this.ImporteLocalidadLbl.Name = "ImporteLocalidadLbl";
+            this.ImporteLocalidadLbl.Size = new System.Drawing.Size(115, 57);
+            this.ImporteLocalidadLbl.TabIndex = 51;
+            this.ImporteLocalidadLbl.Text = "Importe \r\nlocalidad \r\nseleccionada:";
+            this.ImporteLocalidadLbl.Visible = false;
             // 
             // ImporteTotalTxt
             // 
@@ -464,28 +499,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ImporteLocalidadTxt.TabIndex = 52;
             this.ImporteLocalidadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ImporteLocalidadTxt.Visible = false;
-            // 
-            // ImporteTotalLbl
-            // 
-            this.ImporteTotalLbl.AutoSize = true;
-            this.ImporteTotalLbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImporteTotalLbl.Location = new System.Drawing.Point(17, 241);
-            this.ImporteTotalLbl.Name = "ImporteTotalLbl";
-            this.ImporteTotalLbl.Size = new System.Drawing.Size(80, 38);
-            this.ImporteTotalLbl.TabIndex = 51;
-            this.ImporteTotalLbl.Text = "Importe \r\n   Total:";
-            this.ImporteTotalLbl.Visible = false;
-            // 
-            // ImporteLocalidadLbl
-            // 
-            this.ImporteLocalidadLbl.AutoSize = true;
-            this.ImporteLocalidadLbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImporteLocalidadLbl.Location = new System.Drawing.Point(2, 33);
-            this.ImporteLocalidadLbl.Name = "ImporteLocalidadLbl";
-            this.ImporteLocalidadLbl.Size = new System.Drawing.Size(115, 57);
-            this.ImporteLocalidadLbl.TabIndex = 51;
-            this.ImporteLocalidadLbl.Text = "Importe \r\nlocalidad \r\nseleccionada:";
-            this.ImporteLocalidadLbl.Visible = false;
             // 
             // panel3
             // 
@@ -1023,7 +1036,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.B15.Name = "B15";
             this.B15.Size = new System.Drawing.Size(13, 22);
             this.B15.TabIndex = 1;
-            this.B15.Text = "150";
+            this.B15.Text = "15";
             this.B15.UseVisualStyleBackColor = false;
             // 
             // B63
@@ -3445,19 +3458,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ClosePbx.MouseLeave += new System.EventHandler(this.ClosePbx_MouseLeave);
             this.ClosePbx.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.ImporteTotalLbl);
-            this.panel4.Controls.Add(this.VenderBtn);
-            this.panel4.Controls.Add(this.ImporteLocalidadLbl);
-            this.panel4.Controls.Add(this.ImporteTotalTxt);
-            this.panel4.Controls.Add(this.ImporteLocalidadTxt);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(639, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(124, 595);
-            this.panel4.TabIndex = 66;
-            // 
             // ListaLocalidadesFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3475,14 +3475,14 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.Load += new System.EventHandler(this.ListaLocalidadesFrm_Load);
             this.panel1.ResumeLayout(false);
             this.ObjetosPnl.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPbx)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePbx)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -292,5 +292,19 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
             }
         }
+
+        public bool Existe(Localidad localidad, Horario horario)
+        {
+            try
+            {
+
+                return _context.Tickets.Any(t =>t.LocalidadId==localidad.LocalidadId &&
+                                            t.HorarioId==horario.HorarioId && t.Anulada==false);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

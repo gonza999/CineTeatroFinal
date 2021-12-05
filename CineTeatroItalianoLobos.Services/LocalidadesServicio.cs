@@ -57,6 +57,18 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
+        public bool Existe(Localidad localidad, Horario horario)
+        {
+            try
+            {
+                return _repositorio.Existe(localidad,horario);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public List<Localidad> Find(Func<Localidad, bool> p, int? cantidadPorPagina, int? paginaActual)
         {
             try
