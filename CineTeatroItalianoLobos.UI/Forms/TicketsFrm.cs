@@ -13,33 +13,41 @@ using System.Windows.Forms;
 
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    public partial class ListaVentasFrm : Form
+    public partial class TicketsFrm : Form
     {
-        public ListaVentasFrm(IVentasServicio servicio,
-            ITicketsServicio servicioTickets)
+        public TicketsFrm(ITicketsServicio servicio)
         {
             InitializeComponent();
             _servicio = servicio;
-            _servicioTickets = servicioTickets;
         }
+        private Venta venta = null;
+        public TicketsFrm(ITicketsServicio servicio, Venta venta)
+        {
+            InitializeComponent();
+            _servicio = servicio;
+            this.venta = venta;
+        }
+
         private void tsbCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
         const int cantidadPorPagina = 20;
-        private bool filtroOn = false;
 
         private int cantidadPaginas;
         private int paginaActual;
 
 
-        private readonly IVentasServicio _servicio;
-        private readonly ITicketsServicio _servicioTickets;
-        private List<Venta> lista;
+        private readonly ITicketsServicio _servicio;
+        private List<Ticket> lista;
         private int cantidadRegistros;
-        private void VentasFrm_Load(object sender, EventArgs e)
+        private void TicketsFrm_Load(object sender, EventArgs e)
         {
             RecargarGrilla();
+            if (venta != null)
+            {
+                Filtrar(venta);
+            }
         }
         private void AsignarEventHandler(Panel botonesPanel)
         {
@@ -85,35 +93,27 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private void MostrarDatosEnGrilla()
         {
             HelperGrid.LimpiarGrilla(DatosDataGridView);
-            foreach (var venta in lista)
+            foreach (var ticket in lista)
             {
                 DataGridViewRow r = HelperGrid.CrearFila(DatosDataGridView);
 
-                SetearFila(r, venta);
+                SetearFila(r, ticket);
                 HelperGrid.AgregarFila(DatosDataGridView, r);
             }
             HelperForm.MostrarInfoPaginas(splitContainer1.Panel2, cantidadRegistros, cantidadPaginas, paginaActual);
         }
-        private Evento evento = new Evento();
-        private void SetearFila(DataGridViewRow r, Venta venta)
+
+        private void SetearFila(DataGridViewRow r, Ticket ticket)
         {
+            r.Cells[cmnEvento.Index].Value = ticket.Horario.Evento.NombreEvento;
+            r.Cells[cmnFecha.Index].Value = ticket.FechaVenta.Year + "/" +
+                ticket.FechaVenta.Month + "/" +
+                ticket.FechaVenta.Day + " " + ticket.FechaVenta.Hour+":"+ticket.FechaVenta.Minute;
+            r.Cells[cmnImporte.Index].Value = ticket.Importe;
+            r.Cells[cmnLocalidad.Index].Value = new Button().Text="Detalles";
+            r.Cells[cmnAnulada.Index].Value = ticket.Anulada;
 
-            r.Cells[0].Value = venta.Fecha.Year + "/" +
-                venta.Fecha.Month + "/" +
-                venta.Fecha.Day; ;
-            r.Cells[1].Value = venta.VentasTickets.Count();
-            r.Cells[2].Value = new Button().Text = "Detalles";
-            
-            foreach (var vt in venta.VentasTickets)
-            {
-                evento=vt.Ticket.Horario.Evento;
-            }
-            r.Cells[3].Value = evento.NombreEvento;
-            r.Cells[4].Value = venta.Total.ToString("c");
-            r.Cells[5].Value = venta.Empleado.Apellido + " " + venta.Empleado.Nombre;
-            r.Cells[6].Value = venta.Estado;
-
-            r.Tag = venta;
+            r.Tag = ticket;
         }
 
         private void tsbActualizar_Click(object sender, EventArgs e)
@@ -123,28 +123,41 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
         private void tsbBuscar_Click(object sender, EventArgs e)
         {
-            ListaVentasFiltrarFrm frm = new ListaVentasFiltrarFrm();
+            TicketsFiltrarFrm frm = new TicketsFiltrarFrm();
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.OK)
             {
-                var empleado = frm.GetEmpleado();
-                lista = _servicio.GetLista(empleado);
-                cantidadRegistros = lista.Count();
-                HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
-                paginaActual = 1;
-
-                MostrarDatosEnGrilla();
+                var evento = frm.GetEvento();
+                Filtrar(evento);
             }
         }
 
-        private void DatosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Filtrar(Evento evento)
         {
-            if (e.ColumnIndex == 2)
+            lista = _servicio.GetLista(evento);
+            cantidadRegistros = lista.Count();
+            HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
+            paginaActual = 1;
+
+            MostrarDatosEnGrilla();
+        }
+        private void Filtrar(Venta venta)
+        {
+            lista = _servicio.GetLista(venta);
+            cantidadRegistros = lista.Count();
+            HelperForm.CrearBotonesPaginas(BotonesPanel, 0);
+            paginaActual = 1;
+
+            MostrarDatosEnGrilla();
+        }
+        private void DatosDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
             {
-                DataGridViewRow r = DatosDataGridView.Rows[e.RowIndex];
-                Venta venta = (Venta)r.Tag;
-                TicketsFrm frm = new TicketsFrm(_servicioTickets,venta);
-                frm.ShowDialog(this);
+                DataGridViewRow r = DatosDataGridView.SelectedRows[0];
+                Ticket t = (Ticket)r.Tag;
+                TicketLocalidadDetalleFrm frm = new TicketLocalidadDetalleFrm(t.Localidad);
+                frm.ShowDialog();
             }
         }
     }

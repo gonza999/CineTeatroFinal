@@ -21,9 +21,55 @@ namespace CineTeatroItalianoLobos.Services
             _unitOfWork = unitOfWork;
         }
 
+        public int GetCantidad()
+        {
+            try
+            {
+                return _repositorio.GetCantidad();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public List<Ticket> GetLista(int registros, int pagina)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.GetLista(registros, pagina);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Ticket> GetLista(Evento evento)
+        {
+            try
+            {
+                return _repositorio.GetLista(evento);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Ticket> GetLista(Venta venta)
+        {
+            try
+            {
+                return _repositorio.GetLista(venta);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void Guardar(Ticket ticket)

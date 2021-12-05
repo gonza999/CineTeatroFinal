@@ -216,6 +216,24 @@
     <Compile Include="Forms\PlantasFrm.Designer.cs">
       <DependentUpon>PlantasFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TicketLocalidadDetalleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TicketLocalidadDetalleFrm.Designer.cs">
+      <DependentUpon>TicketLocalidadDetalleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TicketsFiltrarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TicketsFiltrarFrm.Designer.cs">
+      <DependentUpon>TicketsFiltrarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TicketsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TicketsFrm.Designer.cs">
+      <DependentUpon>TicketsFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TipoDeEventosAEFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,6 +361,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PlantasFrm.resx">
       <DependentUpon>PlantasFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TicketLocalidadDetalleFrm.resx">
+      <DependentUpon>TicketLocalidadDetalleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TicketsFiltrarFrm.resx">
+      <DependentUpon>TicketsFiltrarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TicketsFrm.resx">
+      <DependentUpon>TicketsFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TipoDeEventosAEFrm.resx">
       <DependentUpon>TipoDeEventosAEFrm.cs</DependentUpon>
@@ -506,6 +533,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Teatro - copia.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_10px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

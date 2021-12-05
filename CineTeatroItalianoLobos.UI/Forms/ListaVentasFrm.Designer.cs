@@ -41,8 +41,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
             this.cmnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnCantidadTickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnTickets = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -50,9 +53,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.cmnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnAnulada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
-            this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
-            this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -122,6 +122,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(642, 370);
             this.DatosDataGridView.TabIndex = 26;
+            this.DatosDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellClick);
             // 
             // BotonesPanel
             // 
@@ -205,15 +206,51 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.toolStrip1.TabIndex = 30;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tsbBuscar
+            // 
+            this.tsbBuscar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbBuscar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.search_50px;
+            this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBuscar.Name = "tsbBuscar";
+            this.tsbBuscar.Size = new System.Drawing.Size(156, 54);
+            this.tsbBuscar.Text = "Filtrar x Empleado";
+            this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
             // 
+            // tsbActualizar
+            // 
+            this.tsbActualizar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbActualizar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.update_50px;
+            this.tsbActualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbActualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbActualizar.Name = "tsbActualizar";
+            this.tsbActualizar.Size = new System.Drawing.Size(93, 54);
+            this.tsbActualizar.Text = "Actualizar";
+            this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbActualizar.Click += new System.EventHandler(this.tsbActualizar_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 57);
+            // 
+            // tsbCerrar
+            // 
+            this.tsbCerrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbCerrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.close_pane_50px;
+            this.tsbCerrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbCerrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCerrar.Name = "tsbCerrar";
+            this.tsbCerrar.Size = new System.Drawing.Size(64, 54);
+            this.tsbCerrar.Text = "Cerrar";
+            this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
             // cmnFecha
             // 
@@ -231,10 +268,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // cmnTickets
             // 
-            this.cmnTickets.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnTickets.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.cmnTickets.HeaderText = "Tickets";
             this.cmnTickets.Name = "cmnTickets";
             this.cmnTickets.ReadOnly = true;
+            this.cmnTickets.Width = 48;
             // 
             // cmnEvento
             // 
@@ -259,46 +297,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             // cmnAnulada
             // 
-            this.cmnAnulada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnAnulada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.cmnAnulada.HeaderText = "Anulada";
             this.cmnAnulada.Name = "cmnAnulada";
             this.cmnAnulada.ReadOnly = true;
-            // 
-            // tsbActualizar
-            // 
-            this.tsbActualizar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbActualizar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.update_50px;
-            this.tsbActualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbActualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbActualizar.Name = "tsbActualizar";
-            this.tsbActualizar.Size = new System.Drawing.Size(93, 54);
-            this.tsbActualizar.Text = "Actualizar";
-            this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbActualizar.Click += new System.EventHandler(this.tsbActualizar_Click);
-            // 
-            // tsbCerrar
-            // 
-            this.tsbCerrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbCerrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.close_pane_50px;
-            this.tsbCerrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbCerrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCerrar.Name = "tsbCerrar";
-            this.tsbCerrar.Size = new System.Drawing.Size(64, 54);
-            this.tsbCerrar.Text = "Cerrar";
-            this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
-            // 
-            // tsbBuscar
-            // 
-            this.tsbBuscar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbBuscar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.search_50px;
-            this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBuscar.Name = "tsbBuscar";
-            this.tsbBuscar.Size = new System.Drawing.Size(156, 54);
-            this.tsbBuscar.Text = "Filtrar x Empleado";
-            this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
+            this.cmnAnulada.Width = 52;
             // 
             // ListaVentasFrm
             // 
@@ -344,6 +347,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.ToolStripButton tsbActualizar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbCerrar;
+        private System.Windows.Forms.ToolStripButton tsbBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnCantidadTickets;
         private System.Windows.Forms.DataGridViewButtonColumn cmnTickets;
@@ -351,6 +355,5 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnEmpleado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cmnAnulada;
-        private System.Windows.Forms.ToolStripButton tsbBuscar;
     }
 }

@@ -10,5 +10,7 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         List<Ticket> GetLista(List<Horario> horarios);
         void BorrarPorHorario(int id);
         List<Ticket> GetLista(Horario horario);
+        List<Ticket> GetLista(Evento evento);
+        List<Ticket> GetLista(Venta venta);
     }
 }

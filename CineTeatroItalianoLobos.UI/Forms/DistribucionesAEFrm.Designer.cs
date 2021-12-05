@@ -48,11 +48,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DistribucionTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.cmnFila = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -243,27 +243,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.TabIndex = 63;
             this.DatosDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellClick);
             // 
-            // cmnFila
-            // 
-            this.cmnFila.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnFila.HeaderText = "Fila";
-            this.cmnFila.Name = "cmnFila";
-            this.cmnFila.ReadOnly = true;
-            // 
-            // cmnPrecio
-            // 
-            this.cmnPrecio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnPrecio.HeaderText = "Precio";
-            this.cmnPrecio.Name = "cmnPrecio";
-            this.cmnPrecio.ReadOnly = true;
-            // 
-            // cmnBorrar
-            // 
-            this.cmnBorrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnBorrar.HeaderText = "";
-            this.cmnBorrar.Name = "cmnBorrar";
-            this.cmnBorrar.ReadOnly = true;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -280,6 +259,29 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.btnAgregar.Text = "Agregar -->";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cmnFila
+            // 
+            this.cmnFila.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnFila.HeaderText = "Fila";
+            this.cmnFila.Name = "cmnFila";
+            this.cmnFila.ReadOnly = true;
+            // 
+            // cmnPrecio
+            // 
+            this.cmnPrecio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnPrecio.HeaderText = "Precio";
+            this.cmnPrecio.Name = "cmnPrecio";
+            this.cmnPrecio.ReadOnly = true;
+            // 
+            // cmnBorrar
+            // 
+            this.cmnBorrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cmnBorrar.HeaderText = "";
+            this.cmnBorrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.delete_10px;
+            this.cmnBorrar.Name = "cmnBorrar";
+            this.cmnBorrar.ReadOnly = true;
+            this.cmnBorrar.Width = 5;
             // 
             // DistribucionesAEFrm
             // 
@@ -325,11 +327,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.TextBox DistribucionTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnFila;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnPrecio;
-        private System.Windows.Forms.DataGridViewImageColumn cmnBorrar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnFila;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnPrecio;
+        private System.Windows.Forms.DataGridViewImageColumn cmnBorrar;
     }
 }

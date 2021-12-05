@@ -1,7 +1,7 @@
 ﻿
 namespace CineTeatroItalianoLobos.UI.Forms
 {
-    partial class EventosFrm
+    partial class TicketsFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.cmnEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnLocalidad = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cmnAnulada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BotonesPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.CantidadDePaginasLabel = new System.Windows.Forms.Label();
@@ -41,22 +46,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbBorrar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbBuscar = new System.Windows.Forms.ToolStripDropDownButton();
-            this.BuscarXTipoDocumentoTsb = new System.Windows.Forms.ToolStripMenuItem();
-            this.BuscarTxt = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
+            this.tsbBuscar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
-            this.cmnEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnDistribucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnTipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnClasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnHorarios = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cmnSuspendido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,8 +80,8 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.splitContainer1.Panel2.Controls.Add(this.CantidadDeRegistrosLabel);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Size = new System.Drawing.Size(629, 445);
-            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.Size = new System.Drawing.Size(649, 503);
+            this.splitContainer1.SplitterDistance = 404;
             this.splitContainer1.SplitterIncrement = 11;
             this.splitContainer1.TabIndex = 31;
             // 
@@ -104,11 +98,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmnEvento,
-            this.cmnDistribucion,
-            this.cmnTipoEvento,
-            this.cmnClasificacion,
-            this.cmnHorarios,
-            this.cmnSuspendido});
+            this.cmnFecha,
+            this.cmnImporte,
+            this.cmnLocalidad,
+            this.cmnAnulada});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
             this.DatosDataGridView.MultiSelect = false;
@@ -123,9 +116,46 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(629, 358);
+            this.DatosDataGridView.Size = new System.Drawing.Size(649, 404);
             this.DatosDataGridView.TabIndex = 26;
-            this.DatosDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellClick);
+            this.DatosDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellClick_1);
+            // 
+            // cmnEvento
+            // 
+            this.cmnEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnEvento.HeaderText = "Evento";
+            this.cmnEvento.Name = "cmnEvento";
+            this.cmnEvento.ReadOnly = true;
+            // 
+            // cmnFecha
+            // 
+            this.cmnFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnFecha.HeaderText = "Fecha";
+            this.cmnFecha.Name = "cmnFecha";
+            this.cmnFecha.ReadOnly = true;
+            // 
+            // cmnImporte
+            // 
+            this.cmnImporte.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnImporte.HeaderText = "Importe";
+            this.cmnImporte.Name = "cmnImporte";
+            this.cmnImporte.ReadOnly = true;
+            // 
+            // cmnLocalidad
+            // 
+            this.cmnLocalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cmnLocalidad.HeaderText = "Localidad";
+            this.cmnLocalidad.Name = "cmnLocalidad";
+            this.cmnLocalidad.ReadOnly = true;
+            this.cmnLocalidad.Width = 59;
+            // 
+            // cmnAnulada
+            // 
+            this.cmnAnulada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cmnAnulada.HeaderText = "Anulada";
+            this.cmnAnulada.Name = "cmnAnulada";
+            this.cmnAnulada.ReadOnly = true;
+            this.cmnAnulada.Width = 52;
             // 
             // BotonesPanel
             // 
@@ -198,94 +228,33 @@ namespace CineTeatroItalianoLobos.UI.Forms
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
-            this.tsbBorrar,
-            this.tsbEditar,
-            this.toolStripSeparator1,
             this.tsbBuscar,
-            this.BuscarTxt,
-            this.tsbActualizar,
             this.toolStripSeparator2,
+            this.tsbActualizar,
+            this.toolStripSeparator3,
             this.tsbCerrar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(629, 57);
+            this.toolStrip1.Size = new System.Drawing.Size(649, 57);
             this.toolStrip1.TabIndex = 30;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbNuevo
-            // 
-            this.tsbNuevo.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbNuevo.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.create_order_50px;
-            this.tsbNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(60, 54);
-            this.tsbNuevo.Text = "Nuevo";
-            this.tsbNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
-            // 
-            // tsbBorrar
-            // 
-            this.tsbBorrar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbBorrar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.eraser_50px;
-            this.tsbBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBorrar.Name = "tsbBorrar";
-            this.tsbBorrar.Size = new System.Drawing.Size(65, 54);
-            this.tsbBorrar.Text = "Borrar";
-            this.tsbBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbBorrar.Click += new System.EventHandler(this.tsbBorrar_Click);
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbEditar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.book_and_pencil_50px;
-            this.tsbEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(61, 54);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
-            // 
             // tsbBuscar
             // 
-            this.tsbBuscar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BuscarXTipoDocumentoTsb});
             this.tsbBuscar.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsbBuscar.Image = global::CineTeatroItalianoLobos.UI.Properties.Resources.search_50px;
             this.tsbBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBuscar.Name = "tsbBuscar";
-            this.tsbBuscar.Size = new System.Drawing.Size(144, 54);
-            this.tsbBuscar.Text = "Buscar x Evento";
+            this.tsbBuscar.Size = new System.Drawing.Size(134, 54);
+            this.tsbBuscar.Text = "Filtrar x Evento";
             this.tsbBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.tsbBuscar.Click += new System.EventHandler(this.tsbBuscar_Click);
             // 
-            // BuscarXTipoDocumentoTsb
+            // toolStripSeparator2
             // 
-            this.BuscarXTipoDocumentoTsb.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarXTipoDocumentoTsb.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BuscarXTipoDocumentoTsb.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BuscarXTipoDocumentoTsb.Name = "BuscarXTipoDocumentoTsb";
-            this.BuscarXTipoDocumentoTsb.Size = new System.Drawing.Size(128, 22);
-            this.BuscarXTipoDocumentoTsb.Text = "Filtrar";
-            this.BuscarXTipoDocumentoTsb.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.BuscarXTipoDocumentoTsb.ToolTipText = "Buscar \r\nx Apellido";
-            this.BuscarXTipoDocumentoTsb.Click += new System.EventHandler(this.BuscarXTipoDocumentoTsb_Click);
-            // 
-            // BuscarTxt
-            // 
-            this.BuscarTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BuscarTxt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BuscarTxt.MaxLength = 50;
-            this.BuscarTxt.Name = "BuscarTxt";
-            this.BuscarTxt.Size = new System.Drawing.Size(80, 57);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
             // 
             // tsbActualizar
             // 
@@ -299,10 +268,10 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.tsbActualizar.Click += new System.EventHandler(this.tsbActualizar_Click);
             // 
-            // toolStripSeparator2
+            // toolStripSeparator3
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 57);
             // 
             // tsbCerrar
             // 
@@ -316,67 +285,20 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
-            // cmnEvento
-            // 
-            this.cmnEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnEvento.HeaderText = "Evento";
-            this.cmnEvento.Name = "cmnEvento";
-            this.cmnEvento.ReadOnly = true;
-            // 
-            // cmnDistribucion
-            // 
-            this.cmnDistribucion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnDistribucion.HeaderText = "Distribucion";
-            this.cmnDistribucion.Name = "cmnDistribucion";
-            this.cmnDistribucion.ReadOnly = true;
-            // 
-            // cmnTipoEvento
-            // 
-            this.cmnTipoEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnTipoEvento.HeaderText = "Tipo Evento";
-            this.cmnTipoEvento.Name = "cmnTipoEvento";
-            this.cmnTipoEvento.ReadOnly = true;
-            // 
-            // cmnClasificacion
-            // 
-            this.cmnClasificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnClasificacion.HeaderText = "Clasificacion";
-            this.cmnClasificacion.Name = "cmnClasificacion";
-            this.cmnClasificacion.ReadOnly = true;
-            // 
-            // cmnHorarios
-            // 
-            this.cmnHorarios.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cmnHorarios.HeaderText = "Horarios";
-            this.cmnHorarios.Name = "cmnHorarios";
-            this.cmnHorarios.ReadOnly = true;
-            this.cmnHorarios.Width = 52;
-            // 
-            // cmnSuspendido
-            // 
-            this.cmnSuspendido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cmnSuspendido.HeaderText = "Suspendido";
-            this.cmnSuspendido.Name = "cmnSuspendido";
-            this.cmnSuspendido.ReadOnly = true;
-            this.cmnSuspendido.Width = 69;
-            // 
-            // EventosFrm
+            // TicketsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(629, 502);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(649, 560);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.KeyPreview = true;
-            this.Name = "EventosFrm";
+            this.Name = "TicketsFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EventosFrm";
+            this.Text = "TicketsFrm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.EventosFrm_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EventosFrm_KeyPress);
+            this.Load += new System.EventHandler(this.TicketsFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -402,21 +324,15 @@ namespace CineTeatroItalianoLobos.UI.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbNuevo;
-        private System.Windows.Forms.ToolStripButton tsbBorrar;
-        private System.Windows.Forms.ToolStripButton tsbEditar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox BuscarTxt;
-        private System.Windows.Forms.ToolStripButton tsbActualizar;
+        private System.Windows.Forms.ToolStripButton tsbBuscar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsbActualizar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbCerrar;
-        private System.Windows.Forms.ToolStripDropDownButton tsbBuscar;
-        private System.Windows.Forms.ToolStripMenuItem BuscarXTipoDocumentoTsb;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnDistribucion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnTipoEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnClasificacion;
-        private System.Windows.Forms.DataGridViewButtonColumn cmnHorarios;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cmnSuspendido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnImporte;
+        private System.Windows.Forms.DataGridViewButtonColumn cmnLocalidad;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cmnAnulada;
     }
 }

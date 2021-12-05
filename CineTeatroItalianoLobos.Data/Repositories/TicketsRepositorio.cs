@@ -48,7 +48,14 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public int GetCantidad()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Tickets.Count();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public List<Ticket> GetLista(List<Horario> horarios)
@@ -63,7 +70,55 @@ namespace CineTeatroItalianoLobos.Data.Repositories
 
         public List<Ticket> GetLista(int registros, int pagina)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Tickets
+                    .OrderBy(t => t.FechaVenta)
+                    .Skip(registros * (pagina - 1))
+                    .Take(registros)
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al leer");
+
+            }
+        }
+
+        public List<Ticket> GetLista(Evento evento)
+        {
+            try
+            {
+                return _context.Tickets
+                    .OrderBy(t => t.FechaVenta)
+                    .Where(t=>t.Horario.EventoId==evento.EventoId)
+                    .ToList();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al leer");
+            }
+        }
+
+        public List<Ticket> GetLista(Venta venta)
+        {
+            try
+            {
+                List<Ticket> lista = new List<Ticket>();
+                foreach (var vt in venta.VentasTickets)
+                {
+                    Ticket t = vt.Ticket;
+                    lista.Add(t);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al leer");
+            }
         }
 
         public Ticket GetTEntityPorId(int id)

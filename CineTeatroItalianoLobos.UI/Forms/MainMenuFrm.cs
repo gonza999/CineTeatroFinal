@@ -106,7 +106,14 @@ namespace CineTeatroItalianoLobos.UI
 
         private void listaDeLasVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListaVentasFrm frm = new ListaVentasFrm(DI.Create<IVentasServicio>());
+            ListaVentasFrm frm = new ListaVentasFrm(DI.Create<IVentasServicio>(),
+                DI.Create<ITicketsServicio>());
+            frm.ShowDialog(this);
+        }
+
+        private void listaDeLosTicketsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TicketsFrm frm = new TicketsFrm(DI.Create<ITicketsServicio>());
             frm.ShowDialog(this);
         }
     }
