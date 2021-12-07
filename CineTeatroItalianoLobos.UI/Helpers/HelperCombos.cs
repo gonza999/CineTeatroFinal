@@ -73,6 +73,47 @@ namespace CineTeatroItalianoLobos.UI.Helpers
             empleadoCmb.SelectedIndex = 0;
         }
 
+        internal static void CargarDatosComboEventos(ref ComboBox eventoCmb, bool modoCompras)
+        {
+            IEventosServicios servicio = DI.Create<IEventosServicios>();
+            List<Evento> lista = servicio.GetLista();
+            var listaSuspendidos=new List<Evento>();
+            if (modoCompras)
+            {
+                foreach (var e in lista)
+                {
+                    if (e.Suspendido)
+                    {
+                        listaSuspendidos.Add(e);
+                    }
+                }
+                foreach (var e in listaSuspendidos)
+                {
+                    lista.Remove(e);
+                }
+            }
+            else
+            {
+                foreach (var e in lista)
+                {
+                    if (e.Suspendido)
+                    {
+                        e.NombreEvento = e.NombreEvento + " (Suspendido)";
+                    }
+                }
+            }
+            var defaultEvento = new Evento()
+            {
+                EventoId = 0,
+                NombreEvento = "<Seleccione Evento>"
+            };
+            lista.Insert(0, defaultEvento);
+            eventoCmb.DataSource = lista;
+            eventoCmb.DisplayMember = "NombreEvento";
+            eventoCmb.ValueMember = "EventoId";
+            eventoCmb.SelectedIndex = 0;
+        }
+
         public static void CargarDatosComboEventos(ref ComboBox eventoCmb)
         {
             IEventosServicios servicio = DI.Create<IEventosServicios>();

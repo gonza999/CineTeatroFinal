@@ -2,6 +2,7 @@
 using CineTeatroItalianoLobos.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,7 +126,29 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                 _context.Configuration.AutoDetectChangesEnabled = true;
 
                 venta.VentasTickets = listaVentasTickets;
-                _context.Ventas.Add(venta);
+
+                if (venta.VentaId == 0)
+                {
+                    _context.Ventas.Add(venta);
+                }
+                else
+                {
+                    var ventaInDb =
+                        _context.Ventas.SingleOrDefault(v => v.VentaId == venta.VentaId);
+                    if (ventaInDb == null)
+                    {
+                        throw new Exception("Evento inexistente");
+                    }
+
+                    ventaInDb.Empleado = venta.Empleado;
+                    ventaInDb.Estado = venta.Estado;
+                    ventaInDb.Fecha = venta.Fecha;
+                    ventaInDb.Total = venta.Total;
+                    //eventoInDb.Horarios = evento.Horarios;
+                    ventaInDb.VentasTickets = venta.VentasTickets;
+                    _context.Entry(ventaInDb).State = EntityState.Modified;
+
+                }
             }
             catch (Exception e)
             {

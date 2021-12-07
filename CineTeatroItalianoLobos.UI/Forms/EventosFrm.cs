@@ -190,9 +190,20 @@ namespace CineTeatroItalianoLobos.UI.Forms
             Evento evento = (Evento)r.Tag;
             var listaHorarios = _servicioHorarios.GetLista(evento);
             evento.Horarios = listaHorarios;
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5 && !evento.Suspendido)
             {
-
+                DialogResult dr = MessageBox.Show($"¿Desea suspender el evento permanentemente {evento.NombreEvento}?",
+    "Confirmar Baja",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Question,
+    MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.No)
+                {
+                    return;
+                }
+                evento.Suspendido = true;
+                r.Cells[cmnSuspendido.Index].Value = evento.Suspendido;
+                _servicio.Suspender(evento);
             }
             if (e.ColumnIndex == 4)
             {
@@ -200,7 +211,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
                 frmHorarios.ShowDialog(this);
             }
         }
-
         private void BuscarXTipoDocumentoTsb_Click(object sender, EventArgs e)
         {
             EventosFiltrarFrm frm = new EventosFiltrarFrm();

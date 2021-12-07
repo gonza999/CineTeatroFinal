@@ -72,7 +72,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
 
             evento.EventoId = 0;
             HelperCombos.CargarDatosComboHorario(ref HorarioCmb, evento);
-            HelperCombos.CargarDatosComboEventos(ref EventoCmb);
+            HelperCombos.CargarDatosComboEventos(ref EventoCmb,modoCompras);
             ConstruirListaLocalidades();
             BloquearLocalidades();
         }

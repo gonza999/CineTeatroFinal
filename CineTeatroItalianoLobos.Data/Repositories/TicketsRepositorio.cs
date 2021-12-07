@@ -2,6 +2,7 @@
 using CineTeatroItalianoLobos.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -150,7 +151,30 @@ namespace CineTeatroItalianoLobos.Data.Repositories
                     ticket.FormaPago = _context.FormasPagos.FirstOrDefault(fp => fp.FormaPagoId == ticket.FormaPagoId);
                     _context.FormasPagos.Attach(ticket.FormaPago);
                 }
-                _context.Tickets.Add(ticket);
+                if (ticket.TicketId == 0)
+                {
+                    _context.Tickets.Add(ticket);
+                }
+                else
+                {
+                    var ticketInDb =
+                        _context.Tickets.SingleOrDefault(t => t.TicketId == ticket.TicketId);
+                    if (ticketInDb == null)
+                    {
+                        throw new Exception("Ticket inexistente");
+                    }
+
+                    ticketInDb.Anulada = ticket.Anulada;
+                    ticketInDb.FechaVenta = ticket.FechaVenta;
+                    ticketInDb.FormaPago = ticket.FormaPago;
+                    ticketInDb.FormaVenta = ticket.FormaVenta;
+                    ticketInDb.Horario = ticket.Horario;
+                    ticketInDb.Importe = ticket.Importe;
+                    ticketInDb.Localidad = ticket.Localidad;
+                    ticketInDb.VentasTickets = ticket.VentasTickets;
+                    _context.Entry(ticketInDb).State = EntityState.Modified;
+
+                }
             }
             catch (Exception e)
             {

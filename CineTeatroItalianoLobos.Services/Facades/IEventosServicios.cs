@@ -22,5 +22,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         List<Evento> Find(Func<Evento, bool> predicate, int? cantidadPorPagina, int? paginaActual);
         List<Evento> GetLista(Distribucion distribucion, TipoEvento tipoEvento, Clasificacion clasificacion);
         void Guardar(Evento evento);
+        void Suspender(Evento evento);
     }
 }

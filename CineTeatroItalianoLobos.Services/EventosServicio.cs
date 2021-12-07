@@ -16,13 +16,20 @@ namespace CineTeatroItalianoLobos.Services
         private readonly IRepositorioEventos _repositorio;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepositorioHorarios _repositorioHorarios;
+        private readonly IRepositorioVentas _repositorioVentas;
+        private readonly IRepositorioTickets _repositorioTickets;
+
 
         public EventosServicio(IRepositorioEventos repositorio, IUnitOfWork unitOfWork,
-            IRepositorioHorarios repositorioHorarios)
+            IRepositorioHorarios repositorioHorarios,
+            IRepositorioVentas repositorioVentas,
+            IRepositorioTickets repositorioTickets)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
             _repositorioHorarios = repositorioHorarios;
+            _repositorioVentas = repositorioVentas;
+            _repositorioTickets = repositorioTickets;
         }
         public void Borrar(int id)
         {
@@ -202,6 +209,37 @@ namespace CineTeatroItalianoLobos.Services
             {
 
                 throw new Exception(e.Message);
+            }
+        }
+
+        public void Suspender(Evento evento)
+        {
+            using (var scope = new TransactionScope(TransactionScopeOption.Required))
+            {
+                try
+                {
+                    _repositorio.Guardar(evento);
+                    _unitOfWork.Save();
+                    List<Ticket> listaTickets= _repositorioTickets.GetLista(evento);
+                    foreach (var t in listaTickets)
+                    {
+                        t.Anulada = true;
+                        _repositorioTickets.Guardar(t);
+                        _unitOfWork.Save();
+                        foreach (var vt in t.VentasTickets)
+                        {
+                            vt.Venta.Estado = true;
+                            _repositorioVentas.Guardar(vt.Venta);
+                        }
+                    }
+                    _unitOfWork.Save();
+                    scope.Complete();
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.Message);
+                }
             }
         }
     }
