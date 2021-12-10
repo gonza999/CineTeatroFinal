@@ -282,5 +282,43 @@ namespace CineTeatroItalianoLobos.Web.Controllers
                 return View(horarioEditVm);
             }
         }
+
+        public ActionResult DeleteHorario(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var horario = _servicioHorarios.GetTEntityPorId(id.Value);
+            if (horario == null)
+            {
+                return new HttpNotFoundResult("Codigo de Horario inexistente");
+            }
+            var horarioVm = Mapeador.ConstruirHorarioListVm(horario);
+            return View(horarioVm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteHorario(int id)
+        {
+            var horario = _servicioHorarios.GetTEntityPorId(id);
+            var horarioVm = Mapeador.ConstruirHorarioListVm(horario);
+            if (_servicioHorarios.EstaRelacionado(horario))
+            {
+                ModelState.AddModelError(string.Empty, "Horario relacionado");
+                return View(horarioVm);
+            }
+            try
+            {
+                _servicioHorarios.Borrar(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(horarioVm);
+            }
+        }
     }
 }
