@@ -296,6 +296,7 @@
     <Content Include="Views\Clasificacion\AddEvento.cshtml" />
     <Content Include="Views\Distribucion\AddEvento.cshtml" />
     <Content Include="Views\TipoEvento\AddEvento.cshtml" />
+    <Content Include="Views\Evento\AddHorario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

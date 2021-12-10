@@ -306,6 +306,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Descripcion = te.Descripcion
             };
         }
+
         public static TipoDocumentoListVm ConstruirTipoDocumentoListVm(TipoDocumento te)
         {
             return new TipoDocumentoListVm()
@@ -587,6 +588,18 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Fecha = h.Fecha,
                 Hora = h.Hora,
                 FechaYHora = h.FechaYHora
+            };
+        }
+
+        public static Horario ConstruirHorario(HorarioEditVm horarioEditVm)
+        {
+            return new Horario()
+            {
+                Hora = horarioEditVm.Hora,
+                Fecha=horarioEditVm.Fecha,
+                //Evento=ConstruirEvento(horarioEditVm.Evento),
+                EventoId=horarioEditVm.EventoId,
+                HorarioId=horarioEditVm.HorarioId
             };
         }
         #endregion

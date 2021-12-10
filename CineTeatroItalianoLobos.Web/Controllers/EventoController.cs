@@ -206,5 +206,81 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             var eventoDetailsVm = Mapeador.ConstruirEventoDetailsVm(evento,horarios);
             return View(eventoDetailsVm);
         }
+
+
+        public ActionResult AddHorario(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var evento = _servicio.GetTEntityPorId(id.Value);
+            if (evento == null)
+            {
+                return HttpNotFound("Código de evento inexistente!!!");
+            }
+
+            var horarioEditVm = new HorarioEditVm()
+            {
+                EventoId = evento.EventoId,
+                Evento = Mapeador.ConstruirEventoEditVm(evento),
+            };
+            return View(horarioEditVm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddHorario(HorarioEditVm horarioEditVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                var evento = Mapeador.ConstruirEventoEditVm(_servicio.GetTEntityPorId(horarioEditVm.EventoId));
+                horarioEditVm.Evento = evento;
+                return View(horarioEditVm);
+            }
+
+            Horario horario = Mapeador.ConstruirHorario(horarioEditVm);
+            try
+            {
+                if (_servicioHorarios.Existe(horario))
+                {
+                    var evento = Mapeador.ConstruirEventoEditVm(_servicio.GetTEntityPorId(horarioEditVm.EventoId));
+                    horarioEditVm.Evento = evento;
+                    ModelState.AddModelError(string.Empty, "Horario existente!!!");
+                    return View(horarioEditVm);
+                }
+                horario.SetearFechaYHora();
+                horario.Evento = _servicio.GetTEntityPorId(horario.EventoId);
+                var lista = _servicioHorarios.GetLista(horario.Evento);
+                foreach (var h in lista)
+                {
+                    h.SetearFechaYHora();
+                    if (h.FechaYHora==horario.FechaYHora)
+                    {
+                        var evento = Mapeador.ConstruirEventoEditVm(_servicio.GetTEntityPorId(horarioEditVm.EventoId));
+                        horarioEditVm.Evento = evento;
+                        ModelState.AddModelError(string.Empty, "Horario existente!!!");
+                        return View(horarioEditVm);
+                    }
+                }
+                if (horario.Fecha<DateTime.Now)
+                {
+                    var evento = Mapeador.ConstruirEventoEditVm(_servicio.GetTEntityPorId(horarioEditVm.EventoId));
+                    horarioEditVm.Evento = evento;
+                    ModelState.AddModelError(string.Empty, "Horario denegado,la fecha debe ser posterior a la actual");
+                    return View(horarioEditVm);
+                }
+                _servicioHorarios.Guardar(horario);
+                return RedirectToAction($"Details/{horario.EventoId}");
+            }
+            catch (Exception e)
+            {
+                var evento = Mapeador.ConstruirEventoEditVm(_servicio.GetTEntityPorId(horarioEditVm.EventoId));
+                horarioEditVm.Evento = evento;
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(horarioEditVm);
+            }
+        }
     }
 }
