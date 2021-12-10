@@ -22,6 +22,8 @@ namespace CineTeatroItalianoLobos.Web.Models.Horario
         public string Evento { get; set; }
         public string FechaYHora { get; set; }
 
+        public int CantidadTickets { get; set; }
+
         public void SetearFechaYHora()
         {
             string minutos = "";

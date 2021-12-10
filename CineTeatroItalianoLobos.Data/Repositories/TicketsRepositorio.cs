@@ -59,7 +59,19 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             }
         }
 
-        public List<Ticket> GetLista(List<Horario> horarios)
+        public int GetCantidad(Func<Ticket, bool> p)
+        {
+            try
+            {
+                return _context.Tickets.Count(p);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+            public List<Ticket> GetLista(List<Horario> horarios)
         {
             throw new NotImplementedException();
         }

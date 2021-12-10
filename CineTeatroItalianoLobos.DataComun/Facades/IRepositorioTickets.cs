@@ -1,4 +1,5 @@
 ﻿using CineTeatroItalianoLobos.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace CineTeatroItalianoLobos.DataComun.Facades
@@ -12,5 +13,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         List<Ticket> GetLista(Horario horario);
         List<Ticket> GetLista(Evento evento);
         List<Ticket> GetLista(Venta venta);
+        int GetCantidad(Func<Ticket, bool> p);
     }
 }

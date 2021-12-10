@@ -298,10 +298,10 @@
     <Content Include="Views\TipoEvento\AddEvento.cshtml" />
     <Content Include="Views\Evento\AddHorario.cshtml" />
     <Content Include="Views\Evento\DeleteHorario.cshtml" />
+    <Content Include="Views\Horario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Horario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

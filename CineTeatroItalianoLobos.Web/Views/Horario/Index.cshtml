@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<CineTeatroItalianoLobos.Web.Models.Horario.HorarioListVm>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Horarios</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "form-inline" }))
+{
+    <p>
+        <label>Filtrar por:</label>
+        @Html.DropDownList("eventoSeleccionadoId", (SelectList)ViewBag.Eventos, htmlAttributes: new { @class = "form-control" })
+        <input type="submit" class="btn btn-success" value="Filtrar" />
+    </p>
+
+}
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Evento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Hora)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+        </tr>
+    }
+
+</table>
+
+Página: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber), de: @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))
+
+
