@@ -15,5 +15,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         List<Ticket> GetLista(Evento evento);
         List<Ticket> GetLista(Venta venta);
         int GetCantidad(Func<Ticket, bool> p);
+        List<Ticket> GetLista();
     }
 }

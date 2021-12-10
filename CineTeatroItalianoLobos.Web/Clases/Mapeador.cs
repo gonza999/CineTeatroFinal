@@ -8,6 +8,7 @@ using CineTeatroItalianoLobos.Web.Models.FormaVenta;
 using CineTeatroItalianoLobos.Web.Models.Horario;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.Planta;
+using CineTeatroItalianoLobos.Web.Models.Ticket;
 using CineTeatroItalianoLobos.Web.Models.TipoDocumento;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using CineTeatroItalianoLobos.Web.Models.Ubicacion;
@@ -600,6 +601,30 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 //Evento=ConstruirEvento(horarioEditVm.Evento),
                 EventoId=horarioEditVm.EventoId,
                 HorarioId=horarioEditVm.HorarioId
+            };
+        }
+        #endregion
+        #region Tickets
+        public static List<TicketListVm> ConstruirListaTicketVm(List<Ticket> lista)
+        {
+            var listaVm = new List<TicketListVm>();
+            foreach (var t in lista)
+            {
+                var ticketListVm = ConstruirTicketListVm(t);
+                listaVm.Add(ticketListVm);
+            }
+            return listaVm;
+        }
+
+        public static TicketListVm ConstruirTicketListVm(Ticket t)
+        {
+            return new TicketListVm()
+            {
+                TicketId = t.TicketId,
+                Evento=t.Horario.Evento.NombreEvento,
+                FormaPago=t.FormaPago.Descripcion,
+                FormaVenta=t.FormaVenta.Descripcion,
+                Importe=t.Importe
             };
         }
         #endregion

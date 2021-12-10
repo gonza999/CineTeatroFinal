@@ -84,6 +84,19 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
+        public List<Ticket> GetLista()
+        {
+            try
+            {
+                return _repositorio.GetLista();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         public void Guardar(Ticket ticket)
         {
             throw new NotImplementedException();

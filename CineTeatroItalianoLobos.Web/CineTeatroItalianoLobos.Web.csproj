@@ -163,6 +163,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
     <Compile Include="Controllers\UbicacionController.cs" />
@@ -299,6 +300,7 @@
     <Content Include="Views\Evento\AddHorario.cshtml" />
     <Content Include="Views\Evento\DeleteHorario.cshtml" />
     <Content Include="Views\Horario\Index.cshtml" />
+    <Content Include="Views\Ticket\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
