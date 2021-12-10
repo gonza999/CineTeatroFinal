@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CineTeatroItalianoLobos.Web.Models.Horario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace CineTeatroItalianoLobos.Web.Models.Evento
         public string Descripcion { get; set; }
         public bool Suspendido { get; set; }
         public string Distribucion { get; set; }
-        //public int CantidadHorarios { get; set; }
+        public int CantidadHorarios { get; set; }
+
+        public List<HorarioListVm> Horarios { get; set; }
     }
 }

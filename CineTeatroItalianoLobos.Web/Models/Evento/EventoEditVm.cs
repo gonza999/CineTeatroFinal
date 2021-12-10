@@ -1,5 +1,6 @@
 ﻿using CineTeatroItalianoLobos.Web.Models.Clasificacion;
 using CineTeatroItalianoLobos.Web.Models.Distribucion;
+using CineTeatroItalianoLobos.Web.Models.Horario;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using System;
 using System.Collections.Generic;
@@ -42,5 +43,7 @@ namespace CineTeatroItalianoLobos.Web.Models.Evento
         public DateTime FechaEvento { get; set; }
         [Required(ErrorMessage = "El campo {0} es requerido")]
         public bool Suspendido { get; set; }
+        [Display(Name = "Lista de Horarios")]
+        public List<HorarioEditVm> Horarios { get; set; }
     }
 }

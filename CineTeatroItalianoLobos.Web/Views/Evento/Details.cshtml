@@ -45,7 +45,52 @@
 </dl>
 
 <p>
-    @*<a href="@Url.Action("AddHorario","Evento",new { id=Model.EventoId})" class="btn btn-primary">Agregar Horario</a>*@
+    <a href="@Url.Action("AddHorario","Evento",new { id=Model.EventoId})" class="btn btn-primary">Agregar Horario</a>
     <a href="@Url.Action("Edit","Evento",new { id=Model.EventoId})" class="btn btn-warning">Editar Evento</a>
     <a href="@Url.Action("Index","Evento")" class="btn btn-success">Volver</a>
 </p>
+
+<h3 class="well">Horarios</h3>
+<table class="table table-bordered table-hover table-striped">
+    <thead style="background-color:darkgray">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Horarios[0].Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Horarios[0].Hora)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Horarios.Any())
+        {
+            foreach (var item in Model.Horarios)
+            {
+                <tr>
+                    <td>
+                        @item.Fecha.Date.Year/@item.Fecha.Date.Month/@item.Fecha.Date.Day
+                    </td>
+                    <td>
+                        @item.Hora.TimeOfDay
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeleteHorario","Evento",new {id=item.HorarioId})" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    No se han agregado horarios todavia
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -5,6 +5,7 @@ using CineTeatroItalianoLobos.Web.Models.Empleado;
 using CineTeatroItalianoLobos.Web.Models.Evento;
 using CineTeatroItalianoLobos.Web.Models.FormaPago;
 using CineTeatroItalianoLobos.Web.Models.FormaVenta;
+using CineTeatroItalianoLobos.Web.Models.Horario;
 using CineTeatroItalianoLobos.Web.Models.Localidad;
 using CineTeatroItalianoLobos.Web.Models.Planta;
 using CineTeatroItalianoLobos.Web.Models.TipoDocumento;
@@ -442,7 +443,8 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Suspendido = e.Suspendido,
                 TipoEvento = e.TipoEvento.Descripcion,
                 Clasificacion = e.Clasificacion.Descripcion,
-                Distribucion = e.Distribucion.Descripcion
+                Distribucion = e.Distribucion.Descripcion,
+                CantidadHorarios=e.Horarios.Count
             };
         }
         public static Evento ConstruirEvento(EventoEditVm e)
@@ -460,7 +462,7 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 
             };
         }
-        public static EventoDetail ConstruirEventoDetailsVm(Evento e)
+        public static EventoDetail ConstruirEventoDetailsVm(Evento e, List<Horario> horarios)
         {
             return new EventoDetail()
             {
@@ -472,9 +474,14 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Distribucion = e.Distribucion.Descripcion,
                 Descripcion = e.Descripcion,
                 FechaEvento = e.FechaEvento.Year+"/"+e.FechaEvento.Month+"/"+
-                e.FechaEvento.Day
+                e.FechaEvento.Day,
+                CantidadHorarios=horarios.Count(),
+                Horarios=Mapeador.ConstruirListaHorarioVm(horarios)
             };
         }
+
+
+
         public static EventoEditVm ConstruirEventoEditVm(Evento e)
         {
             return new EventoEditVm()
@@ -556,6 +563,30 @@ namespace CineTeatroItalianoLobos.Web.Clases
             {
                 DistribucionId = c.DistribucionId,
                 Descripcion = c.Descripcion
+            };
+        }
+        #endregion
+        #region Horarios
+        public static List<HorarioListVm> ConstruirListaHorarioVm(ICollection<Horario> horarios)
+        {
+            var listaVm = new List<HorarioListVm>();
+            foreach (var h in horarios)
+            {
+                var horarioListVm = ConstruirHorarioListVm(h);
+                listaVm.Add(horarioListVm);
+            }
+            return listaVm;
+        }
+
+        public static HorarioListVm ConstruirHorarioListVm(Horario h)
+        {
+            return new HorarioListVm()
+            {
+                HorarioId = h.HorarioId,
+                Evento = h.Evento.NombreEvento,
+                Fecha = h.Fecha,
+                Hora = h.Hora,
+                FechaYHora = h.FechaYHora
             };
         }
         #endregion

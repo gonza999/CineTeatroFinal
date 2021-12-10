@@ -1,6 +1,8 @@
-﻿using CineTeatroItalianoLobos.Services.Facades;
+﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.Web.Clases;
 using CineTeatroItalianoLobos.Web.Models.Evento;
+using CineTeatroItalianoLobos.Web.Models.Horario;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -17,16 +19,19 @@ namespace CineTeatroItalianoLobos.Web.Controllers
         private readonly ITiposDeEventosServicios _servicioTiposEventos;
         private readonly IClasificacionesServicio _servicioClasificaciones;
         private readonly IDistribucionesServicio _servicioDistribuciones;
+        private readonly IHorariosServicio _servicioHorarios;
         private readonly int cantidadPorPaginas = 12;
         public EventoController(IEventosServicios servicio
             , ITiposDeEventosServicios servicioTiposEventos,
             IClasificacionesServicio servicioClasificaciones,
-            IDistribucionesServicio servicioDistribuciones)
+            IDistribucionesServicio servicioDistribuciones,
+            IHorariosServicio servicioHorarios)
         {
             _servicio = servicio;
             _servicioTiposEventos = servicioTiposEventos;
             _servicioClasificaciones = servicioClasificaciones;
             _servicioDistribuciones = servicioDistribuciones;
+            _servicioHorarios = servicioHorarios;
         }
         public ActionResult Index(int? page = null)
         {
@@ -197,7 +202,8 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             evento.TipoEvento = _servicioTiposEventos.GetTEntityPorId(evento.TipoEventoId);
             evento.Clasificacion = _servicioClasificaciones.GetTEntityPorId(evento.ClasificacionId);
             evento.Distribucion = _servicioDistribuciones.GetTEntityPorId(evento.DistribucionId);
-            var eventoDetailsVm = Mapeador.ConstruirEventoDetailsVm(evento);
+            var horarios = _servicioHorarios.GetLista(evento);
+            var eventoDetailsVm = Mapeador.ConstruirEventoDetailsVm(evento,horarios);
             return View(eventoDetailsVm);
         }
     }

@@ -87,18 +87,23 @@ namespace CineTeatroItalianoLobos.Web
             kernel.Bind<IRepositorioFormasPagos>().To<FormasPagosRepositorio>().InRequestScope();
             kernel.Bind<IFormasVentasServicio>().To<FormasVentasServicio>().InRequestScope();
             kernel.Bind<IRepositorioFormasVentas>().To<FormasVentasRepositorio>().InRequestScope();
-            kernel.Bind<IHorariosServicio>().To<HorariosServicio>();
-            kernel.Bind<IRepositorioHorarios>().To<HorariosRepositorio>().InRequestScope(); kernel.Bind<IHorariosServicio>().To<HorariosServicio>();
-            kernel.Bind<ILocalidadesServicio>().To<LocalidadesServicio>().InRequestScope(); kernel.Bind<IHorariosServicio>().To<HorariosServicio>();
-            kernel.Bind<IRepositorioLocalidades>().To<LocalidadesRepositorio>().InRequestScope(); kernel.Bind<IHorariosServicio>().To<HorariosServicio>();
-            kernel.Bind<IPlantasServicio>().To<PlantasServicio>().InRequestScope(); kernel.Bind<IHorariosServicio>().To<HorariosServicio>();
-            kernel.Bind<IRepositorioPlantas>().To<PlantasRepositorio>().InRequestScope(); kernel.Bind<IHorariosServicio>().To<HorariosServicio>();
+            kernel.Bind<IHorariosServicio>().To<HorariosServicio>().InRequestScope();
+            kernel.Bind<IRepositorioHorarios>().To<HorariosRepositorio>().InRequestScope(); 
+            kernel.Bind<ILocalidadesServicio>().To<LocalidadesServicio>().InRequestScope();
+            kernel.Bind<IRepositorioLocalidades>().To<LocalidadesRepositorio>().InRequestScope(); 
+            kernel.Bind<IPlantasServicio>().To<PlantasServicio>().InRequestScope(); 
+            kernel.Bind<IRepositorioPlantas>().To<PlantasRepositorio>().InRequestScope(); 
             kernel.Bind<ITiposDeEventosServicios>().To<TiposDeEventosServicios>().InRequestScope();
             kernel.Bind<IRepositorioTipoEventos>().To<TiposDeEventosRepositorio>().InRequestScope();
             kernel.Bind<ITiposDocumentosServicio>().To<TiposDocumentosServicio>().InRequestScope();
             kernel.Bind<IRepositorioTiposDocumentos>().To<TiposDocumentosRepositorio>().InRequestScope();
             kernel.Bind<IUbicacionesServicio>().To<UbicacionesServicio>().InRequestScope();
             kernel.Bind<IRepositorioUbicaciones>().To<UbicacionesRepositorio>().InRequestScope();
+            kernel.Bind<IRepositorioVentas>().To<VentasRepositorio>().InRequestScope();
+            kernel.Bind<IVentasServicio>().To<VentasServicio>().InRequestScope();
+            kernel.Bind<IRepositorioTickets>().To<TicketsRepositorio>().InRequestScope();
+            kernel.Bind<ITicketsServicio>().To<TicketsServicio>().InRequestScope();
+
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind(typeof(CineTeatroDbContext)).ToSelf().InSingletonScope();
         }

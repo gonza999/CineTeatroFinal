@@ -20,6 +20,7 @@ namespace CineTeatroItalianoLobos.Web.Models.Evento
         [Display(Name = "Distribucion")]
         public string Distribucion { get; set; }
 
-        //public int CantidadHorarios { get; set; }
+        [Display(Name = "Horarios")]
+        public int CantidadHorarios { get; set; }
     }
 }

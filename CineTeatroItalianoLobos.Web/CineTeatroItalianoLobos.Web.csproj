@@ -161,6 +161,7 @@
     <Compile Include="Controllers\FormaPagoController.cs" />
     <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
@@ -186,6 +187,8 @@
     <Compile Include="Models\FormaVenta\FormaVentaDetail.cs" />
     <Compile Include="Models\FormaVenta\FormaVentaEditVm.cs" />
     <Compile Include="Models\FormaVenta\FormaVentaListVm.cs" />
+    <Compile Include="Models\Horario\HorarioEditVm.cs" />
+    <Compile Include="Models\Horario\HorarioListVm.cs" />
     <Compile Include="Models\Localidad\LocalidadListVm.cs" />
     <Compile Include="Models\Planta\PlantaDetail.cs" />
     <Compile Include="Models\Planta\PlantaEditVm.cs" />
@@ -296,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Horario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
