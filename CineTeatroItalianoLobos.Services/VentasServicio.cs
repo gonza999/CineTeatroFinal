@@ -64,6 +64,18 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
+        public List<Venta> GetLista()
+        {
+            try
+            {
+                return _repositorio.GetLista();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public void Guardar(Venta venta)
         {
             using (var scope = new TransactionScope(TransactionScopeOption.Required))

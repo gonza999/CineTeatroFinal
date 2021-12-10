@@ -167,6 +167,7 @@
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEventoController.cs" />
     <Compile Include="Controllers\UbicacionController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +205,7 @@
     <Compile Include="Models\Ubicacion\UbicacionDetail.cs" />
     <Compile Include="Models\Ubicacion\UbicacionEditVm.cs" />
     <Compile Include="Models\Ubicacion\UbicacionListVm.cs" />
+    <Compile Include="Models\Venta\VentaListVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +303,7 @@
     <Content Include="Views\Evento\DeleteHorario.cshtml" />
     <Content Include="Views\Horario\Index.cshtml" />
     <Content Include="Views\Ticket\Index.cshtml" />
+    <Content Include="Views\Venta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

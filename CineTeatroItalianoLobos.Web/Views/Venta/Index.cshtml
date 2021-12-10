@@ -1,0 +1,72 @@
+﻿@model PagedList.IPagedList<CineTeatroItalianoLobos.Web.Models.Venta.VentaListVm>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Ventas</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "form-inline" }))
+{
+    <p>
+        <label>Filtrar por:</label>
+        @Html.DropDownList("empleadoSeleccionadoId", (SelectList)ViewBag.Empleados, htmlAttributes: new { @class = "form-control" })
+        <input type="submit" class="btn btn-success" value="Filtrar" />
+    </p>
+
+}
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Empleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CantidadTickets)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Estado)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadTickets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+        </tr>
+    }
+
+</table>
+
+Página: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber), de: @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))
+
+

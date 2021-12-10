@@ -9,5 +9,6 @@ namespace CineTeatroItalianoLobos.DataComun.Facades
         List<Venta> BuscarVenta(string text);
         void AnularVenta(int ventaId);
         List<Venta> GetLista(Empleado empleado);
+        List<Venta> GetLista();
     }
 }

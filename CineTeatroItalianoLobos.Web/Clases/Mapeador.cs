@@ -12,6 +12,7 @@ using CineTeatroItalianoLobos.Web.Models.Ticket;
 using CineTeatroItalianoLobos.Web.Models.TipoDocumento;
 using CineTeatroItalianoLobos.Web.Models.TipoEvento;
 using CineTeatroItalianoLobos.Web.Models.Ubicacion;
+using CineTeatroItalianoLobos.Web.Models.Venta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -627,6 +628,32 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Importe=t.Importe
             };
         }
+        #endregion
+        #region Ventas
+        public static List<VentaListVm> ConstuirListaVentaVm(List<Venta> lista)
+        {
+            var listaVm = new List<VentaListVm>();
+            foreach (var v in lista)
+            {
+                var ventaListVm = ConstruirVentaListVm(v);
+                listaVm.Add(ventaListVm);
+            }
+            return listaVm;
+        }
+
+        private static VentaListVm ConstruirVentaListVm(Venta v)
+        {
+            return new VentaListVm()
+            {
+                VentaId=v.VentaId,
+                Empleado=v.Empleado.Nombre,
+                Estado=v.Estado,
+                Fecha=v.Fecha,
+                Total=v.Total,
+                CantidadTickets=v.VentasTickets.Count()
+            };
+        }
+
         #endregion
     }
 }

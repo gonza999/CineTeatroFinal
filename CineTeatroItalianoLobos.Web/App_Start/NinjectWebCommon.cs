@@ -103,6 +103,7 @@ namespace CineTeatroItalianoLobos.Web
             kernel.Bind<IVentasServicio>().To<VentasServicio>().InRequestScope();
             kernel.Bind<IRepositorioTickets>().To<TicketsRepositorio>().InRequestScope();
             kernel.Bind<ITicketsServicio>().To<TicketsServicio>().InRequestScope();
+            kernel.Bind<IRepositorioVentasTickets>().To<VentasTicketsRepositorio>().InRequestScope();
 
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind(typeof(CineTeatroDbContext)).ToSelf().InSingletonScope();

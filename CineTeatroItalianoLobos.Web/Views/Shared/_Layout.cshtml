@@ -38,11 +38,10 @@
 
                             <li><a href="@Url.Action("Index","Horario")">Horarios</a></li>
                             <li><a href="@Url.Action("Index","Ticket")">Tickets</a></li>
-                            <li><a href="@Url.Action("Index","Ventas")">Ventas</a></li>
+                            <li><a href="@Url.Action("Index","Venta")">Ventas</a></li>
                         </ul>
                     </li>
-                    <li>@*@Html.ActionLink("Inicio", "Index", "Home")*@</li>
-                    <li>@*@Html.ActionLink("Acerca de", "About", "Home")*@</li>
+                    <li>@Html.ActionLink("Vender", "Create","Venta")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
             </div>

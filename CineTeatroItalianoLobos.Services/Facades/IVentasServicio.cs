@@ -13,5 +13,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         void Guardar(Venta venta);
         int GetCantidad();
         List<Venta> GetLista(Empleado empleado);
+        List<Venta> GetLista();
     }
 }
