@@ -21,5 +21,7 @@ namespace CineTeatroItalianoLobos.Web.Models.Horario
         public int EventoId { get; set; }
         public EventoEditVm Evento { get; set; }
 
+        public List<EventoListVm> Eventos { get; set; }
+
     }
 }

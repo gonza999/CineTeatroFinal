@@ -12,6 +12,7 @@ namespace CineTeatroItalianoLobos.Web.Models.Horario
         {
             SetearFechaYHora();
         }
+        [Display(Name = "Horario")]
         public int HorarioId { get; set; }
         [DataType(DataType.Date)]
 

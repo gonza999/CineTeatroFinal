@@ -1,0 +1,31 @@
+﻿@model CineTeatroItalianoLobos.Web.Models.Horario.HorarioEditVm
+
+<h2>Elegir Evento</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventoId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EventoId, new SelectList(Model.Eventos, "EventoId", "NombreEvento"), "Seleccione Evento", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EventoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Seguir" class="btn btn-primary" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
