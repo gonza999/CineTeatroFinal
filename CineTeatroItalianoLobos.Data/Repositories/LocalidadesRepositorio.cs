@@ -298,8 +298,23 @@ namespace CineTeatroItalianoLobos.Data.Repositories
             try
             {
 
-                return _context.Tickets.Any(t =>t.LocalidadId==localidad.LocalidadId &&
-                                            t.HorarioId==horario.HorarioId && t.Anulada==false);
+                return _context.Tickets.Any(t => t.LocalidadId == localidad.LocalidadId &&
+                                            t.HorarioId == horario.HorarioId && t.Anulada == false);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Localidad> GetLista()
+        {
+            try
+            {
+                return _context.Localidades
+                  .OrderBy(l => l.Numero)
+                  .AsNoTracking()
+                  .ToList();
             }
             catch (Exception e)
             {
@@ -308,3 +323,4 @@ namespace CineTeatroItalianoLobos.Data.Repositories
         }
     }
 }
+

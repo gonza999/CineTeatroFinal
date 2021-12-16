@@ -17,6 +17,6 @@ namespace CineTeatroItalianoLobos.Web.Models.Localidad
         public string Ubicacion { get; set; }
         [Display(Name = "Fila")]
         public int Fila { get; set; }
-
+        public bool Ocupado { get; set; }
     }
 }

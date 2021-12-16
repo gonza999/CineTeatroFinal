@@ -523,6 +523,28 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 Ubicacion = l.Ubicacion.Descripcion
             };
         }
+        public static Localidad ConstruirLocalidad(LocalidadEditVm l)
+        {
+            return new Localidad()
+            {
+                LocalidadId = l.LocalidadId,
+                Fila = l.Fila,
+                Numero = l.Numero,
+                PlantaId =l.Planta.PlantaId,
+                UbicacionId = l.Ubicacion.UbicacionId
+            };
+        }
+        public static LocalidadEditVm ConstruirLocalidadEditVm(Localidad l)
+        {
+            return new LocalidadEditVm()
+            {
+                LocalidadId = l.LocalidadId,
+                Fila = l.Fila,
+                Numero = l.Numero,
+                PlantaId = l.Planta.PlantaId,
+                UbicacionId = l.Ubicacion.UbicacionId
+            };
+        }
         #endregion
         #region Distribuciones
         public static DistribucionDetail ConstruirDistribucionDetailsVm(Distribucion distribucion)
@@ -653,7 +675,6 @@ namespace CineTeatroItalianoLobos.Web.Clases
                 CantidadTickets=v.VentasTickets.Count()
             };
         }
-
         #endregion
     }
 }

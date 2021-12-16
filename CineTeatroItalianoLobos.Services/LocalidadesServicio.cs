@@ -170,6 +170,19 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
+        public List<Localidad> GetLista()
+        {
+            try
+            {
+                return _repositorio.GetLista();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         public Localidad GetLocalidadPorId(int id)
         {
             try

@@ -1,0 +1,63 @@
+﻿@model PagedList.IPagedList<CineTeatroItalianoLobos.Web.Models.Localidad.LocalidadListVm>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Localidades</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Fila)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Ubicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Planta)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Numero)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Fila)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ubicacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Planta)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.LocalidadId }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Borrar", "Delete", new { id = item.LocalidadId }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    }
+
+</table>
+
+Página: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber), de: @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))
+
+

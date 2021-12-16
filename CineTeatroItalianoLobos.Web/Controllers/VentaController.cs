@@ -62,5 +62,10 @@ namespace CineTeatroItalianoLobos.Web.Controllers
 
             return View(listaVm.ToPagedList((int)page, cantidadPorPaginas));
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

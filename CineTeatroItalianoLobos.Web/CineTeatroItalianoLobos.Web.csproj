@@ -162,6 +162,7 @@
     <Compile Include="Controllers\FormaVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
+    <Compile Include="Controllers\LocalidadController.cs" />
     <Compile Include="Controllers\PlantaController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Models\FormaVenta\FormaVentaListVm.cs" />
     <Compile Include="Models\Horario\HorarioEditVm.cs" />
     <Compile Include="Models\Horario\HorarioListVm.cs" />
+    <Compile Include="Models\Localidad\LocalidadEditVm.cs" />
     <Compile Include="Models\Localidad\LocalidadListVm.cs" />
     <Compile Include="Models\Planta\PlantaDetail.cs" />
     <Compile Include="Models\Planta\PlantaEditVm.cs" />
@@ -304,6 +306,10 @@
     <Content Include="Views\Horario\Index.cshtml" />
     <Content Include="Views\Ticket\Index.cshtml" />
     <Content Include="Views\Venta\Index.cshtml" />
+    <Content Include="Views\Localidad\Index.cshtml" />
+    <Content Include="Views\Localidad\Create.cshtml" />
+    <Content Include="Views\Localidad\Edit.cshtml" />
+    <Content Include="Views\Localidad\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
