@@ -172,6 +172,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Carrito\Carrito.cs" />
     <Compile Include="Models\Clasificacion\ClasificacionDetail.cs" />
     <Compile Include="Models\Clasificacion\ClasificacionEditVm.cs" />
     <Compile Include="Models\Clasificacion\ClasificacionListVm.cs" />

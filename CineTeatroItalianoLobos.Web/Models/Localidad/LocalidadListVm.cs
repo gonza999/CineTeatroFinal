@@ -18,5 +18,13 @@ namespace CineTeatroItalianoLobos.Web.Models.Localidad
         [Display(Name = "Fila")]
         public int Fila { get; set; }
         public bool Ocupado { get; set; }
+
+        public string Detalles { get; set; }
+
+        public void SetearDetalles()
+        {
+            var detalles = $"Planta : {Planta}, Ubicacion : {Ubicacion}, Fila : {Fila}, Numero : {Numero}";
+            Detalles = detalles;
+        }
     }
 }
