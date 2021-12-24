@@ -6,11 +6,23 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @if (Model.EventoId <= 0)
-        {
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @if (Model.EventoId <= 0)
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventoId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EventoId, new SelectList(Model.Eventos, "EventoId", "NombreEvento"), "Seleccione Evento", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EventoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(Model => Model.EventoId)
+        <fieldset disabled>
             <div class="form-group">
                 @Html.LabelFor(model => model.EventoId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -18,48 +30,12 @@
                     @Html.ValidationMessageFor(model => model.EventoId, "", new { @class = "text-danger" })
                 </div>
             </div>
-        }
-        else
-        {
-            @Html.HiddenFor(Model => Model.EventoId)
-            <fieldset disabled>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.EventoId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.EventoId, new SelectList(Model.Eventos, "EventoId", "NombreEvento"), "Seleccione Evento", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.EventoId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </fieldset>
-        }
-        @if (Model.EventoId <= 0 && Model.HorarioId <= 0)
-        {
-            @Html.HiddenFor(Model => Model.HorarioId)
-            <fieldset disabled hidden="true">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.HorarioId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.HorarioId, new SelectList(Model.Horarios, "HorarioId", "FechaYHora"), "Seleccione Horario", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.HorarioId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </fieldset>
-        }
-        else if (Model.EventoId > 0 && Model.HorarioId > 0)
-        {
-            @Html.HiddenFor(Model => Model.HorarioId)
-            <fieldset disabled>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.HorarioId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.HorarioId, new SelectList(Model.Horarios, "HorarioId", "FechaYHora"), "Seleccione Horario", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.HorarioId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </fieldset>
-        }
-        else
-        {
+        </fieldset>
+    }
+    @if (Model.EventoId <= 0 && Model.HorarioId <= 0)
+    {
+        @Html.HiddenFor(Model => Model.HorarioId)
+        <fieldset disabled hidden="true">
             <div class="form-group">
                 @Html.LabelFor(model => model.HorarioId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -67,38 +43,134 @@
                     @Html.ValidationMessageFor(model => model.HorarioId, "", new { @class = "text-danger" })
                 </div>
             </div>
-        }
-        @if (Model.HorarioId <= 0)
-        {
-            <fieldset disabled hidden="true">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.LocalidadId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.LocalidadId, new SelectList(Model.Localidades, "LocalidadId", "Detalles"), "Seleccione Localidad", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.LocalidadId, "", new { @class = "text-danger" })
-                    </div>
+        </fieldset>
+    }
+    else if (Model.EventoId > 0 && Model.HorarioId > 0)
+    {
+        @Html.HiddenFor(Model => Model.HorarioId)
+        <fieldset disabled>
+            <div class="form-group">
+                @Html.LabelFor(model => model.HorarioId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.HorarioId, new SelectList(Model.Horarios, "HorarioId", "FechaYHora"), "Seleccione Horario", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.HorarioId, "", new { @class = "text-danger" })
                 </div>
-            </fieldset>
-        }
-        else
-        {
-            <div class="form-group" >
+            </div>
+        </fieldset>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.HorarioId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.HorarioId, new SelectList(Model.Horarios, "HorarioId", "FechaYHora"), "Seleccione Horario", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HorarioId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
+    @if (Model.HorarioId <= 0)
+    {
+        <fieldset disabled hidden="true">
+            <div class="form-group">
                 @Html.LabelFor(model => model.LocalidadId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.LocalidadId, new SelectList(Model.Localidades, "LocalidadId", "Detalles"), "Seleccione Localidad", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.LocalidadId, "", new { @class = "text-danger" })
                 </div>
             </div>
-        }
+        </fieldset>
+    }
+    else if (Model.LocalidadId > 0)
+    {
+        @Html.HiddenFor(Model => Model.LocalidadId)
+        <fieldset disabled>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LocalidadId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.LocalidadId, new SelectList(Model.Localidades, "LocalidadId", "Detalles"), "Seleccione Localidad", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LocalidadId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </fieldset>
+    }
+    else
+    {
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Seguir" class="btn btn-primary" />
-                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-success" })
+            @Html.LabelFor(model => model.LocalidadId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.LocalidadId, new SelectList(Model.Localidades, "LocalidadId", "Detalles"), "Seleccione Localidad", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LocalidadId, "", new { @class = "text-danger" })
             </div>
         </div>
+    }
+    @if (Model.LocalidadId <= 0)
+    {
+        <fieldset disabled hidden="true">
+            <div class="form-group">
+                @Html.LabelFor(model => model.FormaVentaId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.FormaVentaId, new SelectList(Model.FormasVentas, "FormaVentaId", "Descripcion"), "Seleccione Forma de Venta", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FormaVentaId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FormaPagoId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.FormaPagoId, new SelectList(Model.FormasPagos, "FormaPagoId", "Descripcion"), "Seleccione Forma de Pago", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FormaPagoId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Importe, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Importe, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Importe, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </fieldset>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.FormaVentaId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FormaVentaId, new SelectList(Model.FormasVentas, "FormaVentaId", "Descripcion"), "Seleccione Forma de Venta", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FormaVentaId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FormaPagoId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FormaPagoId, new SelectList(Model.FormasPagos, "FormaPagoId", "Descripcion"), "Seleccione Forma de Pago", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FormaPagoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Importe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Importe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Importe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmpleadoId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EmpleadoId, new SelectList(Model.Empleados, "EmpleadoId", "Apellido"), "Seleccione Empleado", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmpleadoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Seguir" class="btn btn-primary" />
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-success" })
+        </div>
     </div>
+</div>
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }
+
