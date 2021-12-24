@@ -314,6 +314,7 @@
     <Content Include="Views\Localidad\Delete.cshtml" />
     <Content Include="Views\Venta\ChoiseEvent.cshtml" />
     <Content Include="Views\Venta\ChoiseHorario.cshtml" />
+    <Content Include="Views\Venta\FinVenta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

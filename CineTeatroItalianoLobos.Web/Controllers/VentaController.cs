@@ -126,7 +126,7 @@ namespace CineTeatroItalianoLobos.Web.Controllers
 
         public ActionResult ChoiseEvent(Carrito carrito)
         {
-            if (carrito.Importe<=0)
+            if (carrito.Importe <= 0)
             {
                 carrito.Importe = 0;
             }
@@ -143,7 +143,7 @@ namespace CineTeatroItalianoLobos.Web.Controllers
                 return View(carrito);
             }
             var evento = _servicioEventos.GetTEntityPorId(carrito.EventoId);
-            if (evento==null)
+            if (evento == null)
             {
                 carrito.EventoId = -1;
                 carrito.Horarios = new List<HorarioListVm>();
@@ -151,29 +151,29 @@ namespace CineTeatroItalianoLobos.Web.Controllers
                 carrito.HorarioId = -1;
                 return View(carrito);
             }
-            var listaHorariosVm =Mapeador.ConstruirListaHorarioVm( _servicioHorarios.GetLista(evento));
+            var listaHorariosVm = Mapeador.ConstruirListaHorarioVm(_servicioHorarios.GetLista(evento));
             foreach (var h in listaHorariosVm)
             {
                 h.SetearFechaYHora();
             }
             carrito.Horarios = listaHorariosVm;
-            if (carrito.HorarioId<=0 && carrito.EventoId>0)
+            if (carrito.HorarioId <= 0 && carrito.EventoId > 0)
             {
                 carrito.HorarioId = -1;
                 carrito.Localidades = new List<LocalidadListVm>();
                 return View(carrito);
             }
-            carrito.Localidades =Mapeador.ConstruirListaLocalidadesVm(_servicioLocalidades.GetLista());
+            carrito.Localidades = Mapeador.ConstruirListaLocalidadesVm(_servicioLocalidades.GetLista());
             var tickets = _servicioTickets.GetLista(evento);
             var listaLocalidadesBorrar = new List<LocalidadListVm>();
             foreach (var t in tickets)
             {
-                if (carrito.HorarioId==t.HorarioId)
+                if (carrito.HorarioId == t.HorarioId)
                 {
                     var l = _servicioLocalidades.GetLocalidadPorId(t.LocalidadId);
                     foreach (var loc in carrito.Localidades)
                     {
-                        if (loc.LocalidadId==l.LocalidadId)
+                        if (loc.LocalidadId == l.LocalidadId)
                         {
                             listaLocalidadesBorrar.Add(loc);
                         }
@@ -188,19 +188,29 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             {
                 l.SetearDetalles();
             }
-            if (carrito.FormaPagoId<=0 && carrito.FormaVentaId<=0)
+            if (carrito.FormaPagoId <= 0 && carrito.FormaVentaId <= 0)
             {
-                 return View(carrito);
+                if (carrito.LocalidadId > 0)
+                {
+                    var localidad = _servicioLocalidades.GetLocalidadPorId(carrito.LocalidadId);
+                    carrito.Importe = MostrarPrecio(localidad, evento);
+                }
+                return View(carrito);
             }
-            Ticket ticket = new Ticket() 
-            { 
-                Anulada=false,
-                FechaVenta=DateTime.Now,
-                FormaPagoId=carrito.FormaPagoId,
-                FormaVentaId=carrito.FormaVentaId,
-                HorarioId=carrito.HorarioId,
-                Importe=carrito.Importe,
-                LocalidadId=carrito.LocalidadId
+            if (carrito.LocalidadId > 0)
+            {
+                var localidad = _servicioLocalidades.GetLocalidadPorId(carrito.LocalidadId);
+                carrito.Importe = MostrarPrecio(localidad, evento);
+            }
+            Ticket ticket = new Ticket()
+            {
+                Anulada = false,
+                FechaVenta = DateTime.Now,
+                FormaPagoId = carrito.FormaPagoId,
+                FormaVentaId = carrito.FormaVentaId,
+                HorarioId = carrito.HorarioId,
+                Importe = carrito.Importe,
+                LocalidadId = carrito.LocalidadId
             };
             VentaTicket ventaTicket = new VentaTicket()
             {
@@ -222,5 +232,23 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             return RedirectToAction("FinVenta");
         }
 
+        public ActionResult FinVenta()
+        {
+            return View();
+        }
+
+        private decimal MostrarPrecio(Localidad localidad, Evento evento)
+        {
+            decimal precio = 0;
+            foreach (var dl in evento.Distribucion.DistribucionesLocalidades)
+            {
+                if (dl.Localidad.LocalidadId == localidad.LocalidadId
+                    && dl.Localidad.UbicacionId == localidad.UbicacionId)
+                {
+                    precio = dl.Precio;
+                }
+            }
+            return precio;
+        }
     }
 }
