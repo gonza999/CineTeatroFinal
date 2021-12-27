@@ -46,7 +46,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DistribucionCmb.Location = new System.Drawing.Point(172, 16);
             this.DistribucionCmb.Name = "DistribucionCmb";
             this.DistribucionCmb.Size = new System.Drawing.Size(150, 21);
-            this.DistribucionCmb.TabIndex = 43;
+            this.DistribucionCmb.TabIndex = 0;
             // 
             // TipoEventoCmb
             // 
@@ -55,7 +55,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TipoEventoCmb.Location = new System.Drawing.Point(172, 59);
             this.TipoEventoCmb.Name = "TipoEventoCmb";
             this.TipoEventoCmb.Size = new System.Drawing.Size(150, 21);
-            this.TipoEventoCmb.TabIndex = 44;
+            this.TipoEventoCmb.TabIndex = 1;
             // 
             // CancelButton
             // 
@@ -66,7 +66,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(233, 151);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 41;
+            this.CancelButton.TabIndex = 4;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -89,7 +89,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(30, 151);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 42;
+            this.OkButton.TabIndex = 3;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
@@ -120,7 +120,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ClasificacionCmb.Location = new System.Drawing.Point(172, 99);
             this.ClasificacionCmb.Name = "ClasificacionCmb";
             this.ClasificacionCmb.Size = new System.Drawing.Size(150, 21);
-            this.ClasificacionCmb.TabIndex = 44;
+            this.ClasificacionCmb.TabIndex = 2;
             // 
             // EventosFiltrarFrm
             // 

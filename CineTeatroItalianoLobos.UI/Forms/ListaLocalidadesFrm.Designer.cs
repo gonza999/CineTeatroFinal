@@ -222,7 +222,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.EventoCmb.Location = new System.Drawing.Point(100, 23);
             this.EventoCmb.Name = "EventoCmb";
             this.EventoCmb.Size = new System.Drawing.Size(140, 21);
-            this.EventoCmb.TabIndex = 50;
+            this.EventoCmb.TabIndex = 0;
             this.EventoCmb.SelectedIndexChanged += new System.EventHandler(this.EventoCmb_SelectedIndexChanged);
             // 
             // label3
@@ -253,7 +253,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.HorarioCmb.Location = new System.Drawing.Point(340, 23);
             this.HorarioCmb.Name = "HorarioCmb";
             this.HorarioCmb.Size = new System.Drawing.Size(140, 21);
-            this.HorarioCmb.TabIndex = 50;
+            this.HorarioCmb.TabIndex = 1;
             this.HorarioCmb.SelectedIndexChanged += new System.EventHandler(this.HorarioCmb_SelectedIndexChanged);
             // 
             // panel1
@@ -461,7 +461,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.VenderBtn.Location = new System.Drawing.Point(4, 423);
             this.VenderBtn.Name = "VenderBtn";
             this.VenderBtn.Size = new System.Drawing.Size(104, 33);
-            this.VenderBtn.TabIndex = 65;
+            this.VenderBtn.TabIndex = 0;
             this.VenderBtn.Text = "Vender -->";
             this.VenderBtn.UseVisualStyleBackColor = false;
             this.VenderBtn.Visible = false;

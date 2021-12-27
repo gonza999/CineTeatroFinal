@@ -48,11 +48,11 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DistribucionTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.cmnFila = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -81,7 +81,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.button1.Location = new System.Drawing.Point(238, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(58, 20);
-            this.button1.TabIndex = 64;
+            this.button1.TabIndex = 3;
             this.button1.Text = ">>>";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -92,7 +92,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.PalcosTxt.MaxLength = 20;
             this.PalcosTxt.Name = "PalcosTxt";
             this.PalcosTxt.Size = new System.Drawing.Size(184, 20);
-            this.PalcosTxt.TabIndex = 47;
+            this.PalcosTxt.TabIndex = 0;
             // 
             // FilaCmb
             // 
@@ -101,7 +101,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.FilaCmb.Location = new System.Drawing.Point(68, 105);
             this.FilaCmb.Name = "FilaCmb";
             this.FilaCmb.Size = new System.Drawing.Size(105, 21);
-            this.FilaCmb.TabIndex = 61;
+            this.FilaCmb.TabIndex = 1;
             // 
             // label6
             // 
@@ -139,7 +139,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ButacasTxt.MaxLength = 20;
             this.ButacasTxt.Name = "ButacasTxt";
             this.ButacasTxt.Size = new System.Drawing.Size(164, 20);
-            this.ButacasTxt.TabIndex = 47;
+            this.ButacasTxt.TabIndex = 2;
             // 
             // label2
             // 
@@ -160,7 +160,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(248, 296);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 52;
+            this.CancelButton.TabIndex = 3;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -173,7 +173,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(45, 296);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 53;
+            this.OkButton.TabIndex = 2;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
@@ -183,7 +183,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DistribucionTxt.MaxLength = 100;
             this.DistribucionTxt.Name = "DistribucionTxt";
             this.DistribucionTxt.Size = new System.Drawing.Size(184, 20);
-            this.DistribucionTxt.TabIndex = 51;
+            this.DistribucionTxt.TabIndex = 0;
             // 
             // label1
             // 
@@ -243,23 +243,6 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DatosDataGridView.TabIndex = 63;
             this.DatosDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellClick);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Font = new System.Drawing.Font("Copperplate Gothic Light", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(222, 247);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(104, 33);
-            this.btnAgregar.TabIndex = 64;
-            this.btnAgregar.Text = "Agregar -->";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // cmnFila
             // 
             this.cmnFila.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -282,6 +265,23 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.cmnBorrar.Name = "cmnBorrar";
             this.cmnBorrar.ReadOnly = true;
             this.cmnBorrar.Width = 5;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Font = new System.Drawing.Font("Copperplate Gothic Light", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(222, 247);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(104, 33);
+            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.Text = "Agregar -->";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // DistribucionesAEFrm
             // 

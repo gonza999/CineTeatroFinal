@@ -44,7 +44,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TipoDeEventoTxt.MaxLength = 50;
             this.TipoDeEventoTxt.Name = "TipoDeEventoTxt";
             this.TipoDeEventoTxt.Size = new System.Drawing.Size(166, 20);
-            this.TipoDeEventoTxt.TabIndex = 23;
+            this.TipoDeEventoTxt.TabIndex = 0;
             // 
             // label1
             // 
@@ -69,7 +69,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(224, 77);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 34;
+            this.CancelButton.TabIndex = 2;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -82,7 +82,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(21, 77);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 35;
+            this.OkButton.TabIndex = 1;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 

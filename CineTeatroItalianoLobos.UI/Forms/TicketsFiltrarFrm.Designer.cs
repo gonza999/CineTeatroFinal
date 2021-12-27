@@ -45,7 +45,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.EventoCmb.Location = new System.Drawing.Point(123, 21);
             this.EventoCmb.Name = "EventoCmb";
             this.EventoCmb.Size = new System.Drawing.Size(150, 21);
-            this.EventoCmb.TabIndex = 47;
+            this.EventoCmb.TabIndex = 0;
             // 
             // CancelButton
             // 
@@ -56,7 +56,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(179, 73);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 45;
+            this.CancelButton.TabIndex = 2;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -79,7 +79,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(14, 73);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 46;
+            this.OkButton.TabIndex = 1;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 

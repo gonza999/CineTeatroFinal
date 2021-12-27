@@ -55,7 +55,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.FormaDePagoCmb.Location = new System.Drawing.Point(198, 62);
             this.FormaDePagoCmb.Name = "FormaDePagoCmb";
             this.FormaDePagoCmb.Size = new System.Drawing.Size(184, 21);
-            this.FormaDePagoCmb.TabIndex = 50;
+            this.FormaDePagoCmb.TabIndex = 0;
             // 
             // label3
             // 
@@ -84,7 +84,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.FormaDeVentaCmb.Location = new System.Drawing.Point(198, 112);
             this.FormaDeVentaCmb.Name = "FormaDeVentaCmb";
             this.FormaDeVentaCmb.Size = new System.Drawing.Size(184, 21);
-            this.FormaDeVentaCmb.TabIndex = 50;
+            this.FormaDeVentaCmb.TabIndex = 1;
             // 
             // label2
             // 
@@ -103,7 +103,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.EmpleadoCmb.Location = new System.Drawing.Point(198, 161);
             this.EmpleadoCmb.Name = "EmpleadoCmb";
             this.EmpleadoCmb.Size = new System.Drawing.Size(184, 21);
-            this.EmpleadoCmb.TabIndex = 50;
+            this.EmpleadoCmb.TabIndex = 2;
             // 
             // VenderBtn
             // 
@@ -113,7 +113,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.VenderBtn.Location = new System.Drawing.Point(92, 214);
             this.VenderBtn.Name = "VenderBtn";
             this.VenderBtn.Size = new System.Drawing.Size(127, 44);
-            this.VenderBtn.TabIndex = 66;
+            this.VenderBtn.TabIndex = 0;
             this.VenderBtn.Text = "Vender ";
             this.VenderBtn.UseVisualStyleBackColor = false;
             this.VenderBtn.Click += new System.EventHandler(this.VenderBtn_Click);
@@ -135,7 +135,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ImporteTotalTxt.MaxLength = 10;
             this.ImporteTotalTxt.Name = "ImporteTotalTxt";
             this.ImporteTotalTxt.Size = new System.Drawing.Size(102, 20);
-            this.ImporteTotalTxt.TabIndex = 67;
+            this.ImporteTotalTxt.TabIndex = 8;
             this.ImporteTotalTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
@@ -155,7 +155,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CantidadLocalidadesTxt.MaxLength = 10;
             this.CantidadLocalidadesTxt.Name = "CantidadLocalidadesTxt";
             this.CantidadLocalidadesTxt.Size = new System.Drawing.Size(90, 20);
-            this.CantidadLocalidadesTxt.TabIndex = 67;
+            this.CantidadLocalidadesTxt.TabIndex = 6;
             this.CantidadLocalidadesTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel1
@@ -178,7 +178,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(332, 211);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 67;
+            this.CancelButton.TabIndex = 1;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click_1);
             // 

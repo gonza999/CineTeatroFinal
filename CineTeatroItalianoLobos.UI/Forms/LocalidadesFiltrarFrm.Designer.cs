@@ -47,7 +47,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.PlantaCmb.Location = new System.Drawing.Point(129, 72);
             this.PlantaCmb.Name = "PlantaCmb";
             this.PlantaCmb.Size = new System.Drawing.Size(150, 21);
-            this.PlantaCmb.TabIndex = 38;
+            this.PlantaCmb.TabIndex = 1;
             // 
             // CancelButton
             // 
@@ -58,7 +58,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(214, 115);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 36;
+            this.CancelButton.TabIndex = 3;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -71,7 +71,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(11, 115);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 37;
+            this.OkButton.TabIndex = 2;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
@@ -102,7 +102,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.UbicacionCmb.Location = new System.Drawing.Point(129, 29);
             this.UbicacionCmb.Name = "UbicacionCmb";
             this.UbicacionCmb.Size = new System.Drawing.Size(150, 21);
-            this.UbicacionCmb.TabIndex = 38;
+            this.UbicacionCmb.TabIndex = 0;
             // 
             // errorProvider1
             // 

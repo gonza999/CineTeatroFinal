@@ -62,7 +62,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(282, 250);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 44;
+            this.CancelButton.TabIndex = 6;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -75,7 +75,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(79, 250);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 45;
+            this.OkButton.TabIndex = 5;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
@@ -85,7 +85,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.NombreTxt.MaxLength = 100;
             this.NombreTxt.Name = "NombreTxt";
             this.NombreTxt.Size = new System.Drawing.Size(184, 20);
-            this.NombreTxt.TabIndex = 43;
+            this.NombreTxt.TabIndex = 0;
             // 
             // label1
             // 
@@ -103,7 +103,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ApellidoTxt.MaxLength = 100;
             this.ApellidoTxt.Name = "ApellidoTxt";
             this.ApellidoTxt.Size = new System.Drawing.Size(184, 20);
-            this.ApellidoTxt.TabIndex = 47;
+            this.ApellidoTxt.TabIndex = 1;
             // 
             // label2
             // 
@@ -141,7 +141,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.NroDocumentoTxt.MaxLength = 10;
             this.NroDocumentoTxt.Name = "NroDocumentoTxt";
             this.NroDocumentoTxt.Size = new System.Drawing.Size(184, 20);
-            this.NroDocumentoTxt.TabIndex = 47;
+            this.NroDocumentoTxt.TabIndex = 3;
             // 
             // label5
             // 
@@ -170,7 +170,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TelefonoMovilTxt.MaxLength = 20;
             this.TelefonoMovilTxt.Name = "TelefonoMovilTxt";
             this.TelefonoMovilTxt.Size = new System.Drawing.Size(184, 20);
-            this.TelefonoMovilTxt.TabIndex = 47;
+            this.TelefonoMovilTxt.TabIndex = 0;
             // 
             // label7
             // 
@@ -188,7 +188,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TelefonoFijoTxt.MaxLength = 20;
             this.TelefonoFijoTxt.Name = "TelefonoFijoTxt";
             this.TelefonoFijoTxt.Size = new System.Drawing.Size(184, 20);
-            this.TelefonoFijoTxt.TabIndex = 47;
+            this.TelefonoFijoTxt.TabIndex = 1;
             // 
             // TipoDocumentoCmb
             // 
@@ -197,7 +197,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TipoDocumentoCmb.Location = new System.Drawing.Point(213, 74);
             this.TipoDocumentoCmb.Name = "TipoDocumentoCmb";
             this.TipoDocumentoCmb.Size = new System.Drawing.Size(184, 21);
-            this.TipoDocumentoCmb.TabIndex = 48;
+            this.TipoDocumentoCmb.TabIndex = 2;
             // 
             // label8
             // 
@@ -215,7 +215,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.MailTxt.MaxLength = 150;
             this.MailTxt.Name = "MailTxt";
             this.MailTxt.Size = new System.Drawing.Size(184, 20);
-            this.MailTxt.TabIndex = 47;
+            this.MailTxt.TabIndex = 4;
             // 
             // panel1
             // 

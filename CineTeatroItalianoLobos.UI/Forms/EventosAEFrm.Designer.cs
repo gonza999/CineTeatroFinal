@@ -155,7 +155,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.HoraPicker.Name = "HoraPicker";
             this.HoraPicker.ShowUpDown = true;
             this.HoraPicker.Size = new System.Drawing.Size(113, 20);
-            this.HoraPicker.TabIndex = 82;
+            this.HoraPicker.TabIndex = 6;
             // 
             // FechaPicker
             // 
@@ -163,7 +163,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.FechaPicker.Location = new System.Drawing.Point(463, 10);
             this.FechaPicker.Name = "FechaPicker";
             this.FechaPicker.Size = new System.Drawing.Size(113, 20);
-            this.FechaPicker.TabIndex = 81;
+            this.FechaPicker.TabIndex = 5;
             // 
             // label8
             // 
@@ -193,7 +193,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.AgregarFechaBtn.Location = new System.Drawing.Point(432, 95);
             this.AgregarFechaBtn.Name = "AgregarFechaBtn";
             this.AgregarFechaBtn.Size = new System.Drawing.Size(104, 28);
-            this.AgregarFechaBtn.TabIndex = 83;
+            this.AgregarFechaBtn.TabIndex = 7;
             this.AgregarFechaBtn.Text = "Agregar";
             this.AgregarFechaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.AgregarFechaBtn.UseVisualStyleBackColor = false;
@@ -206,7 +206,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DescripcionTxt.Multiline = true;
             this.DescripcionTxt.Name = "DescripcionTxt";
             this.DescripcionTxt.Size = new System.Drawing.Size(184, 92);
-            this.DescripcionTxt.TabIndex = 80;
+            this.DescripcionTxt.TabIndex = 1;
             // 
             // DistribucionCmb
             // 
@@ -215,7 +215,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.DistribucionCmb.Location = new System.Drawing.Point(179, 220);
             this.DistribucionCmb.Name = "DistribucionCmb";
             this.DistribucionCmb.Size = new System.Drawing.Size(184, 21);
-            this.DistribucionCmb.TabIndex = 79;
+            this.DistribucionCmb.TabIndex = 4;
             // 
             // label5
             // 
@@ -234,7 +234,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.ClasificacionCmb.Location = new System.Drawing.Point(179, 180);
             this.ClasificacionCmb.Name = "ClasificacionCmb";
             this.ClasificacionCmb.Size = new System.Drawing.Size(184, 21);
-            this.ClasificacionCmb.TabIndex = 78;
+            this.ClasificacionCmb.TabIndex = 3;
             // 
             // label4
             // 
@@ -253,7 +253,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.TipoEventoCmb.Location = new System.Drawing.Point(179, 143);
             this.TipoEventoCmb.Name = "TipoEventoCmb";
             this.TipoEventoCmb.Size = new System.Drawing.Size(184, 21);
-            this.TipoEventoCmb.TabIndex = 77;
+            this.TipoEventoCmb.TabIndex = 2;
             // 
             // label3
             // 
@@ -284,7 +284,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(494, 166);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 71;
+            this.CancelButton.TabIndex = 9;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -297,7 +297,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(394, 166);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 72;
+            this.OkButton.TabIndex = 8;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
@@ -307,7 +307,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.EventoTxt.MaxLength = 100;
             this.EventoTxt.Name = "EventoTxt";
             this.EventoTxt.Size = new System.Drawing.Size(184, 20);
-            this.EventoTxt.TabIndex = 70;
+            this.EventoTxt.TabIndex = 0;
             // 
             // label1
             // 

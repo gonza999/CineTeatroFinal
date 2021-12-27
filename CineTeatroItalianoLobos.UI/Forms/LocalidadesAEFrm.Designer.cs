@@ -53,7 +53,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.PlantaCmb.Location = new System.Drawing.Point(180, 22);
             this.PlantaCmb.Name = "PlantaCmb";
             this.PlantaCmb.Size = new System.Drawing.Size(184, 21);
-            this.PlantaCmb.TabIndex = 61;
+            this.PlantaCmb.TabIndex = 0;
             // 
             // label3
             // 
@@ -74,7 +74,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.CancelButton.Location = new System.Drawing.Point(259, 169);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 53);
-            this.CancelButton.TabIndex = 52;
+            this.CancelButton.TabIndex = 5;
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -87,7 +87,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.OkButton.Location = new System.Drawing.Point(56, 169);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(94, 53);
-            this.OkButton.TabIndex = 53;
+            this.OkButton.TabIndex = 4;
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
@@ -108,7 +108,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             this.UbicacionCmb.Location = new System.Drawing.Point(180, 60);
             this.UbicacionCmb.Name = "UbicacionCmb";
             this.UbicacionCmb.Size = new System.Drawing.Size(184, 21);
-            this.UbicacionCmb.TabIndex = 61;
+            this.UbicacionCmb.TabIndex = 1;
             // 
             // label2
             // 
@@ -141,7 +141,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             0});
             this.NumeroNud.Name = "NumeroNud";
             this.NumeroNud.Size = new System.Drawing.Size(120, 20);
-            this.NumeroNud.TabIndex = 62;
+            this.NumeroNud.TabIndex = 2;
             this.NumeroNud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.NumeroNud.ThousandsSeparator = true;
             this.NumeroNud.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
@@ -157,7 +157,7 @@ namespace CineTeatroItalianoLobos.UI.Forms
             0});
             this.FilaNud.Name = "FilaNud";
             this.FilaNud.Size = new System.Drawing.Size(120, 20);
-            this.FilaNud.TabIndex = 62;
+            this.FilaNud.TabIndex = 3;
             this.FilaNud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.FilaNud.ThousandsSeparator = true;
             this.FilaNud.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
