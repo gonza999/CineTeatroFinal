@@ -129,10 +129,19 @@ namespace CineTeatroItalianoLobos.Web.Controllers
                     eventoEditVm.Distribuciones = Mapeador.ConstruirListaDistribucionVm(_servicioDistribuciones.GetLista());
                     return View(eventoEditVm);
                 }
+              
                 evento.FechaEvento = DateTime.Now;
                 evento.TipoEvento = _servicioTiposEventos.GetTEntityPorId(evento.TipoEventoId);
                 evento.Clasificacion = _servicioClasificaciones.GetTEntityPorId(evento.ClasificacionId);
                 evento.Distribucion = _servicioDistribuciones.GetTEntityPorId(evento.DistribucionId);
+                if (evento.Suspendido)
+                {
+                    _servicio.Suspender(evento);
+                }
+                else
+                {
+                    _servicio.Desuspender(evento);
+                }
                 _servicio.Guardar(evento);
                 return RedirectToAction("Index");
 

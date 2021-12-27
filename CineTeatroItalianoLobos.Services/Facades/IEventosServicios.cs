@@ -23,5 +23,6 @@ namespace CineTeatroItalianoLobos.Services.Facades
         List<Evento> GetLista(Distribucion distribucion, TipoEvento tipoEvento, Clasificacion clasificacion);
         void Guardar(Evento evento);
         void Suspender(Evento evento);
+        void Desuspender(Evento evento);
     }
 }

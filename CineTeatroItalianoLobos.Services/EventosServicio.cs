@@ -56,6 +56,37 @@ namespace CineTeatroItalianoLobos.Services
             }
         }
 
+        public void Desuspender(Evento evento)
+        {
+            using (var scope = new TransactionScope(TransactionScopeOption.Required))
+            {
+                try
+                {
+                    _repositorio.Guardar(evento);
+                    _unitOfWork.Save();
+                    List<Ticket> listaTickets = _repositorioTickets.GetLista(evento);
+                    foreach (var t in listaTickets)
+                    {
+                        t.Anulada = false;
+                        _repositorioTickets.Guardar(t);
+                        _unitOfWork.Save();
+                        foreach (var vt in t.VentasTickets)
+                        {
+                            vt.Venta.Estado = false;
+                            _repositorioVentas.Guardar(vt.Venta);
+                        }
+                    }
+                    _unitOfWork.Save();
+                    scope.Complete();
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.Message);
+                }
+            }
+        }
+
         public bool EstaRelacionado(Evento evento)
         {
             try
