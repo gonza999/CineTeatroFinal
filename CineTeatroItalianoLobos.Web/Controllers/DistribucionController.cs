@@ -1,4 +1,5 @@
-﻿using CineTeatroItalianoLobos.Services.Facades;
+﻿using CineTeatroItalianoLobos.Entities;
+using CineTeatroItalianoLobos.Services.Facades;
 using CineTeatroItalianoLobos.Web.Clases;
 using CineTeatroItalianoLobos.Web.Models.Distribucion;
 using CineTeatroItalianoLobos.Web.Models.Evento;
@@ -18,15 +19,17 @@ namespace CineTeatroItalianoLobos.Web.Controllers
         private readonly IEventosServicios _servicioEventos;
         private readonly ITiposDeEventosServicios _servicioTiposEventos;
         private readonly IClasificacionesServicio _servicioClasificaciones;
+        private readonly ILocalidadesServicio _servicioLocalidades;
         private readonly int cantidadPorPaginas = 12;
         public DistribucionController(IDistribucionesServicio servicio,
             IEventosServicios servicioEventos, ITiposDeEventosServicios servicioTiposEventos,
-            IClasificacionesServicio servicioClasificaciones)
+            IClasificacionesServicio servicioClasificaciones, ILocalidadesServicio servicioLocalidades)
         {
             _servicio = servicio;
             _servicioEventos = servicioEventos;
             _servicioTiposEventos = servicioTiposEventos;
             _servicioClasificaciones = servicioClasificaciones;
+            _servicioLocalidades = servicioLocalidades;
         }
         public ActionResult Index(int? page = null)
         {
@@ -63,6 +66,22 @@ namespace CineTeatroItalianoLobos.Web.Controllers
                     ModelState.AddModelError(string.Empty, "Distribucion existente");
                     return View(distribucionEditVm);
                 }
+                List<string> listaFilas = _servicioLocalidades.GetFilas();
+                List<DistribucionLocalidad> distribucionLocalidades = new List<DistribucionLocalidad>();
+                foreach (var fila in listaFilas)
+                {
+                    DistribucionLocalidad distribucionLocalidad = new DistribucionLocalidad();
+                    var listaLocalidades = _servicioLocalidades.GetLista(int.Parse(fila));
+                    foreach (var l in listaLocalidades)
+                    {
+                        distribucionLocalidad = new DistribucionLocalidad();
+                        distribucionLocalidad.Precio =distribucionEditVm.Precio;
+                        distribucionLocalidad.LocalidadId = l.LocalidadId;
+                        distribucionLocalidad.Localidad = l;
+                        distribucionLocalidades.Add(distribucionLocalidad);
+                    }
+                }
+                distribucion.DistribucionesLocalidades = distribucionLocalidades;
                 _servicio.Guardar(distribucion);
                 return RedirectToAction("Index");
             }

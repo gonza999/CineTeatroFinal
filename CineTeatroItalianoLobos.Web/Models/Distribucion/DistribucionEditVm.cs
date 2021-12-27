@@ -13,5 +13,7 @@ namespace CineTeatroItalianoLobos.Web.Models.Distribucion
         [StringLength(50, ErrorMessage = "El campo {0} debe contener entre {2} y {1} caracteres", MinimumLength = 3)]
         public string Descripcion { get; set; }
 
+        public int Precio { get; set; }
+
     }
 }
