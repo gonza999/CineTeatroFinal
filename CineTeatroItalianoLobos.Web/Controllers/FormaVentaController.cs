@@ -14,13 +14,13 @@ namespace CineTeatroItalianoLobos.Web.Controllers
     public class FormaVentaController : Controller
     {
         private readonly IFormasVentasServicio _servicio;
-        //private readonly ITicketsServicios _servicioTickets;
+        private readonly ITicketsServicio _servicioTickets;
         private readonly int cantidadPorPaginas = 12;
         public FormaVentaController(IFormasVentasServicio servicio
-            /*,ITicketsServicios servicioTickets*/)
+            , ITicketsServicio servicioTickets)
         {
             _servicio = servicio;
-            //_servicioTickets = servicioTickets;
+            _servicioTickets = servicioTickets;
         }
         public ActionResult Index(int? page = null)
         {
@@ -30,7 +30,7 @@ namespace CineTeatroItalianoLobos.Web.Controllers
             foreach (var formaVentaVm in listaVm)
             {
                 formaVentaVm.CantidadTickets = 0;
-                //formaVentaVm.CantidadTickets = _servicioTickets.GetCantidad(e => e.FormaVentaId == formaVentaVm.FormaVentaId);
+                formaVentaVm.CantidadTickets = _servicioTickets.GetCantidad(e => e.FormaVentaId == formaVentaVm.FormaVentaId);
             }
             return View(listaVm.ToPagedList((int)page, cantidadPorPaginas));
         }
